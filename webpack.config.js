@@ -1,5 +1,5 @@
 module.exports = {
-  entry: "./components/periodic_table.jsx",
+  entry: "./components/entry.jsx",
   output: {
   	filename: "./bundle.js"
   },
