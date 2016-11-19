@@ -1,19 +1,18 @@
 import React from 'react';
 import pt from 'periodic-table';
+import ChemicalElement from './chemical_element';
 
 class PeriodicTable extends React.Component {
-
-
   render() {
-    let allElements = pt.all();
-    allElements = allElements.map(elem => {
-      return <li>{elem.name}</li>;
+    let elements = pt.all();
+    elements = elements.map((element, idx) => {
+      return <ChemicalElement key={idx} element={element} />
     });
 
     return (
       <div>
         <ul>
-          {allElements}
+          {elements}
         </ul>
       </div>
     );

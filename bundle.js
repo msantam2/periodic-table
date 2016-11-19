@@ -21546,6 +21546,10 @@
 	
 	var _periodicTable2 = _interopRequireDefault(_periodicTable);
 	
+	var _chemical_element = __webpack_require__(177);
+	
+	var _chemical_element2 = _interopRequireDefault(_chemical_element);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21566,13 +21570,9 @@
 	  _createClass(PeriodicTable, [{
 	    key: 'render',
 	    value: function render() {
-	      var allElements = _periodicTable2.default.all();
-	      allElements = allElements.map(function (elem) {
-	        return _react2.default.createElement(
-	          'li',
-	          null,
-	          elem.name
-	        );
+	      var elements = _periodicTable2.default.all();
+	      elements = elements.map(function (element, idx) {
+	        return _react2.default.createElement(_chemical_element2.default, { key: idx, element: element });
 	      });
 	
 	      return _react2.default.createElement(
@@ -21581,7 +21581,7 @@
 	        _react2.default.createElement(
 	          'ul',
 	          null,
-	          allElements
+	          elements
 	        )
 	      );
 	    }
@@ -21974,6 +21974,78 @@
 	;
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 177 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ChemicalElement = function (_React$Component) {
+	  _inherits(ChemicalElement, _React$Component);
+	
+	  function ChemicalElement() {
+	    _classCallCheck(this, ChemicalElement);
+	
+	    return _possibleConstructorReturn(this, (ChemicalElement.__proto__ || Object.getPrototypeOf(ChemicalElement)).apply(this, arguments));
+	  }
+	
+	  _createClass(ChemicalElement, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'li',
+	        { className: 'chemical-element' },
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'atomic-info' },
+	          this.props.element.atomicNumber
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'atomic-wrapper' },
+	          _react2.default.createElement(
+	            'p',
+	            { className: 'atomic-info' },
+	            this.props.element.symbol
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            { className: 'atomic-info atomic-name' },
+	            this.props.element.name
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            { className: 'atomic-info atomic-mass' },
+	            this.props.element.atomicMass
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return ChemicalElement;
+	}(_react2.default.Component);
+	
+	exports.default = ChemicalElement;
 
 /***/ }
 /******/ ]);
