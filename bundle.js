@@ -21550,6 +21550,12 @@
 	
 	var _chemical_element2 = _interopRequireDefault(_chemical_element);
 	
+	var _lanthanides_actinides = __webpack_require__(179);
+	
+	var _lanthanides_actinides2 = _interopRequireDefault(_lanthanides_actinides);
+	
+	var _colors = __webpack_require__(178);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21568,22 +21574,30 @@
 	  }
 	
 	  _createClass(PeriodicTable, [{
-	    key: 'render',
-	    value: function render() {
-	      var elements = _periodicTable2.default.all();
-	      elements = elements.map(function (element, idx) {
-	        return _react2.default.createElement(_chemical_element2.default, { key: idx, element: element });
+	    key: 'getElementsByGroup',
+	    value: function getElementsByGroup(group) {
+	      var atomicNumber = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+	
+	      var allElements = _periodicTable2.default.all();
+	
+	      var elements = allElements.filter(function (elem) {
+	        return elem.groupBlock === group || elem.atomicNumber === atomicNumber;
 	      });
 	
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'ul',
-	          null,
-	          elements
-	        )
-	      );
+	      elements = elements.map(function (elem, idx) {
+	        return _react2.default.createElement(_chemical_element2.default, { key: elem.atomicNumber, element: elem, color: _colors.COLORS[group] });
+	      });
+	
+	      return elements;
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var lanthanides = this.getElementsByGroup('lanthanoid', 71);
+	      var actinides = this.getElementsByGroup('actinoid', 103);
+	
+	      return _react2.default.createElement(_lanthanides_actinides2.default, { lanthanides: lanthanides,
+	        actinides: actinides });
 	    }
 	  }]);
 	
@@ -22011,9 +22025,11 @@
 	  _createClass(ChemicalElement, [{
 	    key: 'render',
 	    value: function render() {
+	      var color = { background: '' + this.props.color };
+	
 	      return _react2.default.createElement(
-	        'li',
-	        { className: 'chemical-element' },
+	        'td',
+	        { className: 'chemical-element', style: color },
 	        _react2.default.createElement(
 	          'p',
 	          { className: 'atomic-info' },
@@ -22046,6 +22062,69 @@
 	}(_react2.default.Component);
 	
 	exports.default = ChemicalElement;
+
+/***/ },
+/* 178 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var COLORS = exports.COLORS = {
+	  'nonmetal': 'red',
+	  'nobel gas': 'orange',
+	  'alkali metal': 'yellow',
+	  'alkaline earth metal': 'green',
+	  'metalloid': 'blue',
+	  'halogen': 'purple',
+	  'metal': 'pink',
+	  'transition metal': 'brown',
+	  'lanthanoid': 'magenta',
+	  'actinoid': 'olive'
+	};
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var LanthanidesActinides = function LanthanidesActinides(_ref) {
+	  var lanthanides = _ref.lanthanides,
+	      actinides = _ref.actinides;
+	  return _react2.default.createElement(
+	    'table',
+	    { className: 'lanthanides-actinides' },
+	    _react2.default.createElement(
+	      'tbody',
+	      null,
+	      _react2.default.createElement(
+	        'tr',
+	        null,
+	        lanthanides
+	      ),
+	      _react2.default.createElement(
+	        'tr',
+	        null,
+	        actinides
+	      )
+	    )
+	  );
+	};
+	
+	exports.default = LanthanidesActinides;
 
 /***/ }
 /******/ ]);

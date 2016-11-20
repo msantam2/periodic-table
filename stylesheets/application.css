@@ -25,10 +25,9 @@ p {
 }
 
 .chemical-element {
-  border: 1px solid black;
-  height: 65px;
-  width: 65px;
-  background: orange;
+  outline: 1px solid black;
+  height: 60px;
+  width: 60px;
 }
 
 .atomic-wrapper {
@@ -42,5 +41,13 @@ p {
 }
 
 .atomic-name, .atomic-mass {
-  font-size: 9px;
+  font-size: 8px;
+}
+
+table {
+  border-spacing: 1.1px; /* cellspacing */
+}
+
+td {
+  cursor: pointer;
 }
