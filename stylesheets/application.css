@@ -60,12 +60,12 @@ td {
 }
 
 .element-group {
-  height: 60px;
-  width: 60px;
+  height: 80px;
+  width: 80px;
 }
 
 .element-group-text {
   text-align: center;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: bold;
 }
