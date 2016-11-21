@@ -21546,6 +21546,8 @@
 	
 	var _periodicTable2 = _interopRequireDefault(_periodicTable);
 	
+	var _colors = __webpack_require__(178);
+	
 	var _chemical_element = __webpack_require__(177);
 	
 	var _chemical_element2 = _interopRequireDefault(_chemical_element);
@@ -21554,7 +21556,9 @@
 	
 	var _lanthanides_actinides2 = _interopRequireDefault(_lanthanides_actinides);
 	
-	var _colors = __webpack_require__(178);
+	var _element_group_colors = __webpack_require__(180);
+	
+	var _element_group_colors2 = _interopRequireDefault(_element_group_colors);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -21596,8 +21600,13 @@
 	      var lanthanides = this.getElementsByGroup('lanthanoid', 71);
 	      var actinides = this.getElementsByGroup('actinoid', 103);
 	
-	      return _react2.default.createElement(_lanthanides_actinides2.default, { lanthanides: lanthanides,
-	        actinides: actinides });
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'wrapper' },
+	        _react2.default.createElement(_lanthanides_actinides2.default, { lanthanides: lanthanides,
+	          actinides: actinides }),
+	        _react2.default.createElement(_element_group_colors2.default, { colors: _colors.COLORS })
+	      );
 	    }
 	  }]);
 	
@@ -22125,6 +22134,57 @@
 	};
 	
 	exports.default = LanthanidesActinides;
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var ElementGroupColors = function ElementGroupColors(_ref) {
+	  var colors = _ref.colors;
+	
+	  var elementGroups = [];
+	  var style = void 0;
+	  for (var group in colors) {
+	    style = { background: '' + colors[group] };
+	    elementGroups.push(_react2.default.createElement(
+	      'td',
+	      { key: group, className: 'element-group', style: style },
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'element-group-text' },
+	        group
+	      )
+	    ));
+	  }
+	
+	  return _react2.default.createElement(
+	    'table',
+	    { className: 'element-groups' },
+	    _react2.default.createElement(
+	      'tbody',
+	      null,
+	      _react2.default.createElement(
+	        'tr',
+	        null,
+	        elementGroups
+	      )
+	    )
+	  );
+	};
+	
+	exports.default = ElementGroupColors;
 
 /***/ }
 /******/ ]);

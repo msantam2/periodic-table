@@ -51,3 +51,18 @@ table {
 td {
   cursor: pointer;
 }
+
+.element-groups {
+  border-spacing: 15.5px;
+}
+
+.element-group {
+  height: 60px;
+  width: 60px;
+}
+
+.element-group-text {
+  text-align: center;
+  font-size: 11px;
+  font-weight: bold;
+}

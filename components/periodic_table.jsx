@@ -1,8 +1,9 @@
 import React from 'react';
 import pt from 'periodic-table';
+import { COLORS } from '../util/colors';
 import ChemicalElement from './chemical_element';
 import LanthanidesActinides from './lanthanides_actinides';
-import { COLORS } from '../util/colors';
+import ElementGroupColors from './element_group_colors';
 
 class PeriodicTable extends React.Component {
   getElementsByGroup(group, atomicNumber = null) {
@@ -24,8 +25,11 @@ class PeriodicTable extends React.Component {
     let actinides = this.getElementsByGroup('actinoid', 103);
 
     return (
-      <LanthanidesActinides lanthanides={lanthanides}
-                            actinides={actinides}/>
+      <div className='wrapper'>
+        <LanthanidesActinides lanthanides={lanthanides}
+          actinides={actinides}/>
+        <ElementGroupColors colors={COLORS} />
+      </div>
     );
   }
 }
