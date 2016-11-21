@@ -2,7 +2,8 @@ import React from 'react';
 
 class ChemicalElement extends React.Component {
   render() {
-    let color = {background: `${this.props.color}`};
+    let color = {
+      background: `${this.props.color}`};
 
     return (
       <td className='chemical-element' style={color}>

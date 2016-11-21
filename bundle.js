@@ -22034,7 +22034,8 @@
 	  _createClass(ChemicalElement, [{
 	    key: 'render',
 	    value: function render() {
-	      var color = { background: '' + this.props.color };
+	      var color = {
+	        background: '' + this.props.color };
 	
 	      return _react2.default.createElement(
 	        'td',
