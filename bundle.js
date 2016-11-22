@@ -21552,6 +21552,10 @@
 	
 	var _chemical_element2 = _interopRequireDefault(_chemical_element);
 	
+	var _main_block_elements = __webpack_require__(181);
+	
+	var _main_block_elements2 = _interopRequireDefault(_main_block_elements);
+	
 	var _lanthanides_actinides = __webpack_require__(179);
 	
 	var _lanthanides_actinides2 = _interopRequireDefault(_lanthanides_actinides);
@@ -21559,6 +21563,8 @@
 	var _element_group_colors = __webpack_require__(180);
 	
 	var _element_group_colors2 = _interopRequireDefault(_element_group_colors);
+	
+	var _functions = __webpack_require__(184);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -21578,18 +21584,42 @@
 	  }
 	
 	  _createClass(PeriodicTable, [{
+	    key: 'createElementComponent',
+	    value: function createElementComponent(element, key, group) {
+	      var color = void 0;
+	      switch (element.name) {
+	        case 'Lutetium':
+	          color = _colors.COLORS['lanthanoid'];
+	          break;
+	        case 'Lawrencium':
+	          color = _colors.COLORS['actinoid'];
+	          break;
+	        default:
+	          color = _colors.COLORS[group];
+	      }
+	
+	      return _react2.default.createElement(_chemical_element2.default, { key: key, element: element, color: color });
+	    }
+	  }, {
+	    key: 'getElementByAtomicNumber',
+	    value: function getElementByAtomicNumber(atomicNumber) {
+	      var element = _periodicTable2.default.numbers[atomicNumber];
+	      element = this.createElementComponent(element, atomicNumber, element.groupBlock);
+	      return element;
+	    }
+	  }, {
 	    key: 'getElementsByGroup',
 	    value: function getElementsByGroup(group) {
-	      var atomicNumber = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+	      var _this2 = this;
 	
 	      var allElements = _periodicTable2.default.all();
 	
-	      var elements = allElements.filter(function (elem) {
-	        return elem.groupBlock === group || elem.atomicNumber === atomicNumber;
+	      var elements = allElements.filter(function (element) {
+	        return element.groupBlock === group;
 	      });
 	
-	      elements = elements.map(function (elem, idx) {
-	        return _react2.default.createElement(_chemical_element2.default, { key: elem.atomicNumber, element: elem, color: _colors.COLORS[group] });
+	      elements = elements.map(function (element) {
+	        return _this2.createElementComponent(element, element.atomicNumber, group);
 	      });
 	
 	      return elements;
@@ -21597,12 +21627,25 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var lanthanides = this.getElementsByGroup('lanthanoid', 71);
-	      var actinides = this.getElementsByGroup('actinoid', 103);
+	      var _this3 = this;
+	
+	      var mainBlockElements = _periodicTable2.default.all().filter(function (element) {
+	        return (0, _functions.isBetween)(element.atomicNumber, 1, 56) || (0, _functions.isBetween)(element.atomicNumber, 72, 88) || (0, _functions.isBetween)(element.atomicNumber, 104, 118);
+	      });
+	
+	      mainBlockElements = mainBlockElements.map(function (element) {
+	        return _this3.createElementComponent(element, element.atomicNumber, element.groupBlock);
+	      });
+	
+	      var lanthanides = this.getElementsByGroup('lanthanoid');
+	      lanthanides = lanthanides.concat(this.getElementByAtomicNumber(71));
+	      var actinides = this.getElementsByGroup('actinoid');
+	      actinides = actinides.concat(this.getElementByAtomicNumber(103));
 	
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'wrapper' },
+	        _react2.default.createElement(_main_block_elements2.default, { elements: mainBlockElements }),
 	        _react2.default.createElement(_lanthanides_actinides2.default, { lanthanides: lanthanides,
 	          actinides: actinides }),
 	        _react2.default.createElement(_element_group_colors2.default, { colors: _colors.COLORS })
@@ -22084,7 +22127,7 @@
 	});
 	var COLORS = exports.COLORS = {
 	  'nonmetal': 'red',
-	  'nobel gas': 'orange',
+	  'noble gas': 'orange',
 	  'alkali metal': 'yellow',
 	  'alkaline earth metal': 'green',
 	  'metalloid': 'blue',
@@ -22161,7 +22204,7 @@
 	    style = { background: '' + colors[group] };
 	    elementGroups.push(_react2.default.createElement(
 	      'td',
-	      { key: group, className: 'element-group', style: style },
+	      { key: Math.random(), className: 'element-group', style: style },
 	      _react2.default.createElement(
 	        'p',
 	        { className: 'element-group-text' },
@@ -22186,6 +22229,200 @@
 	};
 	
 	exports.default = ElementGroupColors;
+
+/***/ },
+/* 181 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _null_component = __webpack_require__(182);
+	
+	var _null_component2 = _interopRequireDefault(_null_component);
+	
+	var _range_cell = __webpack_require__(183);
+	
+	var _range_cell2 = _interopRequireDefault(_range_cell);
+	
+	var _colors = __webpack_require__(178);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var MainBlockElements = function MainBlockElements(_ref) {
+	  var elements = _ref.elements;
+	
+	  // elements =
+	  // [<ChemicalElement hydrogen /> , <ChemicalElement helium />, etc.]
+	  // = an array of React ChemicalElement Components ordered by atomic #
+	  var firstRow = [elements[0]];
+	  for (var i = 0; i < 16; i++) {
+	    firstRow.push(_react2.default.createElement(_null_component2.default, { key: Math.random() }));
+	  }
+	  firstRow.push(elements[1]);
+	
+	  var secondRow = [elements[2], elements[3]];
+	  for (var _i = 0; _i < 10; _i++) {
+	    secondRow.push(_react2.default.createElement(_null_component2.default, { key: Math.random() }));
+	  }
+	  for (var _i2 = 4; _i2 < 10; _i2++) {
+	    secondRow.push(elements[_i2]);
+	  }
+	
+	  var thirdRow = [elements[10], elements[11]];
+	  for (var _i3 = 0; _i3 < 10; _i3++) {
+	    thirdRow.push(_react2.default.createElement(_null_component2.default, { key: Math.random() }));
+	  }
+	  for (var _i4 = 12; _i4 < 18; _i4++) {
+	    thirdRow.push(elements[_i4]);
+	  }
+	
+	  var fourthRow = [];
+	  for (var _i5 = 18; _i5 < 36; _i5++) {
+	    fourthRow.push(elements[_i5]);
+	  }
+	
+	  var fifthRow = [];
+	  for (var _i6 = 36; _i6 < 54; _i6++) {
+	    fifthRow.push(elements[_i6]);
+	  }
+	
+	  var sixthRow = [elements[54], elements[55]];
+	  sixthRow.push(_react2.default.createElement(_range_cell2.default, { key: Math.random(), range: '57-71', color: _colors.COLORS['lanthanoid'] }));
+	  for (var _i7 = 56; _i7 < 71; _i7++) {
+	    sixthRow.push(elements[_i7]);
+	  }
+	  // 88
+	  var seventhRow = [elements[71], elements[72]];
+	  seventhRow.push(_react2.default.createElement(_range_cell2.default, { key: Math.random(), range: '89-103', color: _colors.COLORS['actinoid'] }));
+	  for (var _i8 = 73; _i8 < 88; _i8++) {
+	    // when 72
+	    seventhRow.push(elements[_i8]);
+	  }
+	
+	  return _react2.default.createElement(
+	    'table',
+	    null,
+	    _react2.default.createElement(
+	      'tbody',
+	      null,
+	      _react2.default.createElement(
+	        'tr',
+	        { className: 'first-row' },
+	        firstRow
+	      ),
+	      _react2.default.createElement(
+	        'tr',
+	        { className: 'second-row' },
+	        secondRow
+	      ),
+	      _react2.default.createElement(
+	        'tr',
+	        { className: 'third-row' },
+	        thirdRow
+	      ),
+	      _react2.default.createElement(
+	        'tr',
+	        { className: 'fourth-row' },
+	        fourthRow
+	      ),
+	      _react2.default.createElement(
+	        'tr',
+	        { className: 'fifth-row' },
+	        fifthRow
+	      ),
+	      _react2.default.createElement(
+	        'tr',
+	        { className: 'sixth-row' },
+	        sixthRow
+	      ),
+	      _react2.default.createElement(
+	        'tr',
+	        { className: 'seventh-row' },
+	        seventhRow
+	      )
+	    )
+	  );
+	};
+	
+	exports.default = MainBlockElements;
+
+/***/ },
+/* 182 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var NullComponent = function NullComponent() {
+	  return _react2.default.createElement('td', { className: 'null-component' });
+	};
+	
+	exports.default = NullComponent;
+
+/***/ },
+/* 183 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var RangeCell = function RangeCell(_ref) {
+	  var range = _ref.range,
+	      color = _ref.color;
+	
+	  var style = { background: '' + color };
+	
+	  return _react2.default.createElement(
+	    'td',
+	    { className: 'chemical-element', style: style },
+	    _react2.default.createElement(
+	      'p',
+	      { className: 'range-info' },
+	      range
+	    )
+	  );
+	};
+	
+	exports.default = RangeCell;
+
+/***/ },
+/* 184 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var isBetween = exports.isBetween = function isBetween(num, min, max) {
+	  return num >= min && num <= max;
+	};
 
 /***/ }
 /******/ ]);

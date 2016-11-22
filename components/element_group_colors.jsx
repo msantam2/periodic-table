@@ -6,7 +6,7 @@ const ElementGroupColors = ({ colors }) => {
   for (let group in colors) {
     style = {background: `${colors[group]}`};
     elementGroups.push(
-      <td key={group} className='element-group' style={style}>
+      <td key={Math.random()} className='element-group' style={style}>
         <p className='element-group-text'>{group}</p>
       </td>
     )

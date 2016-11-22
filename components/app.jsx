@@ -4,7 +4,7 @@ import PeriodicTable from './periodic_table';
 
 const App = () => (
   <div>
-    <NavBar /> 
+    <NavBar />
     <PeriodicTable />
   </div>
 );

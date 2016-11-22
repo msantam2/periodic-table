@@ -1,6 +1,6 @@
 export const COLORS = {
   'nonmetal': 'red',
-  'nobel gas': 'orange',
+  'noble gas': 'orange',
   'alkali metal': 'yellow',
   'alkaline earth metal': 'green',
   'metalloid': 'blue',
