@@ -17,6 +17,18 @@ class PeriodicTable extends React.Component {
       case 'Lawrencium':
         color = COLORS['actinoid'];
         break;
+      case 'Ununpentium':
+        color = COLORS['metal'];
+        break;
+      case 'Livermorium':
+        color = COLORS['metal'];
+        break;
+      case 'Ununseptium':
+        color = COLORS['halogen'];
+        break;
+      case 'Ununoctium':
+        color = COLORS['noble gas'];
+        break;
       default:
         color = COLORS[group];
     }

@@ -21546,21 +21546,21 @@
 	
 	var _periodicTable2 = _interopRequireDefault(_periodicTable);
 	
-	var _colors = __webpack_require__(178);
+	var _colors = __webpack_require__(177);
 	
-	var _chemical_element = __webpack_require__(177);
+	var _chemical_element = __webpack_require__(178);
 	
 	var _chemical_element2 = _interopRequireDefault(_chemical_element);
 	
-	var _main_block_elements = __webpack_require__(181);
+	var _main_block_elements = __webpack_require__(179);
 	
 	var _main_block_elements2 = _interopRequireDefault(_main_block_elements);
 	
-	var _lanthanides_actinides = __webpack_require__(179);
+	var _lanthanides_actinides = __webpack_require__(182);
 	
 	var _lanthanides_actinides2 = _interopRequireDefault(_lanthanides_actinides);
 	
-	var _element_group_colors = __webpack_require__(180);
+	var _element_group_colors = __webpack_require__(183);
 	
 	var _element_group_colors2 = _interopRequireDefault(_element_group_colors);
 	
@@ -21593,6 +21593,18 @@
 	          break;
 	        case 'Lawrencium':
 	          color = _colors.COLORS['actinoid'];
+	          break;
+	        case 'Ununpentium':
+	          color = _colors.COLORS['metal'];
+	          break;
+	        case 'Livermorium':
+	          color = _colors.COLORS['metal'];
+	          break;
+	        case 'Ununseptium':
+	          color = _colors.COLORS['halogen'];
+	          break;
+	        case 'Ununoctium':
+	          color = _colors.COLORS['noble gas'];
 	          break;
 	        default:
 	          color = _colors.COLORS[group];
@@ -22043,6 +22055,28 @@
 
 /***/ },
 /* 177 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var COLORS = exports.COLORS = {
+	  'nonmetal': 'red',
+	  'noble gas': 'orange',
+	  'alkali metal': 'yellow',
+	  'alkaline earth metal': 'green',
+	  'metalloid': 'blue',
+	  'halogen': 'purple',
+	  'metal': 'pink',
+	  'transition metal': 'brown',
+	  'lanthanoid': 'magenta',
+	  'actinoid': 'olive'
+	};
+
+/***/ },
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22117,28 +22151,6 @@
 	exports.default = ChemicalElement;
 
 /***/ },
-/* 178 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var COLORS = exports.COLORS = {
-	  'nonmetal': 'red',
-	  'noble gas': 'orange',
-	  'alkali metal': 'yellow',
-	  'alkaline earth metal': 'green',
-	  'metalloid': 'blue',
-	  'halogen': 'purple',
-	  'metal': 'pink',
-	  'transition metal': 'brown',
-	  'lanthanoid': 'magenta',
-	  'actinoid': 'olive'
-	};
-
-/***/ },
 /* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -22152,107 +22164,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var LanthanidesActinides = function LanthanidesActinides(_ref) {
-	  var lanthanides = _ref.lanthanides,
-	      actinides = _ref.actinides;
-	  return _react2.default.createElement(
-	    'table',
-	    { className: 'lanthanides-actinides' },
-	    _react2.default.createElement(
-	      'tbody',
-	      null,
-	      _react2.default.createElement(
-	        'tr',
-	        null,
-	        lanthanides
-	      ),
-	      _react2.default.createElement(
-	        'tr',
-	        null,
-	        actinides
-	      )
-	    )
-	  );
-	};
-	
-	exports.default = LanthanidesActinides;
-
-/***/ },
-/* 180 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var ElementGroupColors = function ElementGroupColors(_ref) {
-	  var colors = _ref.colors;
-	
-	  var elementGroups = [];
-	  var style = void 0;
-	  for (var group in colors) {
-	    style = { background: '' + colors[group] };
-	    elementGroups.push(_react2.default.createElement(
-	      'td',
-	      { key: Math.random(), className: 'element-group', style: style },
-	      _react2.default.createElement(
-	        'p',
-	        { className: 'element-group-text' },
-	        group
-	      )
-	    ));
-	  }
-	
-	  return _react2.default.createElement(
-	    'table',
-	    { className: 'element-groups' },
-	    _react2.default.createElement(
-	      'tbody',
-	      null,
-	      _react2.default.createElement(
-	        'tr',
-	        null,
-	        elementGroups
-	      )
-	    )
-	  );
-	};
-	
-	exports.default = ElementGroupColors;
-
-/***/ },
-/* 181 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _null_component = __webpack_require__(182);
+	var _null_component = __webpack_require__(180);
 	
 	var _null_component2 = _interopRequireDefault(_null_component);
 	
-	var _range_cell = __webpack_require__(183);
+	var _range_cell = __webpack_require__(181);
 	
 	var _range_cell2 = _interopRequireDefault(_range_cell);
 	
-	var _colors = __webpack_require__(178);
+	var _colors = __webpack_require__(177);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -22299,11 +22219,10 @@
 	  for (var _i7 = 56; _i7 < 71; _i7++) {
 	    sixthRow.push(elements[_i7]);
 	  }
-	  // 88
+	
 	  var seventhRow = [elements[71], elements[72]];
 	  seventhRow.push(_react2.default.createElement(_range_cell2.default, { key: Math.random(), range: '89-103', color: _colors.COLORS['actinoid'] }));
 	  for (var _i8 = 73; _i8 < 88; _i8++) {
-	    // when 72
 	    seventhRow.push(elements[_i8]);
 	  }
 	
@@ -22355,7 +22274,7 @@
 	exports.default = MainBlockElements;
 
 /***/ },
-/* 182 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22377,7 +22296,7 @@
 	exports.default = NullComponent;
 
 /***/ },
-/* 183 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22410,6 +22329,98 @@
 	};
 	
 	exports.default = RangeCell;
+
+/***/ },
+/* 182 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var LanthanidesActinides = function LanthanidesActinides(_ref) {
+	  var lanthanides = _ref.lanthanides,
+	      actinides = _ref.actinides;
+	  return _react2.default.createElement(
+	    'table',
+	    { className: 'lanthanides-actinides' },
+	    _react2.default.createElement(
+	      'tbody',
+	      null,
+	      _react2.default.createElement(
+	        'tr',
+	        null,
+	        lanthanides
+	      ),
+	      _react2.default.createElement(
+	        'tr',
+	        null,
+	        actinides
+	      )
+	    )
+	  );
+	};
+	
+	exports.default = LanthanidesActinides;
+
+/***/ },
+/* 183 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var ElementGroupColors = function ElementGroupColors(_ref) {
+	  var colors = _ref.colors;
+	
+	  var elementGroups = [];
+	  var style = void 0;
+	  for (var group in colors) {
+	    style = { background: '' + colors[group] };
+	    elementGroups.push(_react2.default.createElement(
+	      'td',
+	      { key: Math.random(), className: 'element-group', style: style },
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'element-group-text' },
+	        group
+	      )
+	    ));
+	  }
+	
+	  return _react2.default.createElement(
+	    'table',
+	    { className: 'element-groups' },
+	    _react2.default.createElement(
+	      'tbody',
+	      null,
+	      _react2.default.createElement(
+	        'tr',
+	        null,
+	        elementGroups
+	      )
+	    )
+	  );
+	};
+	
+	exports.default = ElementGroupColors;
 
 /***/ },
 /* 184 */

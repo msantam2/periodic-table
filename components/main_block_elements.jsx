@@ -44,10 +44,10 @@ const MainBlockElements = ({ elements }) => {
   for (let i = 56; i < 71; i++) {
     sixthRow.push(elements[i]);
   }
-  // 88
+
   let seventhRow = [elements[71], elements[72]];
   seventhRow.push(<RangeCell key={Math.random()} range={'89-103'} color={COLORS['actinoid']} />);
-  for (let i = 73; i < 88; i++) { // when 72
+  for (let i = 73; i < 88; i++) {
     seventhRow.push(elements[i]);
   }
 
