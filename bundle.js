@@ -21594,6 +21594,18 @@
 	        case 'Lawrencium':
 	          color = _colors.COLORS['actinoid'];
 	          break;
+	        case 'Ununpentium':
+	          color = _colors.COLORS['metal'];
+	          break;
+	        case 'Livermorium':
+	          color = _colors.COLORS['metal'];
+	          break;
+	        case 'Ununseptium':
+	          color = _colors.COLORS['halogen'];
+	          break;
+	        case 'Ununoctium':
+	          color = _colors.COLORS['noble gas'];
+	          break;
 	        default:
 	          color = _colors.COLORS[group];
 	      }
