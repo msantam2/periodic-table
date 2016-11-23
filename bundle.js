@@ -21446,11 +21446,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _navbar = __webpack_require__(173);
-	
-	var _navbar2 = _interopRequireDefault(_navbar);
-	
-	var _periodic_table = __webpack_require__(174);
+	var _periodic_table = __webpack_require__(173);
 	
 	var _periodic_table2 = _interopRequireDefault(_periodic_table);
 	
@@ -21460,7 +21456,6 @@
 	  return _react2.default.createElement(
 	    'div',
 	    null,
-	    _react2.default.createElement(_navbar2.default, null),
 	    _react2.default.createElement(_periodic_table2.default, null)
 	  );
 	};
@@ -21483,88 +21478,29 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var NavBar = function (_React$Component) {
-	  _inherits(NavBar, _React$Component);
-	
-	  function NavBar() {
-	    _classCallCheck(this, NavBar);
-	
-	    return _possibleConstructorReturn(this, (NavBar.__proto__ || Object.getPrototypeOf(NavBar)).apply(this, arguments));
-	  }
-	
-	  _createClass(NavBar, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'nav',
-	        null,
-	        _react2.default.createElement('div', null),
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'The Stories Behind the Elements'
-	        ),
-	        _react2.default.createElement(
-	          'h3',
-	          null,
-	          'About'
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return NavBar;
-	}(_react2.default.Component);
-	
-	exports.default = NavBar;
-
-/***/ },
-/* 174 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _periodicTable = __webpack_require__(175);
+	var _periodicTable = __webpack_require__(174);
 	
 	var _periodicTable2 = _interopRequireDefault(_periodicTable);
 	
-	var _colors = __webpack_require__(177);
+	var _colors = __webpack_require__(176);
 	
-	var _chemical_element = __webpack_require__(178);
+	var _chemical_element = __webpack_require__(177);
 	
 	var _chemical_element2 = _interopRequireDefault(_chemical_element);
 	
-	var _main_block_elements = __webpack_require__(179);
+	var _main_block_elements = __webpack_require__(178);
 	
 	var _main_block_elements2 = _interopRequireDefault(_main_block_elements);
 	
-	var _lanthanides_actinides = __webpack_require__(182);
+	var _lanthanides_actinides = __webpack_require__(181);
 	
 	var _lanthanides_actinides2 = _interopRequireDefault(_lanthanides_actinides);
 	
-	var _element_group_colors = __webpack_require__(183);
+	var _element_group_colors = __webpack_require__(182);
 	
 	var _element_group_colors2 = _interopRequireDefault(_element_group_colors);
 	
-	var _functions = __webpack_require__(184);
+	var _functions = __webpack_require__(183);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -21671,11 +21607,11 @@
 	exports.default = PeriodicTable;
 
 /***/ },
-/* 175 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(__dirname) {
-	var path = __webpack_require__(176);
+	var path = __webpack_require__(175);
 	// var data = require('./data.json');
 	var data = [
 	{"atomicNumber":1,"symbol":"H","name":"Hydrogen","atomicMass":"1.00794(4)","cpkHexColor":"FFFFFF","electronicConfiguration":"1s1","electronegativity":2.2,"atomicRadius":37,"ionRadius":"","vanDelWaalsRadius":120,"ionizationEnergy":1312,"electronAffinity":-73,"oxidationStates":"-1, 1","standardState":"gas","bondingType":"diatomic","meltingPoint":14,"boilingPoint":20,"density":0.0000899,"groupBlock":"nonmetal","yearDiscovered":1766},
@@ -21823,7 +21759,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ },
-/* 176 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -22054,7 +21990,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 177 */
+/* 176 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22076,7 +22012,7 @@
 	};
 
 /***/ },
-/* 178 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22151,7 +22087,7 @@
 	exports.default = ChemicalElement;
 
 /***/ },
-/* 179 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22164,15 +22100,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _null_component = __webpack_require__(180);
+	var _null_component = __webpack_require__(179);
 	
 	var _null_component2 = _interopRequireDefault(_null_component);
 	
-	var _range_cell = __webpack_require__(181);
+	var _range_cell = __webpack_require__(180);
 	
 	var _range_cell2 = _interopRequireDefault(_range_cell);
 	
-	var _colors = __webpack_require__(177);
+	var _colors = __webpack_require__(176);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -22274,7 +22210,7 @@
 	exports.default = MainBlockElements;
 
 /***/ },
-/* 180 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22296,7 +22232,7 @@
 	exports.default = NullComponent;
 
 /***/ },
-/* 181 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22331,7 +22267,7 @@
 	exports.default = RangeCell;
 
 /***/ },
-/* 182 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22372,7 +22308,7 @@
 	exports.default = LanthanidesActinides;
 
 /***/ },
-/* 183 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22423,7 +22359,7 @@
 	exports.default = ElementGroupColors;
 
 /***/ },
-/* 184 */
+/* 183 */
 /***/ function(module, exports) {
 
 	"use strict";

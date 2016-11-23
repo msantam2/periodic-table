@@ -6,21 +6,6 @@ body {
 
 }
 
-nav {
-  background: repeating-radial-gradient(
-    circle,
-    #606dbc,
-    #606dbc 10px,
-    #465298 10px,
-    #465298 20px
-  );
-  color: white;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 50px;
-}
-
 .wrapper {
 
 }
