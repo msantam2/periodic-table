@@ -1,20 +1,36 @@
 import React from 'react';
 import NullComponent from './null_component';
 import RangeCell from './range_cell';
+import TitleCell from './title_cell';
 import { COLORS } from '../util/colors';
+import { TITLE, TEXT } from '../util/title';
 
 const MainBlockElements = ({ elements }) => {
   // elements =
   // [<ChemicalElement hydrogen /> , <ChemicalElement helium />, etc.]
   // = an array of React ChemicalElement Components ordered by atomic #
   let firstRow = [elements[0]];
-  for (let i = 0; i < 16; i++) {
+  for (let i = 0; i < 2; i++) {
+    firstRow.push(<NullComponent key={Math.random()} />);
+  }
+  for (let i = 0; i < 8; i++) {
+    firstRow.push(<TitleCell key={Math.random()} color={'gray'}
+                             letter={TITLE[i]}
+                             text={TEXT[i]} />);
+  }
+  for (let i = 0; i < 6; i++) {
     firstRow.push(<NullComponent key={Math.random()} />);
   }
   firstRow.push(elements[1]);
 
   let secondRow = [elements[2], elements[3]];
-  for (let i = 0; i < 10; i++) {
+  secondRow.push(<NullComponent key={Math.random()} />);
+  for (let i = 8; i < 13; i++) {
+    secondRow.push(<TitleCell key={Math.random()} color={'gray'}
+                              letter={TITLE[i]}
+                              text={TEXT[i]} />);
+  }
+  for (let i = 0; i < 4; i++) {
     secondRow.push(<NullComponent key={Math.random()} />);
   }
   for (let i = 4; i < 10; i++) {
@@ -52,7 +68,7 @@ const MainBlockElements = ({ elements }) => {
   }
 
   return (
-    <table>
+    <table className='main-block-elements'>
       <tbody>
         <tr className='first-row'>
           {firstRow}
