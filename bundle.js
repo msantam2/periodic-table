@@ -21999,16 +21999,16 @@
 	  value: true
 	});
 	var COLORS = exports.COLORS = {
-	  'nonmetal': 'red',
-	  'noble gas': 'orange',
+	  'nonmetal': '#ff316c',
+	  'noble gas': '#ff8300',
 	  'alkali metal': 'yellow',
-	  'alkaline earth metal': 'green',
-	  'metalloid': 'blue',
-	  'halogen': 'purple',
+	  'alkaline earth metal': '#31ff36',
+	  'metalloid': '#3b3bfa',
+	  'halogen': '#b5f7ff',
 	  'metal': 'pink',
-	  'transition metal': 'brown',
-	  'lanthanoid': 'magenta',
-	  'actinoid': 'olive'
+	  'transition metal': '#31bcff',
+	  'lanthanoid': '#ff00ff',
+	  'actinoid': '#4caf50'
 	};
 
 /***/ },
@@ -22129,7 +22129,7 @@
 	    firstRow.push(_react2.default.createElement(_null_component2.default, { key: Math.random() }));
 	  }
 	  for (var _i = 0; _i < 8; _i++) {
-	    firstRow.push(_react2.default.createElement(_title_cell2.default, { key: Math.random(), color: 'gray',
+	    firstRow.push(_react2.default.createElement(_title_cell2.default, { key: Math.random(),
 	      letter: _title.TITLE[_i],
 	      text: _title.TEXT[_i] }));
 	  }
@@ -22141,7 +22141,7 @@
 	  var secondRow = [elements[2], elements[3]];
 	  secondRow.push(_react2.default.createElement(_null_component2.default, { key: Math.random() }));
 	  for (var _i3 = 8; _i3 < 13; _i3++) {
-	    secondRow.push(_react2.default.createElement(_title_cell2.default, { key: Math.random(), color: 'gray',
+	    secondRow.push(_react2.default.createElement(_title_cell2.default, { key: Math.random(),
 	      letter: _title.TITLE[_i3],
 	      text: _title.TEXT[_i3] }));
 	  }
@@ -22275,10 +22275,10 @@
 	
 	  return _react2.default.createElement(
 	    'td',
-	    { className: 'no-cursor-pointer', style: style },
+	    { className: 'range-cell no-cursor-pointer', style: style },
 	    _react2.default.createElement(
 	      'p',
-	      { className: 'range-info' },
+	      { className: 'range-numbers' },
 	      range
 	    )
 	  );
@@ -22303,15 +22303,12 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var TitleCell = function TitleCell(_ref) {
-	  var color = _ref.color,
-	      letter = _ref.letter,
+	  var letter = _ref.letter,
 	      text = _ref.text;
-	
-	  var style = { background: '' + color };
 	
 	  return _react2.default.createElement(
 	    'td',
-	    { className: 'no-cursor-pointer', style: style },
+	    { className: 'title-cell-wrapper no-cursor-pointer' },
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'title-cell-info' },
