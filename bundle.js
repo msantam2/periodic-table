@@ -21492,15 +21492,15 @@
 	
 	var _main_block_elements2 = _interopRequireDefault(_main_block_elements);
 	
-	var _lanthanides_actinides = __webpack_require__(181);
+	var _lanthanides_actinides = __webpack_require__(183);
 	
 	var _lanthanides_actinides2 = _interopRequireDefault(_lanthanides_actinides);
 	
-	var _element_group_colors = __webpack_require__(182);
+	var _element_group_colors = __webpack_require__(184);
 	
 	var _element_group_colors2 = _interopRequireDefault(_element_group_colors);
 	
-	var _functions = __webpack_require__(183);
+	var _functions = __webpack_require__(185);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -22108,7 +22108,13 @@
 	
 	var _range_cell2 = _interopRequireDefault(_range_cell);
 	
+	var _title_cell = __webpack_require__(181);
+	
+	var _title_cell2 = _interopRequireDefault(_title_cell);
+	
 	var _colors = __webpack_require__(176);
+	
+	var _title = __webpack_require__(182);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -22119,52 +22125,66 @@
 	  // [<ChemicalElement hydrogen /> , <ChemicalElement helium />, etc.]
 	  // = an array of React ChemicalElement Components ordered by atomic #
 	  var firstRow = [elements[0]];
-	  for (var i = 0; i < 16; i++) {
+	  for (var i = 0; i < 2; i++) {
+	    firstRow.push(_react2.default.createElement(_null_component2.default, { key: Math.random() }));
+	  }
+	  for (var _i = 0; _i < 8; _i++) {
+	    firstRow.push(_react2.default.createElement(_title_cell2.default, { key: Math.random(), color: 'gray',
+	      letter: _title.TITLE[_i],
+	      text: _title.TEXT[_i] }));
+	  }
+	  for (var _i2 = 0; _i2 < 6; _i2++) {
 	    firstRow.push(_react2.default.createElement(_null_component2.default, { key: Math.random() }));
 	  }
 	  firstRow.push(elements[1]);
 	
 	  var secondRow = [elements[2], elements[3]];
-	  for (var _i = 0; _i < 10; _i++) {
+	  secondRow.push(_react2.default.createElement(_null_component2.default, { key: Math.random() }));
+	  for (var _i3 = 8; _i3 < 13; _i3++) {
+	    secondRow.push(_react2.default.createElement(_title_cell2.default, { key: Math.random(), color: 'gray',
+	      letter: _title.TITLE[_i3],
+	      text: _title.TEXT[_i3] }));
+	  }
+	  for (var _i4 = 0; _i4 < 4; _i4++) {
 	    secondRow.push(_react2.default.createElement(_null_component2.default, { key: Math.random() }));
 	  }
-	  for (var _i2 = 4; _i2 < 10; _i2++) {
-	    secondRow.push(elements[_i2]);
+	  for (var _i5 = 4; _i5 < 10; _i5++) {
+	    secondRow.push(elements[_i5]);
 	  }
 	
 	  var thirdRow = [elements[10], elements[11]];
-	  for (var _i3 = 0; _i3 < 10; _i3++) {
+	  for (var _i6 = 0; _i6 < 10; _i6++) {
 	    thirdRow.push(_react2.default.createElement(_null_component2.default, { key: Math.random() }));
 	  }
-	  for (var _i4 = 12; _i4 < 18; _i4++) {
-	    thirdRow.push(elements[_i4]);
+	  for (var _i7 = 12; _i7 < 18; _i7++) {
+	    thirdRow.push(elements[_i7]);
 	  }
 	
 	  var fourthRow = [];
-	  for (var _i5 = 18; _i5 < 36; _i5++) {
-	    fourthRow.push(elements[_i5]);
+	  for (var _i8 = 18; _i8 < 36; _i8++) {
+	    fourthRow.push(elements[_i8]);
 	  }
 	
 	  var fifthRow = [];
-	  for (var _i6 = 36; _i6 < 54; _i6++) {
-	    fifthRow.push(elements[_i6]);
+	  for (var _i9 = 36; _i9 < 54; _i9++) {
+	    fifthRow.push(elements[_i9]);
 	  }
 	
 	  var sixthRow = [elements[54], elements[55]];
 	  sixthRow.push(_react2.default.createElement(_range_cell2.default, { key: Math.random(), range: '57-71', color: _colors.COLORS['lanthanoid'] }));
-	  for (var _i7 = 56; _i7 < 71; _i7++) {
-	    sixthRow.push(elements[_i7]);
+	  for (var _i10 = 56; _i10 < 71; _i10++) {
+	    sixthRow.push(elements[_i10]);
 	  }
 	
 	  var seventhRow = [elements[71], elements[72]];
 	  seventhRow.push(_react2.default.createElement(_range_cell2.default, { key: Math.random(), range: '89-103', color: _colors.COLORS['actinoid'] }));
-	  for (var _i8 = 73; _i8 < 88; _i8++) {
-	    seventhRow.push(elements[_i8]);
+	  for (var _i11 = 73; _i11 < 88; _i11++) {
+	    seventhRow.push(elements[_i11]);
 	  }
 	
 	  return _react2.default.createElement(
 	    'table',
-	    null,
+	    { className: 'main-block-elements' },
 	    _react2.default.createElement(
 	      'tbody',
 	      null,
@@ -22226,7 +22246,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var NullComponent = function NullComponent() {
-	  return _react2.default.createElement('td', { className: 'null-component' });
+	  return _react2.default.createElement('td', { className: 'null-component no-cursor-pointer' });
 	};
 	
 	exports.default = NullComponent;
@@ -22255,7 +22275,7 @@
 	
 	  return _react2.default.createElement(
 	    'td',
-	    { className: 'chemical-element', style: style },
+	    { className: 'no-cursor-pointer', style: style },
 	    _react2.default.createElement(
 	      'p',
 	      { className: 'range-info' },
@@ -22268,6 +22288,63 @@
 
 /***/ },
 /* 181 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var TitleCell = function TitleCell(_ref) {
+	  var color = _ref.color,
+	      letter = _ref.letter,
+	      text = _ref.text;
+	
+	  var style = { background: '' + color };
+	
+	  return _react2.default.createElement(
+	    'td',
+	    { className: 'no-cursor-pointer', style: style },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'title-cell-info' },
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'title-letter' },
+	        letter
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'title-text' },
+	        text
+	      )
+	    )
+	  );
+	};
+	
+	exports.default = TitleCell;
+
+/***/ },
+/* 182 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var TITLE = exports.TITLE = 'PERIODICTABLE'.split('');
+	var TEXT = exports.TEXT = ['Stories', 'Behind', 'The', 'Elements', 'We', 'Know', 'And', 'Love', 'Created', 'By', 'Matthew', 'Santamaria', '2016'];
+
+/***/ },
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22308,7 +22385,7 @@
 	exports.default = LanthanidesActinides;
 
 /***/ },
-/* 182 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22332,7 +22409,7 @@
 	    style = { background: '' + colors[group] };
 	    elementGroups.push(_react2.default.createElement(
 	      'td',
-	      { key: Math.random(), className: 'element-group', style: style },
+	      { key: Math.random(), className: 'element-group no-cursor-pointer', style: style },
 	      _react2.default.createElement(
 	        'p',
 	        { className: 'element-group-text' },
@@ -22359,7 +22436,7 @@
 	exports.default = ElementGroupColors;
 
 /***/ },
-/* 183 */
+/* 185 */
 /***/ function(module, exports) {
 
 	"use strict";
