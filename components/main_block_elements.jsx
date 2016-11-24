@@ -14,7 +14,7 @@ const MainBlockElements = ({ elements }) => {
     firstRow.push(<NullComponent key={Math.random()} />);
   }
   for (let i = 0; i < 8; i++) {
-    firstRow.push(<TitleCell key={Math.random()} color={'gray'}
+    firstRow.push(<TitleCell key={Math.random()}
                              letter={TITLE[i]}
                              text={TEXT[i]} />);
   }
@@ -26,7 +26,7 @@ const MainBlockElements = ({ elements }) => {
   let secondRow = [elements[2], elements[3]];
   secondRow.push(<NullComponent key={Math.random()} />);
   for (let i = 8; i < 13; i++) {
-    secondRow.push(<TitleCell key={Math.random()} color={'gray'}
+    secondRow.push(<TitleCell key={Math.random()}
                               letter={TITLE[i]}
                               text={TEXT[i]} />);
   }

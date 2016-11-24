@@ -1,12 +1,12 @@
 export const COLORS = {
-  'nonmetal': 'red',
-  'noble gas': 'orange',
+  'nonmetal': '#ff316c',
+  'noble gas': '#ff8300',
   'alkali metal': 'yellow',
-  'alkaline earth metal': 'green',
-  'metalloid': 'blue',
-  'halogen': 'purple',
+  'alkaline earth metal': '#31ff36',
+  'metalloid': '#3b3bfa',
+  'halogen': '#b5f7ff',
   'metal': 'pink',
-  'transition metal': 'brown',
-  'lanthanoid': 'magenta',
-  'actinoid': 'olive'
+  'transition metal': '#31bcff',
+  'lanthanoid': '#ff00ff',
+  'actinoid': '#4caf50'
 };

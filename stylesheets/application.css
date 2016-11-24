@@ -70,7 +70,11 @@ td {
   box-shadow: none;
 }
 
-.range-info {
+.range-cell {
+  outline: 1px solid black;
+}
+
+.range-numbers {
   text-align: center;
 }
 
@@ -80,6 +84,10 @@ td {
 
 .no-cursor-pointer {
   cursor: auto;
+}
+
+.title-cell-wrapper {
+  background: wheat;
 }
 
 .title-cell-info {

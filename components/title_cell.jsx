@@ -1,10 +1,8 @@
 import React from 'react';
 
-const TitleCell = ({ color, letter, text }) => {
-  let style = {background: `${color}`};
-
+const TitleCell = ({ letter, text }) => {
   return (
-    <td className='no-cursor-pointer' style={style}>
+    <td className='title-cell-wrapper no-cursor-pointer'>
       <div className='title-cell-info'>
         <p className='title-letter'>{letter}</p>
         <p className='title-text'>{text}</p>
