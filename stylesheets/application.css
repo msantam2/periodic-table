@@ -1,9 +1,8 @@
-@import url('./normalize.css');
+@import url("./normalize.css");
 
 body {
   font-family: 'Montserrat', sans-serif;
   background: #606dbc;
-
 }
 
 .wrapper {
@@ -46,9 +45,9 @@ table {
 
 td {
   cursor: pointer;
-  -moz-box-shadow:    inset 0 0 5px rgba(0, 0, 0, 0.68);
+  -moz-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.68);
   -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.68);
-  box-shadow:         inset 0 0 5px rgba(0, 0, 0, 0.68);
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.68);
 }
 
 .element-groups {
@@ -58,6 +57,7 @@ td {
 .element-group {
   height: 75px;
   width: 75px;
+  cursor: pointer;
 }
 
 .element-group-text {
@@ -104,4 +104,39 @@ td {
 .title-text {
   font-size: 9px;
   margin: 0;
+}
+
+.nonmetal {
+  background: #ff316c;
+}
+.noble-gas {
+  background: #ff8300;
+}
+.alkali-metal {
+  background: yellow;
+}
+.alkaline-earth-metal {
+  background: #31ff36;
+}
+.metalloid {
+  background: #3b3bfa;
+}
+.halogen {
+  background: #b5f7ff;
+}
+.metal {
+  background: pink;
+}
+.transition-metal {
+  background: #31bcff;
+}
+.lanthanoid {
+  background: #ff00ff;
+}
+.actinoid {
+  background: #4caf50;
+}
+
+.gray-background {
+  background: #d3d3d3;
 }

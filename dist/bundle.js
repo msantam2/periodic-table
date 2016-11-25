@@ -21482,25 +21482,23 @@
 	
 	var _periodicTable2 = _interopRequireDefault(_periodicTable);
 	
-	var _colors = __webpack_require__(176);
-	
-	var _chemical_element = __webpack_require__(177);
+	var _chemical_element = __webpack_require__(176);
 	
 	var _chemical_element2 = _interopRequireDefault(_chemical_element);
 	
-	var _main_block_elements = __webpack_require__(178);
+	var _main_block_elements = __webpack_require__(177);
 	
 	var _main_block_elements2 = _interopRequireDefault(_main_block_elements);
 	
-	var _lanthanides_actinides = __webpack_require__(183);
+	var _lanthanides_actinides = __webpack_require__(182);
 	
 	var _lanthanides_actinides2 = _interopRequireDefault(_lanthanides_actinides);
 	
-	var _element_group_colors = __webpack_require__(184);
+	var _element_group_colors = __webpack_require__(183);
 	
 	var _element_group_colors2 = _interopRequireDefault(_element_group_colors);
 	
-	var _functions = __webpack_require__(185);
+	var _functions = __webpack_require__(184);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -21522,31 +21520,32 @@
 	  _createClass(PeriodicTable, [{
 	    key: 'createElementComponent',
 	    value: function createElementComponent(element, key, group) {
-	      var color = void 0;
+	      var groupClass = void 0;
+	
 	      switch (element.name) {
 	        case 'Lutetium':
-	          color = _colors.COLORS['lanthanoid'];
+	          groupClass = 'lanthanoid';
 	          break;
 	        case 'Lawrencium':
-	          color = _colors.COLORS['actinoid'];
+	          groupClass = 'actinoid';
 	          break;
 	        case 'Ununpentium':
-	          color = _colors.COLORS['metal'];
+	          groupClass = 'metal';
 	          break;
 	        case 'Livermorium':
-	          color = _colors.COLORS['metal'];
+	          groupClass = 'metal';
 	          break;
 	        case 'Ununseptium':
-	          color = _colors.COLORS['halogen'];
+	          groupClass = 'halogen';
 	          break;
 	        case 'Ununoctium':
-	          color = _colors.COLORS['noble gas'];
+	          groupClass = 'noble gas';
 	          break;
 	        default:
-	          color = _colors.COLORS[group];
+	          groupClass = group;
 	      }
 	
-	      return _react2.default.createElement(_chemical_element2.default, { key: key, element: element, color: color });
+	      return _react2.default.createElement(_chemical_element2.default, { key: key, element: element, groupClass: groupClass });
 	    }
 	  }, {
 	    key: 'getElementByAtomicNumber',
@@ -21590,13 +21589,18 @@
 	      var actinides = this.getElementsByGroup('actinoid');
 	      actinides = actinides.concat(this.getElementByAtomicNumber(103));
 	
+	      var groups = _periodicTable2.default.all().map(function (el) {
+	        return el.groupBlock;
+	      });
+	      groups = Array.from(new Set(groups));
+	
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'wrapper' },
 	        _react2.default.createElement(_main_block_elements2.default, { elements: mainBlockElements }),
 	        _react2.default.createElement(_lanthanides_actinides2.default, { lanthanides: lanthanides,
 	          actinides: actinides }),
-	        _react2.default.createElement(_element_group_colors2.default, { colors: _colors.COLORS })
+	        _react2.default.createElement(_element_group_colors2.default, { groups: groups })
 	      );
 	    }
 	  }]);
@@ -21991,28 +21995,6 @@
 
 /***/ },
 /* 176 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var COLORS = exports.COLORS = {
-	  'nonmetal': '#ff316c',
-	  'noble gas': '#ff8300',
-	  'alkali metal': 'yellow',
-	  'alkaline earth metal': '#31ff36',
-	  'metalloid': '#3b3bfa',
-	  'halogen': '#b5f7ff',
-	  'metal': 'pink',
-	  'transition metal': '#31bcff',
-	  'lanthanoid': '#ff00ff',
-	  'actinoid': '#4caf50'
-	};
-
-/***/ },
-/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22047,12 +22029,16 @@
 	  _createClass(ChemicalElement, [{
 	    key: 'render',
 	    value: function render() {
-	      var color = {
-	        background: '' + this.props.color };
+	      var groupClass = void 0;
+	      if (this.props.groupClass.includes(' ')) {
+	        groupClass = this.props.groupClass.replace(/ /g, '-');
+	      } else {
+	        groupClass = this.props.groupClass;
+	      }
 	
 	      return _react2.default.createElement(
 	        'td',
-	        { className: 'chemical-element', style: color },
+	        { className: 'chemical-element ' + groupClass },
 	        _react2.default.createElement(
 	          'p',
 	          { className: 'atomic-info' },
@@ -22087,7 +22073,7 @@
 	exports.default = ChemicalElement;
 
 /***/ },
-/* 178 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22100,21 +22086,19 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _null_component = __webpack_require__(179);
+	var _null_component = __webpack_require__(178);
 	
 	var _null_component2 = _interopRequireDefault(_null_component);
 	
-	var _range_cell = __webpack_require__(180);
+	var _range_cell = __webpack_require__(179);
 	
 	var _range_cell2 = _interopRequireDefault(_range_cell);
 	
-	var _title_cell = __webpack_require__(181);
+	var _title_cell = __webpack_require__(180);
 	
 	var _title_cell2 = _interopRequireDefault(_title_cell);
 	
-	var _colors = __webpack_require__(176);
-	
-	var _title = __webpack_require__(182);
+	var _title = __webpack_require__(181);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -22171,13 +22155,13 @@
 	  }
 	
 	  var sixthRow = [elements[54], elements[55]];
-	  sixthRow.push(_react2.default.createElement(_range_cell2.default, { key: Math.random(), range: '57-71', color: _colors.COLORS['lanthanoid'] }));
+	  sixthRow.push(_react2.default.createElement(_range_cell2.default, { key: Math.random(), group: 'lanthanoid', range: '57-71' }));
 	  for (var _i10 = 56; _i10 < 71; _i10++) {
 	    sixthRow.push(elements[_i10]);
 	  }
 	
 	  var seventhRow = [elements[71], elements[72]];
-	  seventhRow.push(_react2.default.createElement(_range_cell2.default, { key: Math.random(), range: '89-103', color: _colors.COLORS['actinoid'] }));
+	  seventhRow.push(_react2.default.createElement(_range_cell2.default, { key: Math.random(), group: 'actinoid', range: '89-103' }));
 	  for (var _i11 = 73; _i11 < 88; _i11++) {
 	    seventhRow.push(elements[_i11]);
 	  }
@@ -22230,7 +22214,7 @@
 	exports.default = MainBlockElements;
 
 /***/ },
-/* 179 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22252,7 +22236,7 @@
 	exports.default = NullComponent;
 
 /***/ },
-/* 180 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22268,14 +22252,11 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var RangeCell = function RangeCell(_ref) {
-	  var range = _ref.range,
-	      color = _ref.color;
-	
-	  var style = { background: '' + color };
-	
+	  var group = _ref.group,
+	      range = _ref.range;
 	  return _react2.default.createElement(
 	    'td',
-	    { className: 'range-cell no-cursor-pointer', style: style },
+	    { className: group + ' range-cell no-cursor-pointer' },
 	    _react2.default.createElement(
 	      'p',
 	      { className: 'range-numbers' },
@@ -22287,7 +22268,7 @@
 	exports.default = RangeCell;
 
 /***/ },
-/* 181 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22329,7 +22310,7 @@
 	exports.default = TitleCell;
 
 /***/ },
-/* 182 */
+/* 181 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22341,7 +22322,7 @@
 	var TEXT = exports.TEXT = ['Stories', 'Behind', 'The', 'Elements', 'We', 'Know', 'And', 'Love', 'Created', 'By', 'Matthew', 'Santamaria', '2016'];
 
 /***/ },
-/* 183 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22382,7 +22363,7 @@
 	exports.default = LanthanidesActinides;
 
 /***/ },
-/* 184 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22398,21 +22379,48 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var ElementGroupColors = function ElementGroupColors(_ref) {
-	  var colors = _ref.colors;
+	  var groups = _ref.groups;
 	
 	  var elementGroups = [];
-	  var style = void 0;
-	  for (var group in colors) {
-	    style = { background: '' + colors[group] };
-	    elementGroups.push(_react2.default.createElement(
-	      'td',
-	      { key: Math.random(), className: 'element-group no-cursor-pointer', style: style },
-	      _react2.default.createElement(
-	        'p',
-	        { className: 'element-group-text' },
-	        group
-	      )
-	    ));
+	  var groupClass = void 0;
+	
+	  var _iteratorNormalCompletion = true;
+	  var _didIteratorError = false;
+	  var _iteratorError = undefined;
+	
+	  try {
+	    for (var _iterator = groups[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	      var group = _step.value;
+	
+	      if (group.includes(' ')) {
+	        groupClass = group.replace(/ /g, '-');
+	      } else {
+	        groupClass = group;
+	      }
+	
+	      elementGroups.push(_react2.default.createElement(
+	        'td',
+	        { key: Math.random(), className: 'element-group ' + groupClass },
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'element-group-text' },
+	          group
+	        )
+	      ));
+	    }
+	  } catch (err) {
+	    _didIteratorError = true;
+	    _iteratorError = err;
+	  } finally {
+	    try {
+	      if (!_iteratorNormalCompletion && _iterator.return) {
+	        _iterator.return();
+	      }
+	    } finally {
+	      if (_didIteratorError) {
+	        throw _iteratorError;
+	      }
+	    }
 	  }
 	
 	  return _react2.default.createElement(
@@ -22433,7 +22441,7 @@
 	exports.default = ElementGroupColors;
 
 /***/ },
-/* 185 */
+/* 184 */
 /***/ function(module, exports) {
 
 	"use strict";

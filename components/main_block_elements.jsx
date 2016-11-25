@@ -2,7 +2,6 @@ import React from 'react';
 import NullComponent from './null_component';
 import RangeCell from './range_cell';
 import TitleCell from './title_cell';
-import { COLORS } from '../util/colors';
 import { TITLE, TEXT } from '../util/title';
 
 const MainBlockElements = ({ elements }) => {
@@ -56,13 +55,13 @@ const MainBlockElements = ({ elements }) => {
   }
 
   let sixthRow = [elements[54], elements[55]];
-  sixthRow.push(<RangeCell key={Math.random()} range={'57-71'} color={COLORS['lanthanoid']} />);
+  sixthRow.push(<RangeCell key={Math.random()} group={'lanthanoid'} range={'57-71'} />);
   for (let i = 56; i < 71; i++) {
     sixthRow.push(elements[i]);
   }
 
   let seventhRow = [elements[71], elements[72]];
-  seventhRow.push(<RangeCell key={Math.random()} range={'89-103'} color={COLORS['actinoid']} />);
+  seventhRow.push(<RangeCell key={Math.random()} group={'actinoid'} range={'89-103'} />);
   for (let i = 73; i < 88; i++) {
     seventhRow.push(elements[i]);
   }

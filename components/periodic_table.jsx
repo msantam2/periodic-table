@@ -1,6 +1,5 @@
 import React from 'react';
 import pt from 'periodic-table';
-import { COLORS } from '../util/colors';
 import ChemicalElement from './chemical_element';
 import MainBlockElements from './main_block_elements';
 import LanthanidesActinides from './lanthanides_actinides';
@@ -9,31 +8,32 @@ import { isBetween } from '../util/functions';
 
 class PeriodicTable extends React.Component {
   createElementComponent(element, key, group) {
-    let color;
+    let groupClass;
+
     switch (element.name) {
       case 'Lutetium':
-        color = COLORS['lanthanoid'];
+        groupClass = 'lanthanoid';
         break;
       case 'Lawrencium':
-        color = COLORS['actinoid'];
+        groupClass = 'actinoid';
         break;
       case 'Ununpentium':
-        color = COLORS['metal'];
+        groupClass = 'metal';
         break;
       case 'Livermorium':
-        color = COLORS['metal'];
+        groupClass = 'metal';
         break;
       case 'Ununseptium':
-        color = COLORS['halogen'];
+        groupClass = 'halogen';
         break;
       case 'Ununoctium':
-        color = COLORS['noble gas'];
+        groupClass = 'noble gas';
         break;
       default:
-        color = COLORS[group];
+        groupClass = group;
     }
 
-    return <ChemicalElement key={key} element={element} color={color} />;
+    return <ChemicalElement key={key} element={element} groupClass={groupClass} />;
   }
 
   getElementByAtomicNumber(atomicNumber) {
@@ -76,12 +76,17 @@ class PeriodicTable extends React.Component {
     let actinides = this.getElementsByGroup('actinoid');
     actinides = actinides.concat(this.getElementByAtomicNumber(103));
 
+    let groups = pt.all().map(el => {
+      return el.groupBlock;
+    });
+    groups = Array.from(new Set(groups));
+
     return (
       <div className='wrapper'>
         <MainBlockElements elements={mainBlockElements} />
         <LanthanidesActinides lanthanides={lanthanides}
           actinides={actinides} />
-        <ElementGroupColors colors={COLORS} />
+        <ElementGroupColors groups={groups} />
       </div>
     );
   }
