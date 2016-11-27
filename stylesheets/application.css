@@ -140,3 +140,11 @@ td {
 .gray-background {
   background: #d3d3d3;
 }
+
+.chemical-element, .range-cell {
+  transition: all .05s ease-in-out;
+}
+
+.chemical-element:hover, .range-cell:hover {
+    transform: scale(1.35);
+}
