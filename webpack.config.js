@@ -1,9 +1,12 @@
+let HtmlWebpackPlugin = require('html-webpack-plugin');
+let HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: __dirname + '/app/index.html',
+  filename: 'index.html',
+  inject: 'head'
+});
+
 module.exports = {
-  entry: './components/entry.jsx',
-  output: {
-    path: './dist',
-  	filename: 'bundle.js'
-  },
+  entry: './app/entry.js',
   module: {
     loaders: [
       {
@@ -16,8 +19,18 @@ module.exports = {
       }
     ]
   },
+  output: {
+    path: __dirname + '/dist',
+  	filename: 'bundle.js'
+  },
   devtool: 'source-map',
   resolve: {
     extensions: ['', '.js', '.jsx']
-  }
+  },
+  devServer: {
+    contentBase: './dist',
+    inline: true,
+    stats: 'errors-only'
+  },
+  plugins: [HTMLWebpackPluginConfig]
 };

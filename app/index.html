@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Stories Behind the Chemical Elements</title>
+    <link rel='stylesheet' href='../stylesheets/application.css' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id='root'></div>
+    <script>
+      // jQuery used for effect of hovering over element group
+      // and only elements of that group staying colored, all others
+      // becoming gray.
+      $(document).ready(function() {
+        $('.element-group.nonmetal').hover(function() {
+          $('.chemical-element:not(.nonmetal), .range-cell, .element-group:not(.nonmetal)').toggleClass('gray-background');
+        }, function() { // on mouse exit, reset background colors
+          $('.chemical-element:not(.nonmetal), .range-cell, .element-group:not(.nonmetal)').toggleClass('gray-background');
+        });
+
+        $('.element-group.noble-gas').hover(function() {
+          $('.chemical-element:not(.noble-gas), .range-cell, .element-group:not(.noble-gas)').toggleClass('gray-background');
+        }, function() { // on mouse exit, reset background colors
+          $('.chemical-element:not(.noble-gas), .range-cell, .element-group:not(.noble-gas)').toggleClass('gray-background');
+        });
+
+        $('.element-group.alkali-metal').hover(function() {
+          $('.chemical-element:not(.alkali-metal), .range-cell, .element-group:not(.alkali-metal)').toggleClass('gray-background');
+        }, function() { // on mouse exit, reset background colors
+          $('.chemical-element:not(.alkali-metal), .range-cell, .element-group:not(.alkali-metal)').toggleClass('gray-background');
+        });
+
+        $('.element-group.alkaline-earth-metal').hover(function() {
+          $('.chemical-element:not(.alkaline-earth-metal), .range-cell, .element-group:not(.alkaline-earth-metal)').toggleClass('gray-background');
+        }, function() { // on mouse exit, reset background colors
+          $('.chemical-element:not(.alkaline-earth-metal), .range-cell, .element-group:not(.alkaline-earth-metal)').toggleClass('gray-background');
+        });
+
+        $('.element-group.metalloid').hover(function() {
+          $('.chemical-element:not(.metalloid), .range-cell, .element-group:not(.metalloid)').toggleClass('gray-background');
+        }, function() { // on mouse exit, reset background colors
+          $('.chemical-element:not(.metalloid), .range-cell, .element-group:not(.metalloid)').toggleClass('gray-background');
+        });
+
+        $('.element-group.halogen').hover(function() {
+          $('.chemical-element:not(.halogen), .range-cell, .element-group:not(.halogen)').toggleClass('gray-background');
+        }, function() { // on mouse exit, reset background colors
+          $('.chemical-element:not(.halogen), .range-cell, .element-group:not(.halogen)').toggleClass('gray-background');
+        });
+
+        $('.element-group.metal').hover(function() {
+          $('.chemical-element:not(.metal), .range-cell, .element-group:not(.metal)').toggleClass('gray-background');
+        }, function() { // on mouse exit, reset background colors
+          $('.chemical-element:not(.metal), .range-cell, .element-group:not(.metal)').toggleClass('gray-background');
+        });
+
+        $('.element-group.transition-metal').hover(function() {
+          $('.chemical-element:not(.transition-metal), .range-cell, .element-group:not(.transition-metal)').toggleClass('gray-background');
+        }, function() { // on mouse exit, reset background colors
+          $('.chemical-element:not(.transition-metal), .range-cell, .element-group:not(.transition-metal)').toggleClass('gray-background');
+        });
+
+        $('.element-group.lanthanoid').hover(function() {
+          $('.chemical-element:not(.lanthanoid), .range-cell, .element-group:not(.lanthanoid)').toggleClass('gray-background');
+        }, function() { // on mouse exit, reset background colors
+          $('.chemical-element:not(.lanthanoid), .range-cell, .element-group:not(.lanthanoid)').toggleClass('gray-background');
+        });
+
+        $('.element-group.actinoid').hover(function() {
+          $('.chemical-element:not(.actinoid), .range-cell, .element-group:not(.actinoid)').toggleClass('gray-background');
+        }, function() { // on mouse exit, reset background colors
+          $('.chemical-element:not(.actinoid), .range-cell, .element-group:not(.actinoid)').toggleClass('gray-background');
+        });
+      });
+    </script>
+  </body>
+</html>
