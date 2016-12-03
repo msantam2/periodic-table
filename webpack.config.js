@@ -6,7 +6,7 @@ let HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-  entry: './src/entry.js',
+  entry: './src/index.js',
   module: {
     loaders: [
       {
