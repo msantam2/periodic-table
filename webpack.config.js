@@ -16,6 +16,11 @@ module.exports = {
         query: {
           presets: ['react', 'es2015']
         }
+      },
+      {
+        test: /\.css?$/,
+        exclude: /node_modules/,
+        loaders: ['style', 'css'] // same as "style-loader!css-loader" 
       }
     ]
   },
@@ -25,7 +30,7 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', '.css']
   },
   devServer: {
     contentBase: './dist',
