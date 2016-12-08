@@ -1,9 +1,8 @@
 import React from 'react';
-import PeriodicTable from './periodic_table';
 
-const App = () => (
+const App = ({ children }) => (
   <div>
-    <PeriodicTable />
+    {children}
   </div>
 );
 

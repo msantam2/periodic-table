@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/app';
+import AppRouter from './components/app_router';
 import './stylesheets/application.css'
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root');
-  ReactDOM.render(<App />, root);
+  ReactDOM.render(<AppRouter />, root);
 });

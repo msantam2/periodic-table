@@ -1,6 +1,16 @@
 import React from 'react';
+import { hashHistory } from 'react-router';
 
 class ChemicalElement extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    hashHistory.push(`/${this.props.element.name}`);
+  }
+
   render() {
     let groupClass;
     if (this.props.groupClass.includes(' ')) {
@@ -10,7 +20,7 @@ class ChemicalElement extends React.Component {
     }
 
     return (
-      <td className={`chemical-element ${groupClass}`}>
+      <td onClick={this.handleClick} className={`chemical-element ${groupClass}`}>
         <p className='atomic-info'>{this.props.element.atomicNumber}</p>
         <div className='atomic-wrapper'>
           <p className='atomic-info'>{this.props.element.symbol}</p>
