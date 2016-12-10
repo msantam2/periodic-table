@@ -54,17 +54,19 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _app = __webpack_require__(172);
+	var _app_router = __webpack_require__(172);
 	
-	var _app2 = _interopRequireDefault(_app);
+	var _app_router2 = _interopRequireDefault(_app_router);
 	
-	__webpack_require__(185);
+	__webpack_require__(244);
+	
+	__webpack_require__(249);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	document.addEventListener("DOMContentLoaded", function () {
 	  var root = document.getElementById('root');
-	  _reactDom2.default.render(_react2.default.createElement(_app2.default, null), root);
+	  _reactDom2.default.render(_react2.default.createElement(_app_router2.default, null), root);
 	});
 
 /***/ },
@@ -21444,28 +21446,4998 @@
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _periodic_table = __webpack_require__(173);
+	var _reactRouter = __webpack_require__(173);
+	
+	var _app = __webpack_require__(228);
+	
+	var _app2 = _interopRequireDefault(_app);
+	
+	var _periodic_table = __webpack_require__(229);
 	
 	var _periodic_table2 = _interopRequireDefault(_periodic_table);
 	
+	var _element_info_page = __webpack_require__(241);
+	
+	var _element_info_page2 = _interopRequireDefault(_element_info_page);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var App = function App() {
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var AppRouter = function (_React$Component) {
+	  _inherits(AppRouter, _React$Component);
+	
+	  function AppRouter() {
+	    _classCallCheck(this, AppRouter);
+	
+	    return _possibleConstructorReturn(this, (AppRouter.__proto__ || Object.getPrototypeOf(AppRouter)).apply(this, arguments));
+	  }
+	
+	  _createClass(AppRouter, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        _reactRouter.Router,
+	        { history: _reactRouter.hashHistory },
+	        _react2.default.createElement(
+	          _reactRouter.Route,
+	          { path: '/', component: _app2.default },
+	          _react2.default.createElement(_reactRouter.IndexRoute, { component: _periodic_table2.default }),
+	          _react2.default.createElement(_reactRouter.Route, { path: '/:elementName', component: _element_info_page2.default })
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return AppRouter;
+	}(_react2.default.Component);
+	
+	exports.default = AppRouter;
+
+/***/ },
+/* 173 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	exports.createMemoryHistory = exports.hashHistory = exports.browserHistory = exports.applyRouterMiddleware = exports.formatPattern = exports.useRouterHistory = exports.match = exports.routerShape = exports.locationShape = exports.RouterContext = exports.createRoutes = exports.Route = exports.Redirect = exports.IndexRoute = exports.IndexRedirect = exports.withRouter = exports.IndexLink = exports.Link = exports.Router = undefined;
+	
+	var _RouteUtils = __webpack_require__(174);
+	
+	Object.defineProperty(exports, 'createRoutes', {
+	  enumerable: true,
+	  get: function get() {
+	    return _RouteUtils.createRoutes;
+	  }
+	});
+	
+	var _PropTypes = __webpack_require__(175);
+	
+	Object.defineProperty(exports, 'locationShape', {
+	  enumerable: true,
+	  get: function get() {
+	    return _PropTypes.locationShape;
+	  }
+	});
+	Object.defineProperty(exports, 'routerShape', {
+	  enumerable: true,
+	  get: function get() {
+	    return _PropTypes.routerShape;
+	  }
+	});
+	
+	var _PatternUtils = __webpack_require__(176);
+	
+	Object.defineProperty(exports, 'formatPattern', {
+	  enumerable: true,
+	  get: function get() {
+	    return _PatternUtils.formatPattern;
+	  }
+	});
+	
+	var _Router2 = __webpack_require__(178);
+	
+	var _Router3 = _interopRequireDefault(_Router2);
+	
+	var _Link2 = __webpack_require__(194);
+	
+	var _Link3 = _interopRequireDefault(_Link2);
+	
+	var _IndexLink2 = __webpack_require__(195);
+	
+	var _IndexLink3 = _interopRequireDefault(_IndexLink2);
+	
+	var _withRouter2 = __webpack_require__(196);
+	
+	var _withRouter3 = _interopRequireDefault(_withRouter2);
+	
+	var _IndexRedirect2 = __webpack_require__(198);
+	
+	var _IndexRedirect3 = _interopRequireDefault(_IndexRedirect2);
+	
+	var _IndexRoute2 = __webpack_require__(200);
+	
+	var _IndexRoute3 = _interopRequireDefault(_IndexRoute2);
+	
+	var _Redirect2 = __webpack_require__(199);
+	
+	var _Redirect3 = _interopRequireDefault(_Redirect2);
+	
+	var _Route2 = __webpack_require__(201);
+	
+	var _Route3 = _interopRequireDefault(_Route2);
+	
+	var _RouterContext2 = __webpack_require__(190);
+	
+	var _RouterContext3 = _interopRequireDefault(_RouterContext2);
+	
+	var _match2 = __webpack_require__(202);
+	
+	var _match3 = _interopRequireDefault(_match2);
+	
+	var _useRouterHistory2 = __webpack_require__(215);
+	
+	var _useRouterHistory3 = _interopRequireDefault(_useRouterHistory2);
+	
+	var _applyRouterMiddleware2 = __webpack_require__(216);
+	
+	var _applyRouterMiddleware3 = _interopRequireDefault(_applyRouterMiddleware2);
+	
+	var _browserHistory2 = __webpack_require__(217);
+	
+	var _browserHistory3 = _interopRequireDefault(_browserHistory2);
+	
+	var _hashHistory2 = __webpack_require__(225);
+	
+	var _hashHistory3 = _interopRequireDefault(_hashHistory2);
+	
+	var _createMemoryHistory2 = __webpack_require__(204);
+	
+	var _createMemoryHistory3 = _interopRequireDefault(_createMemoryHistory2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.Router = _Router3.default; /* components */
+	
+	exports.Link = _Link3.default;
+	exports.IndexLink = _IndexLink3.default;
+	exports.withRouter = _withRouter3.default;
+	
+	/* components (configuration) */
+	
+	exports.IndexRedirect = _IndexRedirect3.default;
+	exports.IndexRoute = _IndexRoute3.default;
+	exports.Redirect = _Redirect3.default;
+	exports.Route = _Route3.default;
+	
+	/* utils */
+	
+	exports.RouterContext = _RouterContext3.default;
+	exports.match = _match3.default;
+	exports.useRouterHistory = _useRouterHistory3.default;
+	exports.applyRouterMiddleware = _applyRouterMiddleware3.default;
+	
+	/* histories */
+	
+	exports.browserHistory = _browserHistory3.default;
+	exports.hashHistory = _hashHistory3.default;
+	exports.createMemoryHistory = _createMemoryHistory3.default;
+
+/***/ },
+/* 174 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	exports.isReactChildren = isReactChildren;
+	exports.createRouteFromReactElement = createRouteFromReactElement;
+	exports.createRoutesFromReactChildren = createRoutesFromReactChildren;
+	exports.createRoutes = createRoutes;
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function isValidChild(object) {
+	  return object == null || _react2.default.isValidElement(object);
+	}
+	
+	function isReactChildren(object) {
+	  return isValidChild(object) || Array.isArray(object) && object.every(isValidChild);
+	}
+	
+	function createRoute(defaultProps, props) {
+	  return _extends({}, defaultProps, props);
+	}
+	
+	function createRouteFromReactElement(element) {
+	  var type = element.type;
+	  var route = createRoute(type.defaultProps, element.props);
+	
+	  if (route.children) {
+	    var childRoutes = createRoutesFromReactChildren(route.children, route);
+	
+	    if (childRoutes.length) route.childRoutes = childRoutes;
+	
+	    delete route.children;
+	  }
+	
+	  return route;
+	}
+	
+	/**
+	 * Creates and returns a routes object from the given ReactChildren. JSX
+	 * provides a convenient way to visualize how routes in the hierarchy are
+	 * nested.
+	 *
+	 *   import { Route, createRoutesFromReactChildren } from 'react-router'
+	 *
+	 *   const routes = createRoutesFromReactChildren(
+	 *     <Route component={App}>
+	 *       <Route path="home" component={Dashboard}/>
+	 *       <Route path="news" component={NewsFeed}/>
+	 *     </Route>
+	 *   )
+	 *
+	 * Note: This method is automatically used when you provide <Route> children
+	 * to a <Router> component.
+	 */
+	function createRoutesFromReactChildren(children, parentRoute) {
+	  var routes = [];
+	
+	  _react2.default.Children.forEach(children, function (element) {
+	    if (_react2.default.isValidElement(element)) {
+	      // Component classes may have a static create* method.
+	      if (element.type.createRouteFromReactElement) {
+	        var route = element.type.createRouteFromReactElement(element, parentRoute);
+	
+	        if (route) routes.push(route);
+	      } else {
+	        routes.push(createRouteFromReactElement(element));
+	      }
+	    }
+	  });
+	
+	  return routes;
+	}
+	
+	/**
+	 * Creates and returns an array of routes from the given object which
+	 * may be a JSX route, a plain object route, or an array of either.
+	 */
+	function createRoutes(routes) {
+	  if (isReactChildren(routes)) {
+	    routes = createRoutesFromReactChildren(routes);
+	  } else if (routes && !Array.isArray(routes)) {
+	    routes = [routes];
+	  }
+	
+	  return routes;
+	}
+
+/***/ },
+/* 175 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	exports.locationShape = exports.routerShape = undefined;
+	
+	var _react = __webpack_require__(1);
+	
+	var func = _react.PropTypes.func,
+	    object = _react.PropTypes.object,
+	    shape = _react.PropTypes.shape,
+	    string = _react.PropTypes.string;
+	var routerShape = exports.routerShape = shape({
+	  push: func.isRequired,
+	  replace: func.isRequired,
+	  go: func.isRequired,
+	  goBack: func.isRequired,
+	  goForward: func.isRequired,
+	  setRouteLeaveHook: func.isRequired,
+	  isActive: func.isRequired
+	});
+	
+	var locationShape = exports.locationShape = shape({
+	  pathname: string.isRequired,
+	  search: string.isRequired,
+	  state: object,
+	  action: string.isRequired,
+	  key: string
+	});
+
+/***/ },
+/* 176 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	exports.compilePattern = compilePattern;
+	exports.matchPattern = matchPattern;
+	exports.getParamNames = getParamNames;
+	exports.getParams = getParams;
+	exports.formatPattern = formatPattern;
+	
+	var _invariant = __webpack_require__(177);
+	
+	var _invariant2 = _interopRequireDefault(_invariant);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function escapeRegExp(string) {
+	  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
+	
+	function _compilePattern(pattern) {
+	  var regexpSource = '';
+	  var paramNames = [];
+	  var tokens = [];
+	
+	  var match = void 0,
+	      lastIndex = 0,
+	      matcher = /:([a-zA-Z_$][a-zA-Z0-9_$]*)|\*\*|\*|\(|\)/g;
+	  while (match = matcher.exec(pattern)) {
+	    if (match.index !== lastIndex) {
+	      tokens.push(pattern.slice(lastIndex, match.index));
+	      regexpSource += escapeRegExp(pattern.slice(lastIndex, match.index));
+	    }
+	
+	    if (match[1]) {
+	      regexpSource += '([^/]+)';
+	      paramNames.push(match[1]);
+	    } else if (match[0] === '**') {
+	      regexpSource += '(.*)';
+	      paramNames.push('splat');
+	    } else if (match[0] === '*') {
+	      regexpSource += '(.*?)';
+	      paramNames.push('splat');
+	    } else if (match[0] === '(') {
+	      regexpSource += '(?:';
+	    } else if (match[0] === ')') {
+	      regexpSource += ')?';
+	    }
+	
+	    tokens.push(match[0]);
+	
+	    lastIndex = matcher.lastIndex;
+	  }
+	
+	  if (lastIndex !== pattern.length) {
+	    tokens.push(pattern.slice(lastIndex, pattern.length));
+	    regexpSource += escapeRegExp(pattern.slice(lastIndex, pattern.length));
+	  }
+	
+	  return {
+	    pattern: pattern,
+	    regexpSource: regexpSource,
+	    paramNames: paramNames,
+	    tokens: tokens
+	  };
+	}
+	
+	var CompiledPatternsCache = Object.create(null);
+	
+	function compilePattern(pattern) {
+	  if (!CompiledPatternsCache[pattern]) CompiledPatternsCache[pattern] = _compilePattern(pattern);
+	
+	  return CompiledPatternsCache[pattern];
+	}
+	
+	/**
+	 * Attempts to match a pattern on the given pathname. Patterns may use
+	 * the following special characters:
+	 *
+	 * - :paramName     Matches a URL segment up to the next /, ?, or #. The
+	 *                  captured string is considered a "param"
+	 * - ()             Wraps a segment of the URL that is optional
+	 * - *              Consumes (non-greedy) all characters up to the next
+	 *                  character in the pattern, or to the end of the URL if
+	 *                  there is none
+	 * - **             Consumes (greedy) all characters up to the next character
+	 *                  in the pattern, or to the end of the URL if there is none
+	 *
+	 *  The function calls callback(error, matched) when finished.
+	 * The return value is an object with the following properties:
+	 *
+	 * - remainingPathname
+	 * - paramNames
+	 * - paramValues
+	 */
+	function matchPattern(pattern, pathname) {
+	  // Ensure pattern starts with leading slash for consistency with pathname.
+	  if (pattern.charAt(0) !== '/') {
+	    pattern = '/' + pattern;
+	  }
+	
+	  var _compilePattern2 = compilePattern(pattern),
+	      regexpSource = _compilePattern2.regexpSource,
+	      paramNames = _compilePattern2.paramNames,
+	      tokens = _compilePattern2.tokens;
+	
+	  if (pattern.charAt(pattern.length - 1) !== '/') {
+	    regexpSource += '/?'; // Allow optional path separator at end.
+	  }
+	
+	  // Special-case patterns like '*' for catch-all routes.
+	  if (tokens[tokens.length - 1] === '*') {
+	    regexpSource += '$';
+	  }
+	
+	  var match = pathname.match(new RegExp('^' + regexpSource, 'i'));
+	  if (match == null) {
+	    return null;
+	  }
+	
+	  var matchedPath = match[0];
+	  var remainingPathname = pathname.substr(matchedPath.length);
+	
+	  if (remainingPathname) {
+	    // Require that the match ends at a path separator, if we didn't match
+	    // the full path, so any remaining pathname is a new path segment.
+	    if (matchedPath.charAt(matchedPath.length - 1) !== '/') {
+	      return null;
+	    }
+	
+	    // If there is a remaining pathname, treat the path separator as part of
+	    // the remaining pathname for properly continuing the match.
+	    remainingPathname = '/' + remainingPathname;
+	  }
+	
+	  return {
+	    remainingPathname: remainingPathname,
+	    paramNames: paramNames,
+	    paramValues: match.slice(1).map(function (v) {
+	      return v && decodeURIComponent(v);
+	    })
+	  };
+	}
+	
+	function getParamNames(pattern) {
+	  return compilePattern(pattern).paramNames;
+	}
+	
+	function getParams(pattern, pathname) {
+	  var match = matchPattern(pattern, pathname);
+	  if (!match) {
+	    return null;
+	  }
+	
+	  var paramNames = match.paramNames,
+	      paramValues = match.paramValues;
+	
+	  var params = {};
+	
+	  paramNames.forEach(function (paramName, index) {
+	    params[paramName] = paramValues[index];
+	  });
+	
+	  return params;
+	}
+	
+	/**
+	 * Returns a version of the given pattern with params interpolated. Throws
+	 * if there is a dynamic segment of the pattern for which there is no param.
+	 */
+	function formatPattern(pattern, params) {
+	  params = params || {};
+	
+	  var _compilePattern3 = compilePattern(pattern),
+	      tokens = _compilePattern3.tokens;
+	
+	  var parenCount = 0,
+	      pathname = '',
+	      splatIndex = 0,
+	      parenHistory = [];
+	
+	  var token = void 0,
+	      paramName = void 0,
+	      paramValue = void 0;
+	  for (var i = 0, len = tokens.length; i < len; ++i) {
+	    token = tokens[i];
+	
+	    if (token === '*' || token === '**') {
+	      paramValue = Array.isArray(params.splat) ? params.splat[splatIndex++] : params.splat;
+	
+	      !(paramValue != null || parenCount > 0) ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, 'Missing splat #%s for path "%s"', splatIndex, pattern) : (0, _invariant2.default)(false) : void 0;
+	
+	      if (paramValue != null) pathname += encodeURI(paramValue);
+	    } else if (token === '(') {
+	      parenHistory[parenCount] = '';
+	      parenCount += 1;
+	    } else if (token === ')') {
+	      var parenText = parenHistory.pop();
+	      parenCount -= 1;
+	
+	      if (parenCount) parenHistory[parenCount - 1] += parenText;else pathname += parenText;
+	    } else if (token.charAt(0) === ':') {
+	      paramName = token.substring(1);
+	      paramValue = params[paramName];
+	
+	      !(paramValue != null || parenCount > 0) ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, 'Missing "%s" parameter for path "%s"', paramName, pattern) : (0, _invariant2.default)(false) : void 0;
+	
+	      if (paramValue == null) {
+	        if (parenCount) {
+	          parenHistory[parenCount - 1] = '';
+	
+	          var curTokenIdx = tokens.indexOf(token);
+	          var tokensSubset = tokens.slice(curTokenIdx, tokens.length);
+	          var nextParenIdx = -1;
+	
+	          for (var _i = 0; _i < tokensSubset.length; _i++) {
+	            if (tokensSubset[_i] == ')') {
+	              nextParenIdx = _i;
+	              break;
+	            }
+	          }
+	
+	          !(nextParenIdx > 0) ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, 'Path "%s" is missing end paren at segment "%s"', pattern, tokensSubset.join('')) : (0, _invariant2.default)(false) : void 0;
+	
+	          // jump to ending paren
+	          i = curTokenIdx + nextParenIdx - 1;
+	        }
+	      } else if (parenCount) parenHistory[parenCount - 1] += encodeURIComponent(paramValue);else pathname += encodeURIComponent(paramValue);
+	    } else {
+	      if (parenCount) parenHistory[parenCount - 1] += token;else pathname += token;
+	    }
+	  }
+	
+	  !(parenCount <= 0) ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, 'Path "%s" is missing end paren', pattern) : (0, _invariant2.default)(false) : void 0;
+	
+	  return pathname.replace(/\/+/g, '/');
+	}
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 177 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 */
+	
+	'use strict';
+	
+	/**
+	 * Use invariant() to assert state which your program assumes to be true.
+	 *
+	 * Provide sprintf-style format (only %s is supported) and arguments
+	 * to provide information about what broke and what you were
+	 * expecting.
+	 *
+	 * The invariant message will be stripped in production, but the invariant
+	 * will remain to ensure logic does not differ in production.
+	 */
+	
+	var invariant = function(condition, format, a, b, c, d, e, f) {
+	  if (process.env.NODE_ENV !== 'production') {
+	    if (format === undefined) {
+	      throw new Error('invariant requires an error message argument');
+	    }
+	  }
+	
+	  if (!condition) {
+	    var error;
+	    if (format === undefined) {
+	      error = new Error(
+	        'Minified exception occurred; use the non-minified dev environment ' +
+	        'for the full error message and additional helpful warnings.'
+	      );
+	    } else {
+	      var args = [a, b, c, d, e, f];
+	      var argIndex = 0;
+	      error = new Error(
+	        format.replace(/%s/g, function() { return args[argIndex++]; })
+	      );
+	      error.name = 'Invariant Violation';
+	    }
+	
+	    error.framesToPop = 1; // we don't care about invariant's own frame
+	    throw error;
+	  }
+	};
+	
+	module.exports = invariant;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 178 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _invariant = __webpack_require__(177);
+	
+	var _invariant2 = _interopRequireDefault(_invariant);
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _createTransitionManager2 = __webpack_require__(179);
+	
+	var _createTransitionManager3 = _interopRequireDefault(_createTransitionManager2);
+	
+	var _InternalPropTypes = __webpack_require__(189);
+	
+	var _RouterContext = __webpack_require__(190);
+	
+	var _RouterContext2 = _interopRequireDefault(_RouterContext);
+	
+	var _RouteUtils = __webpack_require__(174);
+	
+	var _RouterUtils = __webpack_require__(193);
+	
+	var _routerWarning = __webpack_require__(180);
+	
+	var _routerWarning2 = _interopRequireDefault(_routerWarning);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+	
+	var _React$PropTypes = _react2.default.PropTypes,
+	    func = _React$PropTypes.func,
+	    object = _React$PropTypes.object;
+	
+	/**
+	 * A <Router> is a high-level API for automatically setting up
+	 * a router that renders a <RouterContext> with all the props
+	 * it needs each time the URL changes.
+	 */
+	
+	var Router = _react2.default.createClass({
+	  displayName: 'Router',
+	
+	
+	  propTypes: {
+	    history: object,
+	    children: _InternalPropTypes.routes,
+	    routes: _InternalPropTypes.routes, // alias for children
+	    render: func,
+	    createElement: func,
+	    onError: func,
+	    onUpdate: func,
+	
+	    // PRIVATE: For client-side rehydration of server match.
+	    matchContext: object
+	  },
+	
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      render: function render(props) {
+	        return _react2.default.createElement(_RouterContext2.default, props);
+	      }
+	    };
+	  },
+	  getInitialState: function getInitialState() {
+	    return {
+	      location: null,
+	      routes: null,
+	      params: null,
+	      components: null
+	    };
+	  },
+	  handleError: function handleError(error) {
+	    if (this.props.onError) {
+	      this.props.onError.call(this, error);
+	    } else {
+	      // Throw errors by default so we don't silently swallow them!
+	      throw error; // This error probably occurred in getChildRoutes or getComponents.
+	    }
+	  },
+	  createRouterObject: function createRouterObject(state) {
+	    var matchContext = this.props.matchContext;
+	
+	    if (matchContext) {
+	      return matchContext.router;
+	    }
+	
+	    var history = this.props.history;
+	
+	    return (0, _RouterUtils.createRouterObject)(history, this.transitionManager, state);
+	  },
+	  createTransitionManager: function createTransitionManager() {
+	    var matchContext = this.props.matchContext;
+	
+	    if (matchContext) {
+	      return matchContext.transitionManager;
+	    }
+	
+	    var history = this.props.history;
+	    var _props = this.props,
+	        routes = _props.routes,
+	        children = _props.children;
+	
+	
+	    !history.getCurrentLocation ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, 'You have provided a history object created with history v2.x or ' + 'earlier. This version of React Router is only compatible with v3 ' + 'history objects. Please upgrade to history v3.x.') : (0, _invariant2.default)(false) : void 0;
+	
+	    return (0, _createTransitionManager3.default)(history, (0, _RouteUtils.createRoutes)(routes || children));
+	  },
+	  componentWillMount: function componentWillMount() {
+	    var _this = this;
+	
+	    this.transitionManager = this.createTransitionManager();
+	    this.router = this.createRouterObject(this.state);
+	
+	    this._unlisten = this.transitionManager.listen(function (error, state) {
+	      if (error) {
+	        _this.handleError(error);
+	      } else {
+	        // Keep the identity of this.router because of a caveat in ContextUtils:
+	        // they only work if the object identity is preserved.
+	        (0, _RouterUtils.assignRouterState)(_this.router, state);
+	        _this.setState(state, _this.props.onUpdate);
+	      }
+	    });
+	  },
+	
+	
+	  /* istanbul ignore next: sanity check */
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	    process.env.NODE_ENV !== 'production' ? (0, _routerWarning2.default)(nextProps.history === this.props.history, 'You cannot change <Router history>; it will be ignored') : void 0;
+	
+	    process.env.NODE_ENV !== 'production' ? (0, _routerWarning2.default)((nextProps.routes || nextProps.children) === (this.props.routes || this.props.children), 'You cannot change <Router routes>; it will be ignored') : void 0;
+	  },
+	  componentWillUnmount: function componentWillUnmount() {
+	    if (this._unlisten) this._unlisten();
+	  },
+	  render: function render() {
+	    var _state = this.state,
+	        location = _state.location,
+	        routes = _state.routes,
+	        params = _state.params,
+	        components = _state.components;
+	
+	    var _props2 = this.props,
+	        createElement = _props2.createElement,
+	        render = _props2.render,
+	        props = _objectWithoutProperties(_props2, ['createElement', 'render']);
+	
+	    if (location == null) return null; // Async match
+	
+	    // Only forward non-Router-specific props to routing context, as those are
+	    // the only ones that might be custom routing context props.
+	    Object.keys(Router.propTypes).forEach(function (propType) {
+	      return delete props[propType];
+	    });
+	
+	    return render(_extends({}, props, {
+	      router: this.router,
+	      location: location,
+	      routes: routes,
+	      params: params,
+	      components: components,
+	      createElement: createElement
+	    }));
+	  }
+	});
+	
+	exports.default = Router;
+	module.exports = exports['default'];
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	exports.default = createTransitionManager;
+	
+	var _routerWarning = __webpack_require__(180);
+	
+	var _routerWarning2 = _interopRequireDefault(_routerWarning);
+	
+	var _computeChangedRoutes2 = __webpack_require__(182);
+	
+	var _computeChangedRoutes3 = _interopRequireDefault(_computeChangedRoutes2);
+	
+	var _TransitionUtils = __webpack_require__(183);
+	
+	var _isActive2 = __webpack_require__(185);
+	
+	var _isActive3 = _interopRequireDefault(_isActive2);
+	
+	var _getComponents = __webpack_require__(186);
+	
+	var _getComponents2 = _interopRequireDefault(_getComponents);
+	
+	var _matchRoutes = __webpack_require__(188);
+	
+	var _matchRoutes2 = _interopRequireDefault(_matchRoutes);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function hasAnyProperties(object) {
+	  for (var p in object) {
+	    if (Object.prototype.hasOwnProperty.call(object, p)) return true;
+	  }return false;
+	}
+	
+	function createTransitionManager(history, routes) {
+	  var state = {};
+	
+	  // Signature should be (location, indexOnly), but needs to support (path,
+	  // query, indexOnly)
+	  function isActive(location, indexOnly) {
+	    location = history.createLocation(location);
+	
+	    return (0, _isActive3.default)(location, indexOnly, state.location, state.routes, state.params);
+	  }
+	
+	  var partialNextState = void 0;
+	
+	  function match(location, callback) {
+	    if (partialNextState && partialNextState.location === location) {
+	      // Continue from where we left off.
+	      finishMatch(partialNextState, callback);
+	    } else {
+	      (0, _matchRoutes2.default)(routes, location, function (error, nextState) {
+	        if (error) {
+	          callback(error);
+	        } else if (nextState) {
+	          finishMatch(_extends({}, nextState, { location: location }), callback);
+	        } else {
+	          callback();
+	        }
+	      });
+	    }
+	  }
+	
+	  function finishMatch(nextState, callback) {
+	    var _computeChangedRoutes = (0, _computeChangedRoutes3.default)(state, nextState),
+	        leaveRoutes = _computeChangedRoutes.leaveRoutes,
+	        changeRoutes = _computeChangedRoutes.changeRoutes,
+	        enterRoutes = _computeChangedRoutes.enterRoutes;
+	
+	    (0, _TransitionUtils.runLeaveHooks)(leaveRoutes, state);
+	
+	    // Tear down confirmation hooks for left routes
+	    leaveRoutes.filter(function (route) {
+	      return enterRoutes.indexOf(route) === -1;
+	    }).forEach(removeListenBeforeHooksForRoute);
+	
+	    // change and enter hooks are run in series
+	    (0, _TransitionUtils.runChangeHooks)(changeRoutes, state, nextState, function (error, redirectInfo) {
+	      if (error || redirectInfo) return handleErrorOrRedirect(error, redirectInfo);
+	
+	      (0, _TransitionUtils.runEnterHooks)(enterRoutes, nextState, finishEnterHooks);
+	    });
+	
+	    function finishEnterHooks(error, redirectInfo) {
+	      if (error || redirectInfo) return handleErrorOrRedirect(error, redirectInfo);
+	
+	      // TODO: Fetch components after state is updated.
+	      (0, _getComponents2.default)(nextState, function (error, components) {
+	        if (error) {
+	          callback(error);
+	        } else {
+	          // TODO: Make match a pure function and have some other API
+	          // for "match and update state".
+	          callback(null, null, state = _extends({}, nextState, { components: components }));
+	        }
+	      });
+	    }
+	
+	    function handleErrorOrRedirect(error, redirectInfo) {
+	      if (error) callback(error);else callback(null, redirectInfo);
+	    }
+	  }
+	
+	  var RouteGuid = 1;
+	
+	  function getRouteID(route) {
+	    var create = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+	
+	    return route.__id__ || create && (route.__id__ = RouteGuid++);
+	  }
+	
+	  var RouteHooks = Object.create(null);
+	
+	  function getRouteHooksForRoutes(routes) {
+	    return routes.map(function (route) {
+	      return RouteHooks[getRouteID(route)];
+	    }).filter(function (hook) {
+	      return hook;
+	    });
+	  }
+	
+	  function transitionHook(location, callback) {
+	    (0, _matchRoutes2.default)(routes, location, function (error, nextState) {
+	      if (nextState == null) {
+	        // TODO: We didn't actually match anything, but hang
+	        // onto error/nextState so we don't have to matchRoutes
+	        // again in the listen callback.
+	        callback();
+	        return;
+	      }
+	
+	      // Cache some state here so we don't have to
+	      // matchRoutes() again in the listen callback.
+	      partialNextState = _extends({}, nextState, { location: location });
+	
+	      var hooks = getRouteHooksForRoutes((0, _computeChangedRoutes3.default)(state, partialNextState).leaveRoutes);
+	
+	      var result = void 0;
+	      for (var i = 0, len = hooks.length; result == null && i < len; ++i) {
+	        // Passing the location arg here indicates to
+	        // the user that this is a transition hook.
+	        result = hooks[i](location);
+	      }
+	
+	      callback(result);
+	    });
+	  }
+	
+	  /* istanbul ignore next: untestable with Karma */
+	  function beforeUnloadHook() {
+	    // Synchronously check to see if any route hooks want
+	    // to prevent the current window/tab from closing.
+	    if (state.routes) {
+	      var hooks = getRouteHooksForRoutes(state.routes);
+	
+	      var message = void 0;
+	      for (var i = 0, len = hooks.length; typeof message !== 'string' && i < len; ++i) {
+	        // Passing no args indicates to the user that this is a
+	        // beforeunload hook. We don't know the next location.
+	        message = hooks[i]();
+	      }
+	
+	      return message;
+	    }
+	  }
+	
+	  var unlistenBefore = void 0,
+	      unlistenBeforeUnload = void 0;
+	
+	  function removeListenBeforeHooksForRoute(route) {
+	    var routeID = getRouteID(route);
+	    if (!routeID) {
+	      return;
+	    }
+	
+	    delete RouteHooks[routeID];
+	
+	    if (!hasAnyProperties(RouteHooks)) {
+	      // teardown transition & beforeunload hooks
+	      if (unlistenBefore) {
+	        unlistenBefore();
+	        unlistenBefore = null;
+	      }
+	
+	      if (unlistenBeforeUnload) {
+	        unlistenBeforeUnload();
+	        unlistenBeforeUnload = null;
+	      }
+	    }
+	  }
+	
+	  /**
+	   * Registers the given hook function to run before leaving the given route.
+	   *
+	   * During a normal transition, the hook function receives the next location
+	   * as its only argument and can return either a prompt message (string) to show the user,
+	   * to make sure they want to leave the page; or `false`, to prevent the transition.
+	   * Any other return value will have no effect.
+	   *
+	   * During the beforeunload event (in browsers) the hook receives no arguments.
+	   * In this case it must return a prompt message to prevent the transition.
+	   *
+	   * Returns a function that may be used to unbind the listener.
+	   */
+	  function listenBeforeLeavingRoute(route, hook) {
+	    var thereWereNoRouteHooks = !hasAnyProperties(RouteHooks);
+	    var routeID = getRouteID(route, true);
+	
+	    RouteHooks[routeID] = hook;
+	
+	    if (thereWereNoRouteHooks) {
+	      // setup transition & beforeunload hooks
+	      unlistenBefore = history.listenBefore(transitionHook);
+	
+	      if (history.listenBeforeUnload) unlistenBeforeUnload = history.listenBeforeUnload(beforeUnloadHook);
+	    }
+	
+	    return function () {
+	      removeListenBeforeHooksForRoute(route);
+	    };
+	  }
+	
+	  /**
+	   * This is the API for stateful environments. As the location
+	   * changes, we update state and call the listener. We can also
+	   * gracefully handle errors and redirects.
+	   */
+	  function listen(listener) {
+	    function historyListener(location) {
+	      if (state.location === location) {
+	        listener(null, state);
+	      } else {
+	        match(location, function (error, redirectLocation, nextState) {
+	          if (error) {
+	            listener(error);
+	          } else if (redirectLocation) {
+	            history.replace(redirectLocation);
+	          } else if (nextState) {
+	            listener(null, nextState);
+	          } else {
+	            process.env.NODE_ENV !== 'production' ? (0, _routerWarning2.default)(false, 'Location "%s" did not match any routes', location.pathname + location.search + location.hash) : void 0;
+	          }
+	        });
+	      }
+	    }
+	
+	    // TODO: Only use a single history listener. Otherwise we'll end up with
+	    // multiple concurrent calls to match.
+	
+	    // Set up the history listener first in case the initial match redirects.
+	    var unsubscribe = history.listen(historyListener);
+	
+	    if (state.location) {
+	      // Picking up on a matchContext.
+	      listener(null, state);
+	    } else {
+	      historyListener(history.getCurrentLocation());
+	    }
+	
+	    return unsubscribe;
+	  }
+	
+	  return {
+	    isActive: isActive,
+	    match: match,
+	    listenBeforeLeavingRoute: listenBeforeLeavingRoute,
+	    listen: listen
+	  };
+	}
+	module.exports = exports['default'];
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	exports.default = routerWarning;
+	exports._resetWarned = _resetWarned;
+	
+	var _warning = __webpack_require__(181);
+	
+	var _warning2 = _interopRequireDefault(_warning);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var warned = {};
+	
+	function routerWarning(falseToWarn, message) {
+	  // Only issue deprecation warnings once.
+	  if (message.indexOf('deprecated') !== -1) {
+	    if (warned[message]) {
+	      return;
+	    }
+	
+	    warned[message] = true;
+	  }
+	
+	  message = '[react-router] ' + message;
+	
+	  for (var _len = arguments.length, args = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+	    args[_key - 2] = arguments[_key];
+	  }
+	
+	  _warning2.default.apply(undefined, [falseToWarn, message].concat(args));
+	}
+	
+	function _resetWarned() {
+	  warned = {};
+	}
+
+/***/ },
+/* 181 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2014-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 */
+	
+	'use strict';
+	
+	/**
+	 * Similar to invariant but only logs a warning if the condition is not met.
+	 * This can be used to log issues in development environments in critical
+	 * paths. Removing the logging code for production environments will keep the
+	 * same logic and follow the same code paths.
+	 */
+	
+	var warning = function() {};
+	
+	if (process.env.NODE_ENV !== 'production') {
+	  warning = function(condition, format, args) {
+	    var len = arguments.length;
+	    args = new Array(len > 2 ? len - 2 : 0);
+	    for (var key = 2; key < len; key++) {
+	      args[key - 2] = arguments[key];
+	    }
+	    if (format === undefined) {
+	      throw new Error(
+	        '`warning(condition, format, ...args)` requires a warning ' +
+	        'message argument'
+	      );
+	    }
+	
+	    if (format.length < 10 || (/^[s\W]*$/).test(format)) {
+	      throw new Error(
+	        'The warning format should be able to uniquely identify this ' +
+	        'warning. Please, use a more descriptive format than: ' + format
+	      );
+	    }
+	
+	    if (!condition) {
+	      var argIndex = 0;
+	      var message = 'Warning: ' +
+	        format.replace(/%s/g, function() {
+	          return args[argIndex++];
+	        });
+	      if (typeof console !== 'undefined') {
+	        console.error(message);
+	      }
+	      try {
+	        // This error was thrown as a convenience so that you can use this stack
+	        // to find the callsite that caused this warning to fire.
+	        throw new Error(message);
+	      } catch(x) {}
+	    }
+	  };
+	}
+	
+	module.exports = warning;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 182 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var _PatternUtils = __webpack_require__(176);
+	
+	function routeParamsChanged(route, prevState, nextState) {
+	  if (!route.path) return false;
+	
+	  var paramNames = (0, _PatternUtils.getParamNames)(route.path);
+	
+	  return paramNames.some(function (paramName) {
+	    return prevState.params[paramName] !== nextState.params[paramName];
+	  });
+	}
+	
+	/**
+	 * Returns an object of { leaveRoutes, changeRoutes, enterRoutes } determined by
+	 * the change from prevState to nextState. We leave routes if either
+	 * 1) they are not in the next state or 2) they are in the next state
+	 * but their params have changed (i.e. /users/123 => /users/456).
+	 *
+	 * leaveRoutes are ordered starting at the leaf route of the tree
+	 * we're leaving up to the common parent route. enterRoutes are ordered
+	 * from the top of the tree we're entering down to the leaf route.
+	 *
+	 * changeRoutes are any routes that didn't leave or enter during
+	 * the transition.
+	 */
+	function computeChangedRoutes(prevState, nextState) {
+	  var prevRoutes = prevState && prevState.routes;
+	  var nextRoutes = nextState.routes;
+	
+	  var leaveRoutes = void 0,
+	      changeRoutes = void 0,
+	      enterRoutes = void 0;
+	  if (prevRoutes) {
+	    (function () {
+	      var parentIsLeaving = false;
+	      leaveRoutes = prevRoutes.filter(function (route) {
+	        if (parentIsLeaving) {
+	          return true;
+	        } else {
+	          var isLeaving = nextRoutes.indexOf(route) === -1 || routeParamsChanged(route, prevState, nextState);
+	          if (isLeaving) parentIsLeaving = true;
+	          return isLeaving;
+	        }
+	      });
+	
+	      // onLeave hooks start at the leaf route.
+	      leaveRoutes.reverse();
+	
+	      enterRoutes = [];
+	      changeRoutes = [];
+	
+	      nextRoutes.forEach(function (route) {
+	        var isNew = prevRoutes.indexOf(route) === -1;
+	        var paramsChanged = leaveRoutes.indexOf(route) !== -1;
+	
+	        if (isNew || paramsChanged) enterRoutes.push(route);else changeRoutes.push(route);
+	      });
+	    })();
+	  } else {
+	    leaveRoutes = [];
+	    changeRoutes = [];
+	    enterRoutes = nextRoutes;
+	  }
+	
+	  return {
+	    leaveRoutes: leaveRoutes,
+	    changeRoutes: changeRoutes,
+	    enterRoutes: enterRoutes
+	  };
+	}
+	
+	exports.default = computeChangedRoutes;
+	module.exports = exports['default'];
+
+/***/ },
+/* 183 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	exports.runEnterHooks = runEnterHooks;
+	exports.runChangeHooks = runChangeHooks;
+	exports.runLeaveHooks = runLeaveHooks;
+	
+	var _AsyncUtils = __webpack_require__(184);
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var PendingHooks = function PendingHooks() {
+	  var _this = this;
+	
+	  _classCallCheck(this, PendingHooks);
+	
+	  this.hooks = [];
+	
+	  this.add = function (hook) {
+	    return _this.hooks.push(hook);
+	  };
+	
+	  this.remove = function (hook) {
+	    return _this.hooks = _this.hooks.filter(function (h) {
+	      return h !== hook;
+	    });
+	  };
+	
+	  this.has = function (hook) {
+	    return _this.hooks.indexOf(hook) !== -1;
+	  };
+	
+	  this.clear = function () {
+	    return _this.hooks = [];
+	  };
+	};
+	
+	var enterHooks = new PendingHooks();
+	var changeHooks = new PendingHooks();
+	
+	function createTransitionHook(hook, route, asyncArity, pendingHooks) {
+	  var isSync = hook.length < asyncArity;
+	
+	  var transitionHook = function transitionHook() {
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+	
+	    hook.apply(route, args);
+	
+	    if (isSync) {
+	      var callback = args[args.length - 1];
+	      // Assume hook executes synchronously and
+	      // automatically call the callback.
+	      callback();
+	    }
+	  };
+	
+	  pendingHooks.add(transitionHook);
+	
+	  return transitionHook;
+	}
+	
+	function getEnterHooks(routes) {
+	  return routes.reduce(function (hooks, route) {
+	    if (route.onEnter) hooks.push(createTransitionHook(route.onEnter, route, 3, enterHooks));
+	    return hooks;
+	  }, []);
+	}
+	
+	function getChangeHooks(routes) {
+	  return routes.reduce(function (hooks, route) {
+	    if (route.onChange) hooks.push(createTransitionHook(route.onChange, route, 4, changeHooks));
+	    return hooks;
+	  }, []);
+	}
+	
+	function runTransitionHooks(length, iter, callback) {
+	  if (!length) {
+	    callback();
+	    return;
+	  }
+	
+	  var redirectInfo = void 0;
+	  function replace(location) {
+	    redirectInfo = location;
+	  }
+	
+	  (0, _AsyncUtils.loopAsync)(length, function (index, next, done) {
+	    iter(index, replace, function (error) {
+	      if (error || redirectInfo) {
+	        done(error, redirectInfo); // No need to continue.
+	      } else {
+	        next();
+	      }
+	    });
+	  }, callback);
+	}
+	
+	/**
+	 * Runs all onEnter hooks in the given array of routes in order
+	 * with onEnter(nextState, replace, callback) and calls
+	 * callback(error, redirectInfo) when finished. The first hook
+	 * to use replace short-circuits the loop.
+	 *
+	 * If a hook needs to run asynchronously, it may use the callback
+	 * function. However, doing so will cause the transition to pause,
+	 * which could lead to a non-responsive UI if the hook is slow.
+	 */
+	function runEnterHooks(routes, nextState, callback) {
+	  enterHooks.clear();
+	  var hooks = getEnterHooks(routes);
+	  return runTransitionHooks(hooks.length, function (index, replace, next) {
+	    var wrappedNext = function wrappedNext() {
+	      if (enterHooks.has(hooks[index])) {
+	        next();
+	        enterHooks.remove(hooks[index]);
+	      }
+	    };
+	    hooks[index](nextState, replace, wrappedNext);
+	  }, callback);
+	}
+	
+	/**
+	 * Runs all onChange hooks in the given array of routes in order
+	 * with onChange(prevState, nextState, replace, callback) and calls
+	 * callback(error, redirectInfo) when finished. The first hook
+	 * to use replace short-circuits the loop.
+	 *
+	 * If a hook needs to run asynchronously, it may use the callback
+	 * function. However, doing so will cause the transition to pause,
+	 * which could lead to a non-responsive UI if the hook is slow.
+	 */
+	function runChangeHooks(routes, state, nextState, callback) {
+	  changeHooks.clear();
+	  var hooks = getChangeHooks(routes);
+	  return runTransitionHooks(hooks.length, function (index, replace, next) {
+	    var wrappedNext = function wrappedNext() {
+	      if (changeHooks.has(hooks[index])) {
+	        next();
+	        changeHooks.remove(hooks[index]);
+	      }
+	    };
+	    hooks[index](state, nextState, replace, wrappedNext);
+	  }, callback);
+	}
+	
+	/**
+	 * Runs all onLeave hooks in the given array of routes in order.
+	 */
+	function runLeaveHooks(routes, prevState) {
+	  for (var i = 0, len = routes.length; i < len; ++i) {
+	    if (routes[i].onLeave) routes[i].onLeave.call(routes[i], prevState);
+	  }
+	}
+
+/***/ },
+/* 184 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	exports.__esModule = true;
+	exports.loopAsync = loopAsync;
+	exports.mapAsync = mapAsync;
+	function loopAsync(turns, work, callback) {
+	  var currentTurn = 0,
+	      isDone = false;
+	  var sync = false,
+	      hasNext = false,
+	      doneArgs = void 0;
+	
+	  function done() {
+	    isDone = true;
+	    if (sync) {
+	      // Iterate instead of recursing if possible.
+	      doneArgs = [].concat(Array.prototype.slice.call(arguments));
+	      return;
+	    }
+	
+	    callback.apply(this, arguments);
+	  }
+	
+	  function next() {
+	    if (isDone) {
+	      return;
+	    }
+	
+	    hasNext = true;
+	    if (sync) {
+	      // Iterate instead of recursing if possible.
+	      return;
+	    }
+	
+	    sync = true;
+	
+	    while (!isDone && currentTurn < turns && hasNext) {
+	      hasNext = false;
+	      work.call(this, currentTurn++, next, done);
+	    }
+	
+	    sync = false;
+	
+	    if (isDone) {
+	      // This means the loop finished synchronously.
+	      callback.apply(this, doneArgs);
+	      return;
+	    }
+	
+	    if (currentTurn >= turns && hasNext) {
+	      isDone = true;
+	      callback();
+	    }
+	  }
+	
+	  next();
+	}
+	
+	function mapAsync(array, work, callback) {
+	  var length = array.length;
+	  var values = [];
+	
+	  if (length === 0) return callback(null, values);
+	
+	  var isDone = false,
+	      doneCount = 0;
+	
+	  function done(index, error, value) {
+	    if (isDone) return;
+	
+	    if (error) {
+	      isDone = true;
+	      callback(error);
+	    } else {
+	      values[index] = value;
+	
+	      isDone = ++doneCount === length;
+	
+	      if (isDone) callback(null, values);
+	    }
+	  }
+	
+	  array.forEach(function (item, index) {
+	    work(item, index, function (error, value) {
+	      done(index, error, value);
+	    });
+	  });
+	}
+
+/***/ },
+/* 185 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
+	exports.default = isActive;
+	
+	var _PatternUtils = __webpack_require__(176);
+	
+	function deepEqual(a, b) {
+	  if (a == b) return true;
+	
+	  if (a == null || b == null) return false;
+	
+	  if (Array.isArray(a)) {
+	    return Array.isArray(b) && a.length === b.length && a.every(function (item, index) {
+	      return deepEqual(item, b[index]);
+	    });
+	  }
+	
+	  if ((typeof a === 'undefined' ? 'undefined' : _typeof(a)) === 'object') {
+	    for (var p in a) {
+	      if (!Object.prototype.hasOwnProperty.call(a, p)) {
+	        continue;
+	      }
+	
+	      if (a[p] === undefined) {
+	        if (b[p] !== undefined) {
+	          return false;
+	        }
+	      } else if (!Object.prototype.hasOwnProperty.call(b, p)) {
+	        return false;
+	      } else if (!deepEqual(a[p], b[p])) {
+	        return false;
+	      }
+	    }
+	
+	    return true;
+	  }
+	
+	  return String(a) === String(b);
+	}
+	
+	/**
+	 * Returns true if the current pathname matches the supplied one, net of
+	 * leading and trailing slash normalization. This is sufficient for an
+	 * indexOnly route match.
+	 */
+	function pathIsActive(pathname, currentPathname) {
+	  // Normalize leading slash for consistency. Leading slash on pathname has
+	  // already been normalized in isActive. See caveat there.
+	  if (currentPathname.charAt(0) !== '/') {
+	    currentPathname = '/' + currentPathname;
+	  }
+	
+	  // Normalize the end of both path names too. Maybe `/foo/` shouldn't show
+	  // `/foo` as active, but in this case, we would already have failed the
+	  // match.
+	  if (pathname.charAt(pathname.length - 1) !== '/') {
+	    pathname += '/';
+	  }
+	  if (currentPathname.charAt(currentPathname.length - 1) !== '/') {
+	    currentPathname += '/';
+	  }
+	
+	  return currentPathname === pathname;
+	}
+	
+	/**
+	 * Returns true if the given pathname matches the active routes and params.
+	 */
+	function routeIsActive(pathname, routes, params) {
+	  var remainingPathname = pathname,
+	      paramNames = [],
+	      paramValues = [];
+	
+	  // for...of would work here but it's probably slower post-transpilation.
+	  for (var i = 0, len = routes.length; i < len; ++i) {
+	    var route = routes[i];
+	    var pattern = route.path || '';
+	
+	    if (pattern.charAt(0) === '/') {
+	      remainingPathname = pathname;
+	      paramNames = [];
+	      paramValues = [];
+	    }
+	
+	    if (remainingPathname !== null && pattern) {
+	      var matched = (0, _PatternUtils.matchPattern)(pattern, remainingPathname);
+	      if (matched) {
+	        remainingPathname = matched.remainingPathname;
+	        paramNames = [].concat(paramNames, matched.paramNames);
+	        paramValues = [].concat(paramValues, matched.paramValues);
+	      } else {
+	        remainingPathname = null;
+	      }
+	
+	      if (remainingPathname === '') {
+	        // We have an exact match on the route. Just check that all the params
+	        // match.
+	        // FIXME: This doesn't work on repeated params.
+	        return paramNames.every(function (paramName, index) {
+	          return String(paramValues[index]) === String(params[paramName]);
+	        });
+	      }
+	    }
+	  }
+	
+	  return false;
+	}
+	
+	/**
+	 * Returns true if all key/value pairs in the given query are
+	 * currently active.
+	 */
+	function queryIsActive(query, activeQuery) {
+	  if (activeQuery == null) return query == null;
+	
+	  if (query == null) return true;
+	
+	  return deepEqual(query, activeQuery);
+	}
+	
+	/**
+	 * Returns true if a <Link> to the given pathname/query combination is
+	 * currently active.
+	 */
+	function isActive(_ref, indexOnly, currentLocation, routes, params) {
+	  var pathname = _ref.pathname,
+	      query = _ref.query;
+	
+	  if (currentLocation == null) return false;
+	
+	  // TODO: This is a bit ugly. It keeps around support for treating pathnames
+	  // without preceding slashes as absolute paths, but possibly also works
+	  // around the same quirks with basenames as in matchRoutes.
+	  if (pathname.charAt(0) !== '/') {
+	    pathname = '/' + pathname;
+	  }
+	
+	  if (!pathIsActive(pathname, currentLocation.pathname)) {
+	    // The path check is necessary and sufficient for indexOnly, but otherwise
+	    // we still need to check the routes.
+	    if (indexOnly || !routeIsActive(pathname, routes, params)) {
+	      return false;
+	    }
+	  }
+	
+	  return queryIsActive(query, currentLocation.query);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 186 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var _AsyncUtils = __webpack_require__(184);
+	
+	var _PromiseUtils = __webpack_require__(187);
+	
+	function getComponentsForRoute(nextState, route, callback) {
+	  if (route.component || route.components) {
+	    callback(null, route.component || route.components);
+	    return;
+	  }
+	
+	  var getComponent = route.getComponent || route.getComponents;
+	  if (getComponent) {
+	    var componentReturn = getComponent.call(route, nextState, callback);
+	    if ((0, _PromiseUtils.isPromise)(componentReturn)) componentReturn.then(function (component) {
+	      return callback(null, component);
+	    }, callback);
+	  } else {
+	    callback();
+	  }
+	}
+	
+	/**
+	 * Asynchronously fetches all components needed for the given router
+	 * state and calls callback(error, components) when finished.
+	 *
+	 * Note: This operation may finish synchronously if no routes have an
+	 * asynchronous getComponents method.
+	 */
+	function getComponents(nextState, callback) {
+	  (0, _AsyncUtils.mapAsync)(nextState.routes, function (route, index, callback) {
+	    getComponentsForRoute(nextState, route, callback);
+	  }, callback);
+	}
+	
+	exports.default = getComponents;
+	module.exports = exports['default'];
+
+/***/ },
+/* 187 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	exports.isPromise = isPromise;
+	function isPromise(obj) {
+	  return obj && typeof obj.then === 'function';
+	}
+
+/***/ },
+/* 188 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
+	exports.default = matchRoutes;
+	
+	var _AsyncUtils = __webpack_require__(184);
+	
+	var _PromiseUtils = __webpack_require__(187);
+	
+	var _PatternUtils = __webpack_require__(176);
+	
+	var _routerWarning = __webpack_require__(180);
+	
+	var _routerWarning2 = _interopRequireDefault(_routerWarning);
+	
+	var _RouteUtils = __webpack_require__(174);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function getChildRoutes(route, location, paramNames, paramValues, callback) {
+	  if (route.childRoutes) {
+	    return [null, route.childRoutes];
+	  }
+	  if (!route.getChildRoutes) {
+	    return [];
+	  }
+	
+	  var sync = true,
+	      result = void 0;
+	
+	  var partialNextState = {
+	    location: location,
+	    params: createParams(paramNames, paramValues)
+	  };
+	
+	  var childRoutesReturn = route.getChildRoutes(partialNextState, function (error, childRoutes) {
+	    childRoutes = !error && (0, _RouteUtils.createRoutes)(childRoutes);
+	    if (sync) {
+	      result = [error, childRoutes];
+	      return;
+	    }
+	
+	    callback(error, childRoutes);
+	  });
+	
+	  if ((0, _PromiseUtils.isPromise)(childRoutesReturn)) childRoutesReturn.then(function (childRoutes) {
+	    return callback(null, (0, _RouteUtils.createRoutes)(childRoutes));
+	  }, callback);
+	
+	  sync = false;
+	  return result; // Might be undefined.
+	}
+	
+	function getIndexRoute(route, location, paramNames, paramValues, callback) {
+	  if (route.indexRoute) {
+	    callback(null, route.indexRoute);
+	  } else if (route.getIndexRoute) {
+	    var partialNextState = {
+	      location: location,
+	      params: createParams(paramNames, paramValues)
+	    };
+	
+	    var indexRoutesReturn = route.getIndexRoute(partialNextState, function (error, indexRoute) {
+	      callback(error, !error && (0, _RouteUtils.createRoutes)(indexRoute)[0]);
+	    });
+	
+	    if ((0, _PromiseUtils.isPromise)(indexRoutesReturn)) indexRoutesReturn.then(function (indexRoute) {
+	      return callback(null, (0, _RouteUtils.createRoutes)(indexRoute)[0]);
+	    }, callback);
+	  } else if (route.childRoutes) {
+	    (function () {
+	      var pathless = route.childRoutes.filter(function (childRoute) {
+	        return !childRoute.path;
+	      });
+	
+	      (0, _AsyncUtils.loopAsync)(pathless.length, function (index, next, done) {
+	        getIndexRoute(pathless[index], location, paramNames, paramValues, function (error, indexRoute) {
+	          if (error || indexRoute) {
+	            var routes = [pathless[index]].concat(Array.isArray(indexRoute) ? indexRoute : [indexRoute]);
+	            done(error, routes);
+	          } else {
+	            next();
+	          }
+	        });
+	      }, function (err, routes) {
+	        callback(null, routes);
+	      });
+	    })();
+	  } else {
+	    callback();
+	  }
+	}
+	
+	function assignParams(params, paramNames, paramValues) {
+	  return paramNames.reduce(function (params, paramName, index) {
+	    var paramValue = paramValues && paramValues[index];
+	
+	    if (Array.isArray(params[paramName])) {
+	      params[paramName].push(paramValue);
+	    } else if (paramName in params) {
+	      params[paramName] = [params[paramName], paramValue];
+	    } else {
+	      params[paramName] = paramValue;
+	    }
+	
+	    return params;
+	  }, params);
+	}
+	
+	function createParams(paramNames, paramValues) {
+	  return assignParams({}, paramNames, paramValues);
+	}
+	
+	function matchRouteDeep(route, location, remainingPathname, paramNames, paramValues, callback) {
+	  var pattern = route.path || '';
+	
+	  if (pattern.charAt(0) === '/') {
+	    remainingPathname = location.pathname;
+	    paramNames = [];
+	    paramValues = [];
+	  }
+	
+	  // Only try to match the path if the route actually has a pattern, and if
+	  // we're not just searching for potential nested absolute paths.
+	  if (remainingPathname !== null && pattern) {
+	    try {
+	      var matched = (0, _PatternUtils.matchPattern)(pattern, remainingPathname);
+	      if (matched) {
+	        remainingPathname = matched.remainingPathname;
+	        paramNames = [].concat(paramNames, matched.paramNames);
+	        paramValues = [].concat(paramValues, matched.paramValues);
+	      } else {
+	        remainingPathname = null;
+	      }
+	    } catch (error) {
+	      callback(error);
+	    }
+	
+	    // By assumption, pattern is non-empty here, which is the prerequisite for
+	    // actually terminating a match.
+	    if (remainingPathname === '') {
+	      var _ret2 = function () {
+	        var match = {
+	          routes: [route],
+	          params: createParams(paramNames, paramValues)
+	        };
+	
+	        getIndexRoute(route, location, paramNames, paramValues, function (error, indexRoute) {
+	          if (error) {
+	            callback(error);
+	          } else {
+	            if (Array.isArray(indexRoute)) {
+	              var _match$routes;
+	
+	              process.env.NODE_ENV !== 'production' ? (0, _routerWarning2.default)(indexRoute.every(function (route) {
+	                return !route.path;
+	              }), 'Index routes should not have paths') : void 0;
+	              (_match$routes = match.routes).push.apply(_match$routes, indexRoute);
+	            } else if (indexRoute) {
+	              process.env.NODE_ENV !== 'production' ? (0, _routerWarning2.default)(!indexRoute.path, 'Index routes should not have paths') : void 0;
+	              match.routes.push(indexRoute);
+	            }
+	
+	            callback(null, match);
+	          }
+	        });
+	
+	        return {
+	          v: void 0
+	        };
+	      }();
+	
+	      if ((typeof _ret2 === 'undefined' ? 'undefined' : _typeof(_ret2)) === "object") return _ret2.v;
+	    }
+	  }
+	
+	  if (remainingPathname != null || route.childRoutes) {
+	    // Either a) this route matched at least some of the path or b)
+	    // we don't have to load this route's children asynchronously. In
+	    // either case continue checking for matches in the subtree.
+	    var onChildRoutes = function onChildRoutes(error, childRoutes) {
+	      if (error) {
+	        callback(error);
+	      } else if (childRoutes) {
+	        // Check the child routes to see if any of them match.
+	        matchRoutes(childRoutes, location, function (error, match) {
+	          if (error) {
+	            callback(error);
+	          } else if (match) {
+	            // A child route matched! Augment the match and pass it up the stack.
+	            match.routes.unshift(route);
+	            callback(null, match);
+	          } else {
+	            callback();
+	          }
+	        }, remainingPathname, paramNames, paramValues);
+	      } else {
+	        callback();
+	      }
+	    };
+	
+	    var result = getChildRoutes(route, location, paramNames, paramValues, onChildRoutes);
+	    if (result) {
+	      onChildRoutes.apply(undefined, result);
+	    }
+	  } else {
+	    callback();
+	  }
+	}
+	
+	/**
+	 * Asynchronously matches the given location to a set of routes and calls
+	 * callback(error, state) when finished. The state object will have the
+	 * following properties:
+	 *
+	 * - routes       An array of routes that matched, in hierarchical order
+	 * - params       An object of URL parameters
+	 *
+	 * Note: This operation may finish synchronously if no routes have an
+	 * asynchronous getChildRoutes method.
+	 */
+	function matchRoutes(routes, location, callback, remainingPathname) {
+	  var paramNames = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : [];
+	  var paramValues = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : [];
+	
+	  if (remainingPathname === undefined) {
+	    // TODO: This is a little bit ugly, but it works around a quirk in history
+	    // that strips the leading slash from pathnames when using basenames with
+	    // trailing slashes.
+	    if (location.pathname.charAt(0) !== '/') {
+	      location = _extends({}, location, {
+	        pathname: '/' + location.pathname
+	      });
+	    }
+	    remainingPathname = location.pathname;
+	  }
+	
+	  (0, _AsyncUtils.loopAsync)(routes.length, function (index, next, done) {
+	    matchRouteDeep(routes[index], location, remainingPathname, paramNames, paramValues, function (error, match) {
+	      if (error || match) {
+	        done(error, match);
+	      } else {
+	        next();
+	      }
+	    });
+	  }, callback);
+	}
+	module.exports = exports['default'];
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 189 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	exports.routes = exports.route = exports.components = exports.component = exports.history = undefined;
+	exports.falsy = falsy;
+	
+	var _react = __webpack_require__(1);
+	
+	var func = _react.PropTypes.func,
+	    object = _react.PropTypes.object,
+	    arrayOf = _react.PropTypes.arrayOf,
+	    oneOfType = _react.PropTypes.oneOfType,
+	    element = _react.PropTypes.element,
+	    shape = _react.PropTypes.shape,
+	    string = _react.PropTypes.string;
+	function falsy(props, propName, componentName) {
+	  if (props[propName]) return new Error('<' + componentName + '> should not have a "' + propName + '" prop');
+	}
+	
+	var history = exports.history = shape({
+	  listen: func.isRequired,
+	  push: func.isRequired,
+	  replace: func.isRequired,
+	  go: func.isRequired,
+	  goBack: func.isRequired,
+	  goForward: func.isRequired
+	});
+	
+	var component = exports.component = oneOfType([func, string]);
+	var components = exports.components = oneOfType([component, object]);
+	var route = exports.route = oneOfType([object, element]);
+	var routes = exports.routes = oneOfType([route, arrayOf(route)]);
+
+/***/ },
+/* 190 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
+	var _invariant = __webpack_require__(177);
+	
+	var _invariant2 = _interopRequireDefault(_invariant);
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _getRouteParams = __webpack_require__(191);
+	
+	var _getRouteParams2 = _interopRequireDefault(_getRouteParams);
+	
+	var _ContextUtils = __webpack_require__(192);
+	
+	var _RouteUtils = __webpack_require__(174);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var _React$PropTypes = _react2.default.PropTypes,
+	    array = _React$PropTypes.array,
+	    func = _React$PropTypes.func,
+	    object = _React$PropTypes.object;
+	
+	/**
+	 * A <RouterContext> renders the component tree for a given router state
+	 * and sets the history object and the current location in context.
+	 */
+	
+	var RouterContext = _react2.default.createClass({
+	  displayName: 'RouterContext',
+	
+	
+	  mixins: [(0, _ContextUtils.ContextProvider)('router')],
+	
+	  propTypes: {
+	    router: object.isRequired,
+	    location: object.isRequired,
+	    routes: array.isRequired,
+	    params: object.isRequired,
+	    components: array.isRequired,
+	    createElement: func.isRequired
+	  },
+	
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      createElement: _react2.default.createElement
+	    };
+	  },
+	
+	
+	  childContextTypes: {
+	    router: object.isRequired
+	  },
+	
+	  getChildContext: function getChildContext() {
+	    return {
+	      router: this.props.router
+	    };
+	  },
+	  createElement: function createElement(component, props) {
+	    return component == null ? null : this.props.createElement(component, props);
+	  },
+	  render: function render() {
+	    var _this = this;
+	
+	    var _props = this.props,
+	        location = _props.location,
+	        routes = _props.routes,
+	        params = _props.params,
+	        components = _props.components,
+	        router = _props.router;
+	
+	    var element = null;
+	
+	    if (components) {
+	      element = components.reduceRight(function (element, components, index) {
+	        if (components == null) return element; // Don't create new children; use the grandchildren.
+	
+	        var route = routes[index];
+	        var routeParams = (0, _getRouteParams2.default)(route, params);
+	        var props = {
+	          location: location,
+	          params: params,
+	          route: route,
+	          router: router,
+	          routeParams: routeParams,
+	          routes: routes
+	        };
+	
+	        if ((0, _RouteUtils.isReactChildren)(element)) {
+	          props.children = element;
+	        } else if (element) {
+	          for (var prop in element) {
+	            if (Object.prototype.hasOwnProperty.call(element, prop)) props[prop] = element[prop];
+	          }
+	        }
+	
+	        if ((typeof components === 'undefined' ? 'undefined' : _typeof(components)) === 'object') {
+	          var elements = {};
+	
+	          for (var key in components) {
+	            if (Object.prototype.hasOwnProperty.call(components, key)) {
+	              // Pass through the key as a prop to createElement to allow
+	              // custom createElement functions to know which named component
+	              // they're rendering, for e.g. matching up to fetched data.
+	              elements[key] = _this.createElement(components[key], _extends({
+	                key: key }, props));
+	            }
+	          }
+	
+	          return elements;
+	        }
+	
+	        return _this.createElement(components, props);
+	      }, element);
+	    }
+	
+	    !(element === null || element === false || _react2.default.isValidElement(element)) ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, 'The root route must render a single element') : (0, _invariant2.default)(false) : void 0;
+	
+	    return element;
+	  }
+	});
+	
+	exports.default = RouterContext;
+	module.exports = exports['default'];
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 191 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var _PatternUtils = __webpack_require__(176);
+	
+	/**
+	 * Extracts an object of params the given route cares about from
+	 * the given params object.
+	 */
+	function getRouteParams(route, params) {
+	  var routeParams = {};
+	
+	  if (!route.path) return routeParams;
+	
+	  (0, _PatternUtils.getParamNames)(route.path).forEach(function (p) {
+	    if (Object.prototype.hasOwnProperty.call(params, p)) {
+	      routeParams[p] = params[p];
+	    }
+	  });
+	
+	  return routeParams;
+	}
+	
+	exports.default = getRouteParams;
+	module.exports = exports['default'];
+
+/***/ },
+/* 192 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	exports.ContextProvider = ContextProvider;
+	exports.ContextSubscriber = ContextSubscriber;
+	
+	var _react = __webpack_require__(1);
+	
+	// Works around issues with context updates failing to propagate.
+	// Caveat: the context value is expected to never change its identity.
+	// https://github.com/facebook/react/issues/2517
+	// https://github.com/reactjs/react-router/issues/470
+	
+	var contextProviderShape = _react.PropTypes.shape({
+	  subscribe: _react.PropTypes.func.isRequired,
+	  eventIndex: _react.PropTypes.number.isRequired
+	});
+	
+	function makeContextName(name) {
+	  return '@@contextSubscriber/' + name;
+	}
+	
+	function ContextProvider(name) {
+	  var _childContextTypes, _ref2;
+	
+	  var contextName = makeContextName(name);
+	  var listenersKey = contextName + '/listeners';
+	  var eventIndexKey = contextName + '/eventIndex';
+	  var subscribeKey = contextName + '/subscribe';
+	
+	  return _ref2 = {
+	    childContextTypes: (_childContextTypes = {}, _childContextTypes[contextName] = contextProviderShape.isRequired, _childContextTypes),
+	
+	    getChildContext: function getChildContext() {
+	      var _ref;
+	
+	      return _ref = {}, _ref[contextName] = {
+	        eventIndex: this[eventIndexKey],
+	        subscribe: this[subscribeKey]
+	      }, _ref;
+	    },
+	    componentWillMount: function componentWillMount() {
+	      this[listenersKey] = [];
+	      this[eventIndexKey] = 0;
+	    },
+	    componentWillReceiveProps: function componentWillReceiveProps() {
+	      this[eventIndexKey]++;
+	    },
+	    componentDidUpdate: function componentDidUpdate() {
+	      var _this = this;
+	
+	      this[listenersKey].forEach(function (listener) {
+	        return listener(_this[eventIndexKey]);
+	      });
+	    }
+	  }, _ref2[subscribeKey] = function (listener) {
+	    var _this2 = this;
+	
+	    // No need to immediately call listener here.
+	    this[listenersKey].push(listener);
+	
+	    return function () {
+	      _this2[listenersKey] = _this2[listenersKey].filter(function (item) {
+	        return item !== listener;
+	      });
+	    };
+	  }, _ref2;
+	}
+	
+	function ContextSubscriber(name) {
+	  var _contextTypes, _ref4;
+	
+	  var contextName = makeContextName(name);
+	  var lastRenderedEventIndexKey = contextName + '/lastRenderedEventIndex';
+	  var handleContextUpdateKey = contextName + '/handleContextUpdate';
+	  var unsubscribeKey = contextName + '/unsubscribe';
+	
+	  return _ref4 = {
+	    contextTypes: (_contextTypes = {}, _contextTypes[contextName] = contextProviderShape, _contextTypes),
+	
+	    getInitialState: function getInitialState() {
+	      var _ref3;
+	
+	      if (!this.context[contextName]) {
+	        return {};
+	      }
+	
+	      return _ref3 = {}, _ref3[lastRenderedEventIndexKey] = this.context[contextName].eventIndex, _ref3;
+	    },
+	    componentDidMount: function componentDidMount() {
+	      if (!this.context[contextName]) {
+	        return;
+	      }
+	
+	      this[unsubscribeKey] = this.context[contextName].subscribe(this[handleContextUpdateKey]);
+	    },
+	    componentWillReceiveProps: function componentWillReceiveProps() {
+	      var _setState;
+	
+	      if (!this.context[contextName]) {
+	        return;
+	      }
+	
+	      this.setState((_setState = {}, _setState[lastRenderedEventIndexKey] = this.context[contextName].eventIndex, _setState));
+	    },
+	    componentWillUnmount: function componentWillUnmount() {
+	      if (!this[unsubscribeKey]) {
+	        return;
+	      }
+	
+	      this[unsubscribeKey]();
+	      this[unsubscribeKey] = null;
+	    }
+	  }, _ref4[handleContextUpdateKey] = function (eventIndex) {
+	    if (eventIndex !== this.state[lastRenderedEventIndexKey]) {
+	      var _setState2;
+	
+	      this.setState((_setState2 = {}, _setState2[lastRenderedEventIndexKey] = eventIndex, _setState2));
+	    }
+	  }, _ref4;
+	}
+
+/***/ },
+/* 193 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	exports.__esModule = true;
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	exports.createRouterObject = createRouterObject;
+	exports.assignRouterState = assignRouterState;
+	function createRouterObject(history, transitionManager, state) {
+	  var router = _extends({}, history, {
+	    setRouteLeaveHook: transitionManager.listenBeforeLeavingRoute,
+	    isActive: transitionManager.isActive
+	  });
+	
+	  return assignRouterState(router, state);
+	}
+	
+	function assignRouterState(router, _ref) {
+	  var location = _ref.location,
+	      params = _ref.params,
+	      routes = _ref.routes;
+	
+	  router.location = location;
+	  router.params = params;
+	  router.routes = routes;
+	
+	  return router;
+	}
+
+/***/ },
+/* 194 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _invariant = __webpack_require__(177);
+	
+	var _invariant2 = _interopRequireDefault(_invariant);
+	
+	var _PropTypes = __webpack_require__(175);
+	
+	var _ContextUtils = __webpack_require__(192);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+	
+	var _React$PropTypes = _react2.default.PropTypes,
+	    bool = _React$PropTypes.bool,
+	    object = _React$PropTypes.object,
+	    string = _React$PropTypes.string,
+	    func = _React$PropTypes.func,
+	    oneOfType = _React$PropTypes.oneOfType;
+	
+	
+	function isLeftClickEvent(event) {
+	  return event.button === 0;
+	}
+	
+	function isModifiedEvent(event) {
+	  return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
+	}
+	
+	// TODO: De-duplicate against hasAnyProperties in createTransitionManager.
+	function isEmptyObject(object) {
+	  for (var p in object) {
+	    if (Object.prototype.hasOwnProperty.call(object, p)) return false;
+	  }return true;
+	}
+	
+	function resolveToLocation(to, router) {
+	  return typeof to === 'function' ? to(router.location) : to;
+	}
+	
+	/**
+	 * A <Link> is used to create an <a> element that links to a route.
+	 * When that route is active, the link gets the value of its
+	 * activeClassName prop.
+	 *
+	 * For example, assuming you have the following route:
+	 *
+	 *   <Route path="/posts/:postID" component={Post} />
+	 *
+	 * You could use the following component to link to that route:
+	 *
+	 *   <Link to={`/posts/${post.id}`} />
+	 *
+	 * Links may pass along location state and/or query string parameters
+	 * in the state/query props, respectively.
+	 *
+	 *   <Link ... query={{ show: true }} state={{ the: 'state' }} />
+	 */
+	var Link = _react2.default.createClass({
+	  displayName: 'Link',
+	
+	
+	  mixins: [(0, _ContextUtils.ContextSubscriber)('router')],
+	
+	  contextTypes: {
+	    router: _PropTypes.routerShape
+	  },
+	
+	  propTypes: {
+	    to: oneOfType([string, object, func]),
+	    query: object,
+	    hash: string,
+	    state: object,
+	    activeStyle: object,
+	    activeClassName: string,
+	    onlyActiveOnIndex: bool.isRequired,
+	    onClick: func,
+	    target: string
+	  },
+	
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      onlyActiveOnIndex: false,
+	      style: {}
+	    };
+	  },
+	  handleClick: function handleClick(event) {
+	    if (this.props.onClick) this.props.onClick(event);
+	
+	    if (event.defaultPrevented) return;
+	
+	    var router = this.context.router;
+	
+	    !router ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, '<Link>s rendered outside of a router context cannot navigate.') : (0, _invariant2.default)(false) : void 0;
+	
+	    if (isModifiedEvent(event) || !isLeftClickEvent(event)) return;
+	
+	    // If target prop is set (e.g. to "_blank"), let browser handle link.
+	    /* istanbul ignore if: untestable with Karma */
+	    if (this.props.target) return;
+	
+	    event.preventDefault();
+	
+	    router.push(resolveToLocation(this.props.to, router));
+	  },
+	  render: function render() {
+	    var _props = this.props,
+	        to = _props.to,
+	        activeClassName = _props.activeClassName,
+	        activeStyle = _props.activeStyle,
+	        onlyActiveOnIndex = _props.onlyActiveOnIndex,
+	        props = _objectWithoutProperties(_props, ['to', 'activeClassName', 'activeStyle', 'onlyActiveOnIndex']);
+	
+	    // Ignore if rendered outside the context of router to simplify unit testing.
+	
+	
+	    var router = this.context.router;
+	
+	
+	    if (router) {
+	      // If user does not specify a `to` prop, return an empty anchor tag.
+	      if (to == null) {
+	        return _react2.default.createElement('a', props);
+	      }
+	
+	      var toLocation = resolveToLocation(to, router);
+	      props.href = router.createHref(toLocation);
+	
+	      if (activeClassName || activeStyle != null && !isEmptyObject(activeStyle)) {
+	        if (router.isActive(toLocation, onlyActiveOnIndex)) {
+	          if (activeClassName) {
+	            if (props.className) {
+	              props.className += ' ' + activeClassName;
+	            } else {
+	              props.className = activeClassName;
+	            }
+	          }
+	
+	          if (activeStyle) props.style = _extends({}, props.style, activeStyle);
+	        }
+	      }
+	    }
+	
+	    return _react2.default.createElement('a', _extends({}, props, { onClick: this.handleClick }));
+	  }
+	});
+	
+	exports.default = Link;
+	module.exports = exports['default'];
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 195 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Link = __webpack_require__(194);
+	
+	var _Link2 = _interopRequireDefault(_Link);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	/**
+	 * An <IndexLink> is used to link to an <IndexRoute>.
+	 */
+	var IndexLink = _react2.default.createClass({
+	  displayName: 'IndexLink',
+	  render: function render() {
+	    return _react2.default.createElement(_Link2.default, _extends({}, this.props, { onlyActiveOnIndex: true }));
+	  }
+	});
+	
+	exports.default = IndexLink;
+	module.exports = exports['default'];
+
+/***/ },
+/* 196 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	exports.default = withRouter;
+	
+	var _invariant = __webpack_require__(177);
+	
+	var _invariant2 = _interopRequireDefault(_invariant);
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _hoistNonReactStatics = __webpack_require__(197);
+	
+	var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
+	
+	var _ContextUtils = __webpack_require__(192);
+	
+	var _PropTypes = __webpack_require__(175);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function getDisplayName(WrappedComponent) {
+	  return WrappedComponent.displayName || WrappedComponent.name || 'Component';
+	}
+	
+	function withRouter(WrappedComponent, options) {
+	  var withRef = options && options.withRef;
+	
+	  var WithRouter = _react2.default.createClass({
+	    displayName: 'WithRouter',
+	
+	    mixins: [(0, _ContextUtils.ContextSubscriber)('router')],
+	
+	    contextTypes: { router: _PropTypes.routerShape },
+	    propTypes: { router: _PropTypes.routerShape },
+	
+	    getWrappedInstance: function getWrappedInstance() {
+	      !withRef ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, 'To access the wrapped instance, you need to specify ' + '`{ withRef: true }` as the second argument of the withRouter() call.') : (0, _invariant2.default)(false) : void 0;
+	
+	      return this.wrappedInstance;
+	    },
+	    render: function render() {
+	      var _this = this;
+	
+	      var router = this.props.router || this.context.router;
+	      var params = router.params,
+	          location = router.location,
+	          routes = router.routes;
+	
+	      var props = _extends({}, this.props, { router: router, params: params, location: location, routes: routes });
+	
+	      if (withRef) {
+	        props.ref = function (c) {
+	          _this.wrappedInstance = c;
+	        };
+	      }
+	
+	      return _react2.default.createElement(WrappedComponent, props);
+	    }
+	  });
+	
+	  WithRouter.displayName = 'withRouter(' + getDisplayName(WrappedComponent) + ')';
+	  WithRouter.WrappedComponent = WrappedComponent;
+	
+	  return (0, _hoistNonReactStatics2.default)(WithRouter, WrappedComponent);
+	}
+	module.exports = exports['default'];
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 197 */
+/***/ function(module, exports) {
+
+	/**
+	 * Copyright 2015, Yahoo! Inc.
+	 * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
+	 */
+	'use strict';
+	
+	var REACT_STATICS = {
+	    childContextTypes: true,
+	    contextTypes: true,
+	    defaultProps: true,
+	    displayName: true,
+	    getDefaultProps: true,
+	    mixins: true,
+	    propTypes: true,
+	    type: true
+	};
+	
+	var KNOWN_STATICS = {
+	    name: true,
+	    length: true,
+	    prototype: true,
+	    caller: true,
+	    arguments: true,
+	    arity: true
+	};
+	
+	var isGetOwnPropertySymbolsAvailable = typeof Object.getOwnPropertySymbols === 'function';
+	
+	module.exports = function hoistNonReactStatics(targetComponent, sourceComponent, customStatics) {
+	    if (typeof sourceComponent !== 'string') { // don't hoist over string (html) components
+	        var keys = Object.getOwnPropertyNames(sourceComponent);
+	
+	        /* istanbul ignore else */
+	        if (isGetOwnPropertySymbolsAvailable) {
+	            keys = keys.concat(Object.getOwnPropertySymbols(sourceComponent));
+	        }
+	
+	        for (var i = 0; i < keys.length; ++i) {
+	            if (!REACT_STATICS[keys[i]] && !KNOWN_STATICS[keys[i]] && (!customStatics || !customStatics[keys[i]])) {
+	                try {
+	                    targetComponent[keys[i]] = sourceComponent[keys[i]];
+	                } catch (error) {
+	
+	                }
+	            }
+	        }
+	    }
+	
+	    return targetComponent;
+	};
+
+
+/***/ },
+/* 198 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _routerWarning = __webpack_require__(180);
+	
+	var _routerWarning2 = _interopRequireDefault(_routerWarning);
+	
+	var _invariant = __webpack_require__(177);
+	
+	var _invariant2 = _interopRequireDefault(_invariant);
+	
+	var _Redirect = __webpack_require__(199);
+	
+	var _Redirect2 = _interopRequireDefault(_Redirect);
+	
+	var _InternalPropTypes = __webpack_require__(189);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var _React$PropTypes = _react2.default.PropTypes,
+	    string = _React$PropTypes.string,
+	    object = _React$PropTypes.object;
+	
+	/**
+	 * An <IndexRedirect> is used to redirect from an indexRoute.
+	 */
+	/* eslint-disable react/require-render-return */
+	
+	var IndexRedirect = _react2.default.createClass({
+	  displayName: 'IndexRedirect',
+	
+	
+	  statics: {
+	    createRouteFromReactElement: function createRouteFromReactElement(element, parentRoute) {
+	      /* istanbul ignore else: sanity check */
+	      if (parentRoute) {
+	        parentRoute.indexRoute = _Redirect2.default.createRouteFromReactElement(element);
+	      } else {
+	        process.env.NODE_ENV !== 'production' ? (0, _routerWarning2.default)(false, 'An <IndexRedirect> does not make sense at the root of your route config') : void 0;
+	      }
+	    }
+	  },
+	
+	  propTypes: {
+	    to: string.isRequired,
+	    query: object,
+	    state: object,
+	    onEnter: _InternalPropTypes.falsy,
+	    children: _InternalPropTypes.falsy
+	  },
+	
+	  /* istanbul ignore next: sanity check */
+	  render: function render() {
+	     true ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, '<IndexRedirect> elements are for router configuration only and should not be rendered') : (0, _invariant2.default)(false) : void 0;
+	  }
+	});
+	
+	exports.default = IndexRedirect;
+	module.exports = exports['default'];
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 199 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _invariant = __webpack_require__(177);
+	
+	var _invariant2 = _interopRequireDefault(_invariant);
+	
+	var _RouteUtils = __webpack_require__(174);
+	
+	var _PatternUtils = __webpack_require__(176);
+	
+	var _InternalPropTypes = __webpack_require__(189);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var _React$PropTypes = _react2.default.PropTypes,
+	    string = _React$PropTypes.string,
+	    object = _React$PropTypes.object;
+	
+	/**
+	 * A <Redirect> is used to declare another URL path a client should
+	 * be sent to when they request a given URL.
+	 *
+	 * Redirects are placed alongside routes in the route configuration
+	 * and are traversed in the same manner.
+	 */
+	/* eslint-disable react/require-render-return */
+	
+	var Redirect = _react2.default.createClass({
+	  displayName: 'Redirect',
+	
+	
+	  statics: {
+	    createRouteFromReactElement: function createRouteFromReactElement(element) {
+	      var route = (0, _RouteUtils.createRouteFromReactElement)(element);
+	
+	      if (route.from) route.path = route.from;
+	
+	      route.onEnter = function (nextState, replace) {
+	        var location = nextState.location,
+	            params = nextState.params;
+	
+	
+	        var pathname = void 0;
+	        if (route.to.charAt(0) === '/') {
+	          pathname = (0, _PatternUtils.formatPattern)(route.to, params);
+	        } else if (!route.to) {
+	          pathname = location.pathname;
+	        } else {
+	          var routeIndex = nextState.routes.indexOf(route);
+	          var parentPattern = Redirect.getRoutePattern(nextState.routes, routeIndex - 1);
+	          var pattern = parentPattern.replace(/\/*$/, '/') + route.to;
+	          pathname = (0, _PatternUtils.formatPattern)(pattern, params);
+	        }
+	
+	        replace({
+	          pathname: pathname,
+	          query: route.query || location.query,
+	          state: route.state || location.state
+	        });
+	      };
+	
+	      return route;
+	    },
+	    getRoutePattern: function getRoutePattern(routes, routeIndex) {
+	      var parentPattern = '';
+	
+	      for (var i = routeIndex; i >= 0; i--) {
+	        var route = routes[i];
+	        var pattern = route.path || '';
+	
+	        parentPattern = pattern.replace(/\/*$/, '/') + parentPattern;
+	
+	        if (pattern.indexOf('/') === 0) break;
+	      }
+	
+	      return '/' + parentPattern;
+	    }
+	  },
+	
+	  propTypes: {
+	    path: string,
+	    from: string, // Alias for path
+	    to: string.isRequired,
+	    query: object,
+	    state: object,
+	    onEnter: _InternalPropTypes.falsy,
+	    children: _InternalPropTypes.falsy
+	  },
+	
+	  /* istanbul ignore next: sanity check */
+	  render: function render() {
+	     true ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, '<Redirect> elements are for router configuration only and should not be rendered') : (0, _invariant2.default)(false) : void 0;
+	  }
+	});
+	
+	exports.default = Redirect;
+	module.exports = exports['default'];
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 200 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _routerWarning = __webpack_require__(180);
+	
+	var _routerWarning2 = _interopRequireDefault(_routerWarning);
+	
+	var _invariant = __webpack_require__(177);
+	
+	var _invariant2 = _interopRequireDefault(_invariant);
+	
+	var _RouteUtils = __webpack_require__(174);
+	
+	var _InternalPropTypes = __webpack_require__(189);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var func = _react2.default.PropTypes.func;
+	
+	/**
+	 * An <IndexRoute> is used to specify its parent's <Route indexRoute> in
+	 * a JSX route config.
+	 */
+	/* eslint-disable react/require-render-return */
+	
+	var IndexRoute = _react2.default.createClass({
+	  displayName: 'IndexRoute',
+	
+	
+	  statics: {
+	    createRouteFromReactElement: function createRouteFromReactElement(element, parentRoute) {
+	      /* istanbul ignore else: sanity check */
+	      if (parentRoute) {
+	        parentRoute.indexRoute = (0, _RouteUtils.createRouteFromReactElement)(element);
+	      } else {
+	        process.env.NODE_ENV !== 'production' ? (0, _routerWarning2.default)(false, 'An <IndexRoute> does not make sense at the root of your route config') : void 0;
+	      }
+	    }
+	  },
+	
+	  propTypes: {
+	    path: _InternalPropTypes.falsy,
+	    component: _InternalPropTypes.component,
+	    components: _InternalPropTypes.components,
+	    getComponent: func,
+	    getComponents: func
+	  },
+	
+	  /* istanbul ignore next: sanity check */
+	  render: function render() {
+	     true ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, '<IndexRoute> elements are for router configuration only and should not be rendered') : (0, _invariant2.default)(false) : void 0;
+	  }
+	});
+	
+	exports.default = IndexRoute;
+	module.exports = exports['default'];
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 201 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _invariant = __webpack_require__(177);
+	
+	var _invariant2 = _interopRequireDefault(_invariant);
+	
+	var _RouteUtils = __webpack_require__(174);
+	
+	var _InternalPropTypes = __webpack_require__(189);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var _React$PropTypes = _react2.default.PropTypes,
+	    string = _React$PropTypes.string,
+	    func = _React$PropTypes.func;
+	
+	/**
+	 * A <Route> is used to declare which components are rendered to the
+	 * page when the URL matches a given pattern.
+	 *
+	 * Routes are arranged in a nested tree structure. When a new URL is
+	 * requested, the tree is searched depth-first to find a route whose
+	 * path matches the URL.  When one is found, all routes in the tree
+	 * that lead to it are considered "active" and their components are
+	 * rendered into the DOM, nested in the same order as in the tree.
+	 */
+	/* eslint-disable react/require-render-return */
+	
+	var Route = _react2.default.createClass({
+	  displayName: 'Route',
+	
+	
+	  statics: {
+	    createRouteFromReactElement: _RouteUtils.createRouteFromReactElement
+	  },
+	
+	  propTypes: {
+	    path: string,
+	    component: _InternalPropTypes.component,
+	    components: _InternalPropTypes.components,
+	    getComponent: func,
+	    getComponents: func
+	  },
+	
+	  /* istanbul ignore next: sanity check */
+	  render: function render() {
+	     true ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, '<Route> elements are for router configuration only and should not be rendered') : (0, _invariant2.default)(false) : void 0;
+	  }
+	});
+	
+	exports.default = Route;
+	module.exports = exports['default'];
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 202 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _Actions = __webpack_require__(203);
+	
+	var _invariant = __webpack_require__(177);
+	
+	var _invariant2 = _interopRequireDefault(_invariant);
+	
+	var _createMemoryHistory = __webpack_require__(204);
+	
+	var _createMemoryHistory2 = _interopRequireDefault(_createMemoryHistory);
+	
+	var _createTransitionManager = __webpack_require__(179);
+	
+	var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
+	
+	var _RouteUtils = __webpack_require__(174);
+	
+	var _RouterUtils = __webpack_require__(193);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+	
+	/**
+	 * A high-level API to be used for server-side rendering.
+	 *
+	 * This function matches a location to a set of routes and calls
+	 * callback(error, redirectLocation, renderProps) when finished.
+	 *
+	 * Note: You probably don't want to use this in a browser unless you're using
+	 * server-side rendering with async routes.
+	 */
+	function match(_ref, callback) {
+	  var history = _ref.history,
+	      routes = _ref.routes,
+	      location = _ref.location,
+	      options = _objectWithoutProperties(_ref, ['history', 'routes', 'location']);
+	
+	  !(history || location) ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, 'match needs a history or a location') : (0, _invariant2.default)(false) : void 0;
+	
+	  history = history ? history : (0, _createMemoryHistory2.default)(options);
+	  var transitionManager = (0, _createTransitionManager2.default)(history, (0, _RouteUtils.createRoutes)(routes));
+	
+	  if (location) {
+	    // Allow match({ location: '/the/path', ... })
+	    location = history.createLocation(location);
+	  } else {
+	    location = history.getCurrentLocation();
+	  }
+	
+	  transitionManager.match(location, function (error, redirectLocation, nextState) {
+	    var renderProps = void 0;
+	
+	    if (nextState) {
+	      var router = (0, _RouterUtils.createRouterObject)(history, transitionManager, nextState);
+	      renderProps = _extends({}, nextState, {
+	        router: router,
+	        matchContext: { transitionManager: transitionManager, router: router }
+	      });
+	    }
+	
+	    callback(error, redirectLocation && history.createLocation(redirectLocation, _Actions.REPLACE), renderProps);
+	  });
+	}
+	
+	exports.default = match;
+	module.exports = exports['default'];
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 203 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	/**
+	 * Indicates that navigation was caused by a call to history.push.
+	 */
+	var PUSH = exports.PUSH = 'PUSH';
+	
+	/**
+	 * Indicates that navigation was caused by a call to history.replace.
+	 */
+	var REPLACE = exports.REPLACE = 'REPLACE';
+	
+	/**
+	 * Indicates that navigation was caused by some other action such
+	 * as using a browser's back/forward buttons and/or manually manipulating
+	 * the URL in a browser's location bar. This is the default.
+	 *
+	 * See https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onpopstate
+	 * for more information.
+	 */
+	var POP = exports.POP = 'POP';
+
+/***/ },
+/* 204 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	exports.default = createMemoryHistory;
+	
+	var _useQueries = __webpack_require__(205);
+	
+	var _useQueries2 = _interopRequireDefault(_useQueries);
+	
+	var _useBasename = __webpack_require__(211);
+	
+	var _useBasename2 = _interopRequireDefault(_useBasename);
+	
+	var _createMemoryHistory = __webpack_require__(212);
+	
+	var _createMemoryHistory2 = _interopRequireDefault(_createMemoryHistory);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function createMemoryHistory(options) {
+	  // signatures and type checking differ between `useQueries` and
+	  // `createMemoryHistory`, have to create `memoryHistory` first because
+	  // `useQueries` doesn't understand the signature
+	  var memoryHistory = (0, _createMemoryHistory2.default)(options);
+	  var createHistory = function createHistory() {
+	    return memoryHistory;
+	  };
+	  var history = (0, _useQueries2.default)((0, _useBasename2.default)(createHistory))(options);
+	  return history;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 205 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _queryString = __webpack_require__(206);
+	
+	var _runTransitionHook = __webpack_require__(208);
+	
+	var _runTransitionHook2 = _interopRequireDefault(_runTransitionHook);
+	
+	var _LocationUtils = __webpack_require__(209);
+	
+	var _PathUtils = __webpack_require__(210);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var defaultStringifyQuery = function defaultStringifyQuery(query) {
+	  return (0, _queryString.stringify)(query).replace(/%20/g, '+');
+	};
+	
+	var defaultParseQueryString = _queryString.parse;
+	
+	/**
+	 * Returns a new createHistory function that may be used to create
+	 * history objects that know how to handle URL queries.
+	 */
+	var useQueries = function useQueries(createHistory) {
+	  return function () {
+	    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+	    var history = createHistory(options);
+	    var stringifyQuery = options.stringifyQuery;
+	    var parseQueryString = options.parseQueryString;
+	
+	
+	    if (typeof stringifyQuery !== 'function') stringifyQuery = defaultStringifyQuery;
+	
+	    if (typeof parseQueryString !== 'function') parseQueryString = defaultParseQueryString;
+	
+	    var decodeQuery = function decodeQuery(location) {
+	      if (!location) return location;
+	
+	      if (location.query == null) location.query = parseQueryString(location.search.substring(1));
+	
+	      return location;
+	    };
+	
+	    var encodeQuery = function encodeQuery(location, query) {
+	      if (query == null) return location;
+	
+	      var object = typeof location === 'string' ? (0, _PathUtils.parsePath)(location) : location;
+	      var queryString = stringifyQuery(query);
+	      var search = queryString ? '?' + queryString : '';
+	
+	      return _extends({}, object, {
+	        search: search
+	      });
+	    };
+	
+	    // Override all read methods with query-aware versions.
+	    var getCurrentLocation = function getCurrentLocation() {
+	      return decodeQuery(history.getCurrentLocation());
+	    };
+	
+	    var listenBefore = function listenBefore(hook) {
+	      return history.listenBefore(function (location, callback) {
+	        return (0, _runTransitionHook2.default)(hook, decodeQuery(location), callback);
+	      });
+	    };
+	
+	    var listen = function listen(listener) {
+	      return history.listen(function (location) {
+	        return listener(decodeQuery(location));
+	      });
+	    };
+	
+	    // Override all write methods with query-aware versions.
+	    var push = function push(location) {
+	      return history.push(encodeQuery(location, location.query));
+	    };
+	
+	    var replace = function replace(location) {
+	      return history.replace(encodeQuery(location, location.query));
+	    };
+	
+	    var createPath = function createPath(location) {
+	      return history.createPath(encodeQuery(location, location.query));
+	    };
+	
+	    var createHref = function createHref(location) {
+	      return history.createHref(encodeQuery(location, location.query));
+	    };
+	
+	    var createLocation = function createLocation(location) {
+	      for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	        args[_key - 1] = arguments[_key];
+	      }
+	
+	      var newLocation = history.createLocation.apply(history, [encodeQuery(location, location.query)].concat(args));
+	
+	      if (location.query) newLocation.query = (0, _LocationUtils.createQuery)(location.query);
+	
+	      return decodeQuery(newLocation);
+	    };
+	
+	    return _extends({}, history, {
+	      getCurrentLocation: getCurrentLocation,
+	      listenBefore: listenBefore,
+	      listen: listen,
+	      push: push,
+	      replace: replace,
+	      createPath: createPath,
+	      createHref: createHref,
+	      createLocation: createLocation
+	    });
+	  };
+	};
+	
+	exports.default = useQueries;
+
+/***/ },
+/* 206 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var strictUriEncode = __webpack_require__(207);
+	var objectAssign = __webpack_require__(4);
+	
+	function encode(value, opts) {
+		if (opts.encode) {
+			return opts.strict ? strictUriEncode(value) : encodeURIComponent(value);
+		}
+	
+		return value;
+	}
+	
+	exports.extract = function (str) {
+		return str.split('?')[1] || '';
+	};
+	
+	exports.parse = function (str) {
+		// Create an object with no prototype
+		// https://github.com/sindresorhus/query-string/issues/47
+		var ret = Object.create(null);
+	
+		if (typeof str !== 'string') {
+			return ret;
+		}
+	
+		str = str.trim().replace(/^(\?|#|&)/, '');
+	
+		if (!str) {
+			return ret;
+		}
+	
+		str.split('&').forEach(function (param) {
+			var parts = param.replace(/\+/g, ' ').split('=');
+			// Firefox (pre 40) decodes `%3D` to `=`
+			// https://github.com/sindresorhus/query-string/pull/37
+			var key = parts.shift();
+			var val = parts.length > 0 ? parts.join('=') : undefined;
+	
+			key = decodeURIComponent(key);
+	
+			// missing `=` should be `null`:
+			// http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
+			val = val === undefined ? null : decodeURIComponent(val);
+	
+			if (ret[key] === undefined) {
+				ret[key] = val;
+			} else if (Array.isArray(ret[key])) {
+				ret[key].push(val);
+			} else {
+				ret[key] = [ret[key], val];
+			}
+		});
+	
+		return ret;
+	};
+	
+	exports.stringify = function (obj, opts) {
+		var defaults = {
+			encode: true,
+			strict: true
+		};
+	
+		opts = objectAssign(defaults, opts);
+	
+		return obj ? Object.keys(obj).sort().map(function (key) {
+			var val = obj[key];
+	
+			if (val === undefined) {
+				return '';
+			}
+	
+			if (val === null) {
+				return encode(key, opts);
+			}
+	
+			if (Array.isArray(val)) {
+				var result = [];
+	
+				val.slice().forEach(function (val2) {
+					if (val2 === undefined) {
+						return;
+					}
+	
+					if (val2 === null) {
+						result.push(encode(key, opts));
+					} else {
+						result.push(encode(key, opts) + '=' + encode(val2, opts));
+					}
+				});
+	
+				return result.join('&');
+			}
+	
+			return encode(key, opts) + '=' + encode(val, opts);
+		}).filter(function (x) {
+			return x.length > 0;
+		}).join('&') : '';
+	};
+
+
+/***/ },
+/* 207 */
+/***/ function(module, exports) {
+
+	'use strict';
+	module.exports = function (str) {
+		return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
+			return '%' + c.charCodeAt(0).toString(16).toUpperCase();
+		});
+	};
+
+
+/***/ },
+/* 208 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	
+	var _warning = __webpack_require__(181);
+	
+	var _warning2 = _interopRequireDefault(_warning);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var runTransitionHook = function runTransitionHook(hook, location, callback) {
+	  var result = hook(location, callback);
+	
+	  if (hook.length < 2) {
+	    // Assume the hook runs synchronously and automatically
+	    // call the callback with the return value.
+	    callback(result);
+	  } else {
+	    process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(result === undefined, 'You should not "return" in a transition hook with a callback argument; ' + 'call the callback instead') : void 0;
+	  }
+	};
+	
+	exports.default = runTransitionHook;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 209 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	exports.locationsAreEqual = exports.statesAreEqual = exports.createLocation = exports.createQuery = undefined;
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _invariant = __webpack_require__(177);
+	
+	var _invariant2 = _interopRequireDefault(_invariant);
+	
+	var _warning = __webpack_require__(181);
+	
+	var _warning2 = _interopRequireDefault(_warning);
+	
+	var _PathUtils = __webpack_require__(210);
+	
+	var _Actions = __webpack_require__(203);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var createQuery = exports.createQuery = function createQuery(props) {
+	  return _extends(Object.create(null), props);
+	};
+	
+	var createLocation = exports.createLocation = function createLocation() {
+	  var input = arguments.length <= 0 || arguments[0] === undefined ? '/' : arguments[0];
+	  var action = arguments.length <= 1 || arguments[1] === undefined ? _Actions.POP : arguments[1];
+	  var key = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
+	
+	  var object = typeof input === 'string' ? (0, _PathUtils.parsePath)(input) : input;
+	
+	  process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(!object.path, 'Location descriptor objects should have a `pathname`, not a `path`.') : void 0;
+	
+	  var pathname = object.pathname || '/';
+	  var search = object.search || '';
+	  var hash = object.hash || '';
+	  var state = object.state;
+	
+	  return {
+	    pathname: pathname,
+	    search: search,
+	    hash: hash,
+	    state: state,
+	    action: action,
+	    key: key
+	  };
+	};
+	
+	var isDate = function isDate(object) {
+	  return Object.prototype.toString.call(object) === '[object Date]';
+	};
+	
+	var statesAreEqual = exports.statesAreEqual = function statesAreEqual(a, b) {
+	  if (a === b) return true;
+	
+	  var typeofA = typeof a === 'undefined' ? 'undefined' : _typeof(a);
+	  var typeofB = typeof b === 'undefined' ? 'undefined' : _typeof(b);
+	
+	  if (typeofA !== typeofB) return false;
+	
+	  !(typeofA !== 'function') ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, 'You must not store functions in location state') : (0, _invariant2.default)(false) : void 0;
+	
+	  // Not the same object, but same type.
+	  if (typeofA === 'object') {
+	    !!(isDate(a) && isDate(b)) ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, 'You must not store Date objects in location state') : (0, _invariant2.default)(false) : void 0;
+	
+	    if (!Array.isArray(a)) {
+	      var keysofA = Object.keys(a);
+	      var keysofB = Object.keys(b);
+	      return keysofA.length === keysofB.length && keysofA.every(function (key) {
+	        return statesAreEqual(a[key], b[key]);
+	      });
+	    }
+	
+	    return Array.isArray(b) && a.length === b.length && a.every(function (item, index) {
+	      return statesAreEqual(item, b[index]);
+	    });
+	  }
+	
+	  // All other serializable types (string, number, boolean)
+	  // should be strict equal.
+	  return false;
+	};
+	
+	var locationsAreEqual = exports.locationsAreEqual = function locationsAreEqual(a, b) {
+	  return a.key === b.key &&
+	  // a.action === b.action && // Different action !== location change.
+	  a.pathname === b.pathname && a.search === b.search && a.hash === b.hash && statesAreEqual(a.state, b.state);
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 210 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	exports.createPath = exports.parsePath = exports.getQueryStringValueFromPath = exports.stripQueryStringValueFromPath = exports.addQueryStringValueToPath = undefined;
+	
+	var _warning = __webpack_require__(181);
+	
+	var _warning2 = _interopRequireDefault(_warning);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var addQueryStringValueToPath = exports.addQueryStringValueToPath = function addQueryStringValueToPath(path, key, value) {
+	  var _parsePath = parsePath(path);
+	
+	  var pathname = _parsePath.pathname;
+	  var search = _parsePath.search;
+	  var hash = _parsePath.hash;
+	
+	
+	  return createPath({
+	    pathname: pathname,
+	    search: search + (search.indexOf('?') === -1 ? '?' : '&') + key + '=' + value,
+	    hash: hash
+	  });
+	};
+	
+	var stripQueryStringValueFromPath = exports.stripQueryStringValueFromPath = function stripQueryStringValueFromPath(path, key) {
+	  var _parsePath2 = parsePath(path);
+	
+	  var pathname = _parsePath2.pathname;
+	  var search = _parsePath2.search;
+	  var hash = _parsePath2.hash;
+	
+	
+	  return createPath({
+	    pathname: pathname,
+	    search: search.replace(new RegExp('([?&])' + key + '=[a-zA-Z0-9]+(&?)'), function (match, prefix, suffix) {
+	      return prefix === '?' ? prefix : suffix;
+	    }),
+	    hash: hash
+	  });
+	};
+	
+	var getQueryStringValueFromPath = exports.getQueryStringValueFromPath = function getQueryStringValueFromPath(path, key) {
+	  var _parsePath3 = parsePath(path);
+	
+	  var search = _parsePath3.search;
+	
+	  var match = search.match(new RegExp('[?&]' + key + '=([a-zA-Z0-9]+)'));
+	  return match && match[1];
+	};
+	
+	var extractPath = function extractPath(string) {
+	  var match = string.match(/^(https?:)?\/\/[^\/]*/);
+	  return match == null ? string : string.substring(match[0].length);
+	};
+	
+	var parsePath = exports.parsePath = function parsePath(path) {
+	  var pathname = extractPath(path);
+	  var search = '';
+	  var hash = '';
+	
+	  process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(path === pathname, 'A path must be pathname + search + hash only, not a full URL like "%s"', path) : void 0;
+	
+	  var hashIndex = pathname.indexOf('#');
+	  if (hashIndex !== -1) {
+	    hash = pathname.substring(hashIndex);
+	    pathname = pathname.substring(0, hashIndex);
+	  }
+	
+	  var searchIndex = pathname.indexOf('?');
+	  if (searchIndex !== -1) {
+	    search = pathname.substring(searchIndex);
+	    pathname = pathname.substring(0, searchIndex);
+	  }
+	
+	  if (pathname === '') pathname = '/';
+	
+	  return {
+	    pathname: pathname,
+	    search: search,
+	    hash: hash
+	  };
+	};
+	
+	var createPath = exports.createPath = function createPath(location) {
+	  if (location == null || typeof location === 'string') return location;
+	
+	  var basename = location.basename;
+	  var pathname = location.pathname;
+	  var search = location.search;
+	  var hash = location.hash;
+	
+	  var path = (basename || '') + pathname;
+	
+	  if (search && search !== '?') path += search;
+	
+	  if (hash) path += hash;
+	
+	  return path;
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 211 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _runTransitionHook = __webpack_require__(208);
+	
+	var _runTransitionHook2 = _interopRequireDefault(_runTransitionHook);
+	
+	var _PathUtils = __webpack_require__(210);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var useBasename = function useBasename(createHistory) {
+	  return function () {
+	    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+	    var history = createHistory(options);
+	    var basename = options.basename;
+	
+	
+	    var addBasename = function addBasename(location) {
+	      if (!location) return location;
+	
+	      if (basename && location.basename == null) {
+	        if (location.pathname.indexOf(basename) === 0) {
+	          location.pathname = location.pathname.substring(basename.length);
+	          location.basename = basename;
+	
+	          if (location.pathname === '') location.pathname = '/';
+	        } else {
+	          location.basename = '';
+	        }
+	      }
+	
+	      return location;
+	    };
+	
+	    var prependBasename = function prependBasename(location) {
+	      if (!basename) return location;
+	
+	      var object = typeof location === 'string' ? (0, _PathUtils.parsePath)(location) : location;
+	      var pname = object.pathname;
+	      var normalizedBasename = basename.slice(-1) === '/' ? basename : basename + '/';
+	      var normalizedPathname = pname.charAt(0) === '/' ? pname.slice(1) : pname;
+	      var pathname = normalizedBasename + normalizedPathname;
+	
+	      return _extends({}, object, {
+	        pathname: pathname
+	      });
+	    };
+	
+	    // Override all read methods with basename-aware versions.
+	    var getCurrentLocation = function getCurrentLocation() {
+	      return addBasename(history.getCurrentLocation());
+	    };
+	
+	    var listenBefore = function listenBefore(hook) {
+	      return history.listenBefore(function (location, callback) {
+	        return (0, _runTransitionHook2.default)(hook, addBasename(location), callback);
+	      });
+	    };
+	
+	    var listen = function listen(listener) {
+	      return history.listen(function (location) {
+	        return listener(addBasename(location));
+	      });
+	    };
+	
+	    // Override all write methods with basename-aware versions.
+	    var push = function push(location) {
+	      return history.push(prependBasename(location));
+	    };
+	
+	    var replace = function replace(location) {
+	      return history.replace(prependBasename(location));
+	    };
+	
+	    var createPath = function createPath(location) {
+	      return history.createPath(prependBasename(location));
+	    };
+	
+	    var createHref = function createHref(location) {
+	      return history.createHref(prependBasename(location));
+	    };
+	
+	    var createLocation = function createLocation(location) {
+	      for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	        args[_key - 1] = arguments[_key];
+	      }
+	
+	      return addBasename(history.createLocation.apply(history, [prependBasename(location)].concat(args)));
+	    };
+	
+	    return _extends({}, history, {
+	      getCurrentLocation: getCurrentLocation,
+	      listenBefore: listenBefore,
+	      listen: listen,
+	      push: push,
+	      replace: replace,
+	      createPath: createPath,
+	      createHref: createHref,
+	      createLocation: createLocation
+	    });
+	  };
+	};
+	
+	exports.default = useBasename;
+
+/***/ },
+/* 212 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _warning = __webpack_require__(181);
+	
+	var _warning2 = _interopRequireDefault(_warning);
+	
+	var _invariant = __webpack_require__(177);
+	
+	var _invariant2 = _interopRequireDefault(_invariant);
+	
+	var _LocationUtils = __webpack_require__(209);
+	
+	var _PathUtils = __webpack_require__(210);
+	
+	var _createHistory = __webpack_require__(213);
+	
+	var _createHistory2 = _interopRequireDefault(_createHistory);
+	
+	var _Actions = __webpack_require__(203);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var createStateStorage = function createStateStorage(entries) {
+	  return entries.filter(function (entry) {
+	    return entry.state;
+	  }).reduce(function (memo, entry) {
+	    memo[entry.key] = entry.state;
+	    return memo;
+	  }, {});
+	};
+	
+	var createMemoryHistory = function createMemoryHistory() {
+	  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+	  if (Array.isArray(options)) {
+	    options = { entries: options };
+	  } else if (typeof options === 'string') {
+	    options = { entries: [options] };
+	  }
+	
+	  var getCurrentLocation = function getCurrentLocation() {
+	    var entry = entries[current];
+	    var path = (0, _PathUtils.createPath)(entry);
+	
+	    var key = void 0,
+	        state = void 0;
+	    if (entry.key) {
+	      key = entry.key;
+	      state = readState(key);
+	    }
+	
+	    var init = (0, _PathUtils.parsePath)(path);
+	
+	    return (0, _LocationUtils.createLocation)(_extends({}, init, { state: state }), undefined, key);
+	  };
+	
+	  var canGo = function canGo(n) {
+	    var index = current + n;
+	    return index >= 0 && index < entries.length;
+	  };
+	
+	  var go = function go(n) {
+	    if (!n) return;
+	
+	    if (!canGo(n)) {
+	      process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(false, 'Cannot go(%s) there is not enough history', n) : void 0;
+	
+	      return;
+	    }
+	
+	    current += n;
+	    var currentLocation = getCurrentLocation();
+	
+	    // Change action to POP
+	    history.transitionTo(_extends({}, currentLocation, { action: _Actions.POP }));
+	  };
+	
+	  var pushLocation = function pushLocation(location) {
+	    current += 1;
+	
+	    if (current < entries.length) entries.splice(current);
+	
+	    entries.push(location);
+	
+	    saveState(location.key, location.state);
+	  };
+	
+	  var replaceLocation = function replaceLocation(location) {
+	    entries[current] = location;
+	    saveState(location.key, location.state);
+	  };
+	
+	  var history = (0, _createHistory2.default)(_extends({}, options, {
+	    getCurrentLocation: getCurrentLocation,
+	    pushLocation: pushLocation,
+	    replaceLocation: replaceLocation,
+	    go: go
+	  }));
+	
+	  var _options = options;
+	  var entries = _options.entries;
+	  var current = _options.current;
+	
+	
+	  if (typeof entries === 'string') {
+	    entries = [entries];
+	  } else if (!Array.isArray(entries)) {
+	    entries = ['/'];
+	  }
+	
+	  entries = entries.map(function (entry) {
+	    return (0, _LocationUtils.createLocation)(entry);
+	  });
+	
+	  if (current == null) {
+	    current = entries.length - 1;
+	  } else {
+	    !(current >= 0 && current < entries.length) ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, 'Current index must be >= 0 and < %s, was %s', entries.length, current) : (0, _invariant2.default)(false) : void 0;
+	  }
+	
+	  var storage = createStateStorage(entries);
+	
+	  var saveState = function saveState(key, state) {
+	    return storage[key] = state;
+	  };
+	
+	  var readState = function readState(key) {
+	    return storage[key];
+	  };
+	
+	  return _extends({}, history, {
+	    canGo: canGo
+	  });
+	};
+	
+	exports.default = createMemoryHistory;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 213 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var _AsyncUtils = __webpack_require__(214);
+	
+	var _PathUtils = __webpack_require__(210);
+	
+	var _runTransitionHook = __webpack_require__(208);
+	
+	var _runTransitionHook2 = _interopRequireDefault(_runTransitionHook);
+	
+	var _Actions = __webpack_require__(203);
+	
+	var _LocationUtils = __webpack_require__(209);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var createHistory = function createHistory() {
+	  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	  var getCurrentLocation = options.getCurrentLocation;
+	  var getUserConfirmation = options.getUserConfirmation;
+	  var pushLocation = options.pushLocation;
+	  var replaceLocation = options.replaceLocation;
+	  var go = options.go;
+	  var keyLength = options.keyLength;
+	
+	
+	  var currentLocation = void 0;
+	  var pendingLocation = void 0;
+	  var beforeListeners = [];
+	  var listeners = [];
+	  var allKeys = [];
+	
+	  var getCurrentIndex = function getCurrentIndex() {
+	    if (pendingLocation && pendingLocation.action === _Actions.POP) return allKeys.indexOf(pendingLocation.key);
+	
+	    if (currentLocation) return allKeys.indexOf(currentLocation.key);
+	
+	    return -1;
+	  };
+	
+	  var updateLocation = function updateLocation(nextLocation) {
+	    var currentIndex = getCurrentIndex();
+	
+	    currentLocation = nextLocation;
+	
+	    if (currentLocation.action === _Actions.PUSH) {
+	      allKeys = [].concat(allKeys.slice(0, currentIndex + 1), [currentLocation.key]);
+	    } else if (currentLocation.action === _Actions.REPLACE) {
+	      allKeys[currentIndex] = currentLocation.key;
+	    }
+	
+	    listeners.forEach(function (listener) {
+	      return listener(currentLocation);
+	    });
+	  };
+	
+	  var listenBefore = function listenBefore(listener) {
+	    beforeListeners.push(listener);
+	
+	    return function () {
+	      return beforeListeners = beforeListeners.filter(function (item) {
+	        return item !== listener;
+	      });
+	    };
+	  };
+	
+	  var listen = function listen(listener) {
+	    listeners.push(listener);
+	
+	    return function () {
+	      return listeners = listeners.filter(function (item) {
+	        return item !== listener;
+	      });
+	    };
+	  };
+	
+	  var confirmTransitionTo = function confirmTransitionTo(location, callback) {
+	    (0, _AsyncUtils.loopAsync)(beforeListeners.length, function (index, next, done) {
+	      (0, _runTransitionHook2.default)(beforeListeners[index], location, function (result) {
+	        return result != null ? done(result) : next();
+	      });
+	    }, function (message) {
+	      if (getUserConfirmation && typeof message === 'string') {
+	        getUserConfirmation(message, function (ok) {
+	          return callback(ok !== false);
+	        });
+	      } else {
+	        callback(message !== false);
+	      }
+	    });
+	  };
+	
+	  var transitionTo = function transitionTo(nextLocation) {
+	    if (currentLocation && (0, _LocationUtils.locationsAreEqual)(currentLocation, nextLocation) || pendingLocation && (0, _LocationUtils.locationsAreEqual)(pendingLocation, nextLocation)) return; // Nothing to do
+	
+	    pendingLocation = nextLocation;
+	
+	    confirmTransitionTo(nextLocation, function (ok) {
+	      if (pendingLocation !== nextLocation) return; // Transition was interrupted during confirmation
+	
+	      pendingLocation = null;
+	
+	      if (ok) {
+	        // Treat PUSH to same path like REPLACE to be consistent with browsers
+	        if (nextLocation.action === _Actions.PUSH) {
+	          var prevPath = (0, _PathUtils.createPath)(currentLocation);
+	          var nextPath = (0, _PathUtils.createPath)(nextLocation);
+	
+	          if (nextPath === prevPath && (0, _LocationUtils.statesAreEqual)(currentLocation.state, nextLocation.state)) nextLocation.action = _Actions.REPLACE;
+	        }
+	
+	        if (nextLocation.action === _Actions.POP) {
+	          updateLocation(nextLocation);
+	        } else if (nextLocation.action === _Actions.PUSH) {
+	          if (pushLocation(nextLocation) !== false) updateLocation(nextLocation);
+	        } else if (nextLocation.action === _Actions.REPLACE) {
+	          if (replaceLocation(nextLocation) !== false) updateLocation(nextLocation);
+	        }
+	      } else if (currentLocation && nextLocation.action === _Actions.POP) {
+	        var prevIndex = allKeys.indexOf(currentLocation.key);
+	        var nextIndex = allKeys.indexOf(nextLocation.key);
+	
+	        if (prevIndex !== -1 && nextIndex !== -1) go(prevIndex - nextIndex); // Restore the URL
+	      }
+	    });
+	  };
+	
+	  var push = function push(input) {
+	    return transitionTo(createLocation(input, _Actions.PUSH));
+	  };
+	
+	  var replace = function replace(input) {
+	    return transitionTo(createLocation(input, _Actions.REPLACE));
+	  };
+	
+	  var goBack = function goBack() {
+	    return go(-1);
+	  };
+	
+	  var goForward = function goForward() {
+	    return go(1);
+	  };
+	
+	  var createKey = function createKey() {
+	    return Math.random().toString(36).substr(2, keyLength || 6);
+	  };
+	
+	  var createHref = function createHref(location) {
+	    return (0, _PathUtils.createPath)(location);
+	  };
+	
+	  var createLocation = function createLocation(location, action) {
+	    var key = arguments.length <= 2 || arguments[2] === undefined ? createKey() : arguments[2];
+	    return (0, _LocationUtils.createLocation)(location, action, key);
+	  };
+	
+	  return {
+	    getCurrentLocation: getCurrentLocation,
+	    listenBefore: listenBefore,
+	    listen: listen,
+	    transitionTo: transitionTo,
+	    push: push,
+	    replace: replace,
+	    go: go,
+	    goBack: goBack,
+	    goForward: goForward,
+	    createKey: createKey,
+	    createPath: _PathUtils.createPath,
+	    createHref: createHref,
+	    createLocation: createLocation
+	  };
+	};
+	
+	exports.default = createHistory;
+
+/***/ },
+/* 214 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	exports.__esModule = true;
+	var loopAsync = exports.loopAsync = function loopAsync(turns, work, callback) {
+	  var currentTurn = 0,
+	      isDone = false;
+	  var isSync = false,
+	      hasNext = false,
+	      doneArgs = void 0;
+	
+	  var done = function done() {
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+	
+	    isDone = true;
+	
+	    if (isSync) {
+	      // Iterate instead of recursing if possible.
+	      doneArgs = args;
+	      return;
+	    }
+	
+	    callback.apply(undefined, args);
+	  };
+	
+	  var next = function next() {
+	    if (isDone) return;
+	
+	    hasNext = true;
+	
+	    if (isSync) return; // Iterate instead of recursing if possible.
+	
+	    isSync = true;
+	
+	    while (!isDone && currentTurn < turns && hasNext) {
+	      hasNext = false;
+	      work(currentTurn++, next, done);
+	    }
+	
+	    isSync = false;
+	
+	    if (isDone) {
+	      // This means the loop finished synchronously.
+	      callback.apply(undefined, doneArgs);
+	      return;
+	    }
+	
+	    if (currentTurn >= turns && hasNext) {
+	      isDone = true;
+	      callback();
+	    }
+	  };
+	
+	  next();
+	};
+
+/***/ },
+/* 215 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	exports.default = useRouterHistory;
+	
+	var _useQueries = __webpack_require__(205);
+	
+	var _useQueries2 = _interopRequireDefault(_useQueries);
+	
+	var _useBasename = __webpack_require__(211);
+	
+	var _useBasename2 = _interopRequireDefault(_useBasename);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function useRouterHistory(createHistory) {
+	  return function (options) {
+	    var history = (0, _useQueries2.default)((0, _useBasename2.default)(createHistory))(options);
+	    return history;
+	  };
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 216 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _RouterContext = __webpack_require__(190);
+	
+	var _RouterContext2 = _interopRequireDefault(_RouterContext);
+	
+	var _routerWarning = __webpack_require__(180);
+	
+	var _routerWarning2 = _interopRequireDefault(_routerWarning);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function () {
+	  for (var _len = arguments.length, middlewares = Array(_len), _key = 0; _key < _len; _key++) {
+	    middlewares[_key] = arguments[_key];
+	  }
+	
+	  if (process.env.NODE_ENV !== 'production') {
+	    middlewares.forEach(function (middleware, index) {
+	      process.env.NODE_ENV !== 'production' ? (0, _routerWarning2.default)(middleware.renderRouterContext || middleware.renderRouteComponent, 'The middleware specified at index ' + index + ' does not appear to be ' + 'a valid React Router middleware.') : void 0;
+	    });
+	  }
+	
+	  var withContext = middlewares.map(function (middleware) {
+	    return middleware.renderRouterContext;
+	  }).filter(Boolean);
+	  var withComponent = middlewares.map(function (middleware) {
+	    return middleware.renderRouteComponent;
+	  }).filter(Boolean);
+	
+	  var makeCreateElement = function makeCreateElement() {
+	    var baseCreateElement = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _react.createElement;
+	    return function (Component, props) {
+	      return withComponent.reduceRight(function (previous, renderRouteComponent) {
+	        return renderRouteComponent(previous, props);
+	      }, baseCreateElement(Component, props));
+	    };
+	  };
+	
+	  return function (renderProps) {
+	    return withContext.reduceRight(function (previous, renderRouterContext) {
+	      return renderRouterContext(previous, renderProps);
+	    }, _react2.default.createElement(_RouterContext2.default, _extends({}, renderProps, {
+	      createElement: makeCreateElement(renderProps.createElement)
+	    })));
+	  };
+	};
+	
+	module.exports = exports['default'];
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 217 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var _createBrowserHistory = __webpack_require__(218);
+	
+	var _createBrowserHistory2 = _interopRequireDefault(_createBrowserHistory);
+	
+	var _createRouterHistory = __webpack_require__(224);
+	
+	var _createRouterHistory2 = _interopRequireDefault(_createRouterHistory);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _createRouterHistory2.default)(_createBrowserHistory2.default);
+	module.exports = exports['default'];
+
+/***/ },
+/* 218 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _invariant = __webpack_require__(177);
+	
+	var _invariant2 = _interopRequireDefault(_invariant);
+	
+	var _ExecutionEnvironment = __webpack_require__(219);
+	
+	var _BrowserProtocol = __webpack_require__(220);
+	
+	var BrowserProtocol = _interopRequireWildcard(_BrowserProtocol);
+	
+	var _RefreshProtocol = __webpack_require__(223);
+	
+	var RefreshProtocol = _interopRequireWildcard(_RefreshProtocol);
+	
+	var _DOMUtils = __webpack_require__(221);
+	
+	var _createHistory = __webpack_require__(213);
+	
+	var _createHistory2 = _interopRequireDefault(_createHistory);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	/**
+	 * Creates and returns a history object that uses HTML5's history API
+	 * (pushState, replaceState, and the popstate event) to manage history.
+	 * This is the recommended method of managing history in browsers because
+	 * it provides the cleanest URLs.
+	 *
+	 * Note: In browsers that do not support the HTML5 history API full
+	 * page reloads will be used to preserve clean URLs. You can force this
+	 * behavior using { forceRefresh: true } in options.
+	 */
+	var createBrowserHistory = function createBrowserHistory() {
+	  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+	  !_ExecutionEnvironment.canUseDOM ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, 'Browser history needs a DOM') : (0, _invariant2.default)(false) : void 0;
+	
+	  var useRefresh = options.forceRefresh || !(0, _DOMUtils.supportsHistory)();
+	  var Protocol = useRefresh ? RefreshProtocol : BrowserProtocol;
+	
+	  var getUserConfirmation = Protocol.getUserConfirmation;
+	  var getCurrentLocation = Protocol.getCurrentLocation;
+	  var pushLocation = Protocol.pushLocation;
+	  var replaceLocation = Protocol.replaceLocation;
+	  var go = Protocol.go;
+	
+	
+	  var history = (0, _createHistory2.default)(_extends({
+	    getUserConfirmation: getUserConfirmation }, options, {
+	    getCurrentLocation: getCurrentLocation,
+	    pushLocation: pushLocation,
+	    replaceLocation: replaceLocation,
+	    go: go
+	  }));
+	
+	  var listenerCount = 0,
+	      stopListener = void 0;
+	
+	  var startListener = function startListener(listener, before) {
+	    if (++listenerCount === 1) stopListener = BrowserProtocol.startListener(history.transitionTo);
+	
+	    var unlisten = before ? history.listenBefore(listener) : history.listen(listener);
+	
+	    return function () {
+	      unlisten();
+	
+	      if (--listenerCount === 0) stopListener();
+	    };
+	  };
+	
+	  var listenBefore = function listenBefore(listener) {
+	    return startListener(listener, true);
+	  };
+	
+	  var listen = function listen(listener) {
+	    return startListener(listener, false);
+	  };
+	
+	  return _extends({}, history, {
+	    listenBefore: listenBefore,
+	    listen: listen
+	  });
+	};
+	
+	exports.default = createBrowserHistory;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 219 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	var canUseDOM = exports.canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+
+/***/ },
+/* 220 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	exports.go = exports.replaceLocation = exports.pushLocation = exports.startListener = exports.getUserConfirmation = exports.getCurrentLocation = undefined;
+	
+	var _LocationUtils = __webpack_require__(209);
+	
+	var _DOMUtils = __webpack_require__(221);
+	
+	var _DOMStateStorage = __webpack_require__(222);
+	
+	var _PathUtils = __webpack_require__(210);
+	
+	var _ExecutionEnvironment = __webpack_require__(219);
+	
+	var PopStateEvent = 'popstate';
+	var HashChangeEvent = 'hashchange';
+	
+	var needsHashchangeListener = _ExecutionEnvironment.canUseDOM && !(0, _DOMUtils.supportsPopstateOnHashchange)();
+	
+	var _createLocation = function _createLocation(historyState) {
+	  var key = historyState && historyState.key;
+	
+	  return (0, _LocationUtils.createLocation)({
+	    pathname: window.location.pathname,
+	    search: window.location.search,
+	    hash: window.location.hash,
+	    state: key ? (0, _DOMStateStorage.readState)(key) : undefined
+	  }, undefined, key);
+	};
+	
+	var getCurrentLocation = exports.getCurrentLocation = function getCurrentLocation() {
+	  var historyState = void 0;
+	  try {
+	    historyState = window.history.state || {};
+	  } catch (error) {
+	    // IE 11 sometimes throws when accessing window.history.state
+	    // See https://github.com/ReactTraining/history/pull/289
+	    historyState = {};
+	  }
+	
+	  return _createLocation(historyState);
+	};
+	
+	var getUserConfirmation = exports.getUserConfirmation = function getUserConfirmation(message, callback) {
+	  return callback(window.confirm(message));
+	}; // eslint-disable-line no-alert
+	
+	var startListener = exports.startListener = function startListener(listener) {
+	  var handlePopState = function handlePopState(event) {
+	    if (event.state !== undefined) // Ignore extraneous popstate events in WebKit
+	      listener(_createLocation(event.state));
+	  };
+	
+	  (0, _DOMUtils.addEventListener)(window, PopStateEvent, handlePopState);
+	
+	  var handleUnpoppedHashChange = function handleUnpoppedHashChange() {
+	    return listener(getCurrentLocation());
+	  };
+	
+	  if (needsHashchangeListener) {
+	    (0, _DOMUtils.addEventListener)(window, HashChangeEvent, handleUnpoppedHashChange);
+	  }
+	
+	  return function () {
+	    (0, _DOMUtils.removeEventListener)(window, PopStateEvent, handlePopState);
+	
+	    if (needsHashchangeListener) {
+	      (0, _DOMUtils.removeEventListener)(window, HashChangeEvent, handleUnpoppedHashChange);
+	    }
+	  };
+	};
+	
+	var updateLocation = function updateLocation(location, updateState) {
+	  var state = location.state;
+	  var key = location.key;
+	
+	
+	  if (state !== undefined) (0, _DOMStateStorage.saveState)(key, state);
+	
+	  updateState({ key: key }, (0, _PathUtils.createPath)(location));
+	};
+	
+	var pushLocation = exports.pushLocation = function pushLocation(location) {
+	  return updateLocation(location, function (state, path) {
+	    return window.history.pushState(state, null, path);
+	  });
+	};
+	
+	var replaceLocation = exports.replaceLocation = function replaceLocation(location) {
+	  return updateLocation(location, function (state, path) {
+	    return window.history.replaceState(state, null, path);
+	  });
+	};
+	
+	var go = exports.go = function go(n) {
+	  if (n) window.history.go(n);
+	};
+
+/***/ },
+/* 221 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	var addEventListener = exports.addEventListener = function addEventListener(node, event, listener) {
+	  return node.addEventListener ? node.addEventListener(event, listener, false) : node.attachEvent('on' + event, listener);
+	};
+	
+	var removeEventListener = exports.removeEventListener = function removeEventListener(node, event, listener) {
+	  return node.removeEventListener ? node.removeEventListener(event, listener, false) : node.detachEvent('on' + event, listener);
+	};
+	
+	/**
+	 * Returns true if the HTML5 history API is supported. Taken from Modernizr.
+	 *
+	 * https://github.com/Modernizr/Modernizr/blob/master/LICENSE
+	 * https://github.com/Modernizr/Modernizr/blob/master/feature-detects/history.js
+	 * changed to avoid false negatives for Windows Phones: https://github.com/reactjs/react-router/issues/586
+	 */
+	var supportsHistory = exports.supportsHistory = function supportsHistory() {
+	  var ua = window.navigator.userAgent;
+	
+	  if ((ua.indexOf('Android 2.') !== -1 || ua.indexOf('Android 4.0') !== -1) && ua.indexOf('Mobile Safari') !== -1 && ua.indexOf('Chrome') === -1 && ua.indexOf('Windows Phone') === -1) return false;
+	
+	  return window.history && 'pushState' in window.history;
+	};
+	
+	/**
+	 * Returns false if using go(n) with hash history causes a full page reload.
+	 */
+	var supportsGoWithoutReloadUsingHash = exports.supportsGoWithoutReloadUsingHash = function supportsGoWithoutReloadUsingHash() {
+	  return window.navigator.userAgent.indexOf('Firefox') === -1;
+	};
+	
+	/**
+	 * Returns true if browser fires popstate on hash change.
+	 * IE10 and IE11 do not.
+	 */
+	var supportsPopstateOnHashchange = exports.supportsPopstateOnHashchange = function supportsPopstateOnHashchange() {
+	  return window.navigator.userAgent.indexOf('Trident') === -1;
+	};
+
+/***/ },
+/* 222 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	exports.readState = exports.saveState = undefined;
+	
+	var _warning = __webpack_require__(181);
+	
+	var _warning2 = _interopRequireDefault(_warning);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var QuotaExceededErrors = {
+	  QuotaExceededError: true,
+	  QUOTA_EXCEEDED_ERR: true
+	};
+	
+	var SecurityErrors = {
+	  SecurityError: true
+	};
+	
+	var KeyPrefix = '@@History/';
+	
+	var createKey = function createKey(key) {
+	  return KeyPrefix + key;
+	};
+	
+	var saveState = exports.saveState = function saveState(key, state) {
+	  if (!window.sessionStorage) {
+	    // Session storage is not available or hidden.
+	    // sessionStorage is undefined in Internet Explorer when served via file protocol.
+	    process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(false, '[history] Unable to save state; sessionStorage is not available') : void 0;
+	
+	    return;
+	  }
+	
+	  try {
+	    if (state == null) {
+	      window.sessionStorage.removeItem(createKey(key));
+	    } else {
+	      window.sessionStorage.setItem(createKey(key), JSON.stringify(state));
+	    }
+	  } catch (error) {
+	    if (SecurityErrors[error.name]) {
+	      // Blocking cookies in Chrome/Firefox/Safari throws SecurityError on any
+	      // attempt to access window.sessionStorage.
+	      process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(false, '[history] Unable to save state; sessionStorage is not available due to security settings') : void 0;
+	
+	      return;
+	    }
+	
+	    if (QuotaExceededErrors[error.name] && window.sessionStorage.length === 0) {
+	      // Safari "private mode" throws QuotaExceededError.
+	      process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(false, '[history] Unable to save state; sessionStorage is not available in Safari private mode') : void 0;
+	
+	      return;
+	    }
+	
+	    throw error;
+	  }
+	};
+	
+	var readState = exports.readState = function readState(key) {
+	  var json = void 0;
+	  try {
+	    json = window.sessionStorage.getItem(createKey(key));
+	  } catch (error) {
+	    if (SecurityErrors[error.name]) {
+	      // Blocking cookies in Chrome/Firefox/Safari throws SecurityError on any
+	      // attempt to access window.sessionStorage.
+	      process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(false, '[history] Unable to read state; sessionStorage is not available due to security settings') : void 0;
+	
+	      return undefined;
+	    }
+	  }
+	
+	  if (json) {
+	    try {
+	      return JSON.parse(json);
+	    } catch (error) {
+	      // Ignore invalid JSON.
+	    }
+	  }
+	
+	  return undefined;
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 223 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	exports.replaceLocation = exports.pushLocation = exports.getCurrentLocation = exports.go = exports.getUserConfirmation = undefined;
+	
+	var _BrowserProtocol = __webpack_require__(220);
+	
+	Object.defineProperty(exports, 'getUserConfirmation', {
+	  enumerable: true,
+	  get: function get() {
+	    return _BrowserProtocol.getUserConfirmation;
+	  }
+	});
+	Object.defineProperty(exports, 'go', {
+	  enumerable: true,
+	  get: function get() {
+	    return _BrowserProtocol.go;
+	  }
+	});
+	
+	var _LocationUtils = __webpack_require__(209);
+	
+	var _PathUtils = __webpack_require__(210);
+	
+	var getCurrentLocation = exports.getCurrentLocation = function getCurrentLocation() {
+	  return (0, _LocationUtils.createLocation)(window.location);
+	};
+	
+	var pushLocation = exports.pushLocation = function pushLocation(location) {
+	  window.location.href = (0, _PathUtils.createPath)(location);
+	  return false; // Don't update location
+	};
+	
+	var replaceLocation = exports.replaceLocation = function replaceLocation(location) {
+	  window.location.replace((0, _PathUtils.createPath)(location));
+	  return false; // Don't update location
+	};
+
+/***/ },
+/* 224 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	exports.default = function (createHistory) {
+	  var history = void 0;
+	  if (canUseDOM) history = (0, _useRouterHistory2.default)(createHistory)();
+	  return history;
+	};
+	
+	var _useRouterHistory = __webpack_require__(215);
+	
+	var _useRouterHistory2 = _interopRequireDefault(_useRouterHistory);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+	
+	module.exports = exports['default'];
+
+/***/ },
+/* 225 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var _createHashHistory = __webpack_require__(226);
+	
+	var _createHashHistory2 = _interopRequireDefault(_createHashHistory);
+	
+	var _createRouterHistory = __webpack_require__(224);
+	
+	var _createRouterHistory2 = _interopRequireDefault(_createRouterHistory);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _createRouterHistory2.default)(_createHashHistory2.default);
+	module.exports = exports['default'];
+
+/***/ },
+/* 226 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _warning = __webpack_require__(181);
+	
+	var _warning2 = _interopRequireDefault(_warning);
+	
+	var _invariant = __webpack_require__(177);
+	
+	var _invariant2 = _interopRequireDefault(_invariant);
+	
+	var _ExecutionEnvironment = __webpack_require__(219);
+	
+	var _DOMUtils = __webpack_require__(221);
+	
+	var _HashProtocol = __webpack_require__(227);
+	
+	var HashProtocol = _interopRequireWildcard(_HashProtocol);
+	
+	var _createHistory = __webpack_require__(213);
+	
+	var _createHistory2 = _interopRequireDefault(_createHistory);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var DefaultQueryKey = '_k';
+	
+	var addLeadingSlash = function addLeadingSlash(path) {
+	  return path.charAt(0) === '/' ? path : '/' + path;
+	};
+	
+	var HashPathCoders = {
+	  hashbang: {
+	    encodePath: function encodePath(path) {
+	      return path.charAt(0) === '!' ? path : '!' + path;
+	    },
+	    decodePath: function decodePath(path) {
+	      return path.charAt(0) === '!' ? path.substring(1) : path;
+	    }
+	  },
+	  noslash: {
+	    encodePath: function encodePath(path) {
+	      return path.charAt(0) === '/' ? path.substring(1) : path;
+	    },
+	    decodePath: addLeadingSlash
+	  },
+	  slash: {
+	    encodePath: addLeadingSlash,
+	    decodePath: addLeadingSlash
+	  }
+	};
+	
+	var createHashHistory = function createHashHistory() {
+	  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+	  !_ExecutionEnvironment.canUseDOM ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, 'Hash history needs a DOM') : (0, _invariant2.default)(false) : void 0;
+	
+	  var queryKey = options.queryKey;
+	  var hashType = options.hashType;
+	
+	
+	  process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(queryKey !== false, 'Using { queryKey: false } no longer works. Instead, just don\'t ' + 'use location state if you don\'t want a key in your URL query string') : void 0;
+	
+	  if (typeof queryKey !== 'string') queryKey = DefaultQueryKey;
+	
+	  if (hashType == null) hashType = 'slash';
+	
+	  if (!(hashType in HashPathCoders)) {
+	    process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(false, 'Invalid hash type: %s', hashType) : void 0;
+	
+	    hashType = 'slash';
+	  }
+	
+	  var pathCoder = HashPathCoders[hashType];
+	
+	  var getUserConfirmation = HashProtocol.getUserConfirmation;
+	
+	
+	  var getCurrentLocation = function getCurrentLocation() {
+	    return HashProtocol.getCurrentLocation(pathCoder, queryKey);
+	  };
+	
+	  var pushLocation = function pushLocation(location) {
+	    return HashProtocol.pushLocation(location, pathCoder, queryKey);
+	  };
+	
+	  var replaceLocation = function replaceLocation(location) {
+	    return HashProtocol.replaceLocation(location, pathCoder, queryKey);
+	  };
+	
+	  var history = (0, _createHistory2.default)(_extends({
+	    getUserConfirmation: getUserConfirmation }, options, {
+	    getCurrentLocation: getCurrentLocation,
+	    pushLocation: pushLocation,
+	    replaceLocation: replaceLocation,
+	    go: HashProtocol.go
+	  }));
+	
+	  var listenerCount = 0,
+	      stopListener = void 0;
+	
+	  var startListener = function startListener(listener, before) {
+	    if (++listenerCount === 1) stopListener = HashProtocol.startListener(history.transitionTo, pathCoder, queryKey);
+	
+	    var unlisten = before ? history.listenBefore(listener) : history.listen(listener);
+	
+	    return function () {
+	      unlisten();
+	
+	      if (--listenerCount === 0) stopListener();
+	    };
+	  };
+	
+	  var listenBefore = function listenBefore(listener) {
+	    return startListener(listener, true);
+	  };
+	
+	  var listen = function listen(listener) {
+	    return startListener(listener, false);
+	  };
+	
+	  var goIsSupportedWithoutReload = (0, _DOMUtils.supportsGoWithoutReloadUsingHash)();
+	
+	  var go = function go(n) {
+	    process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(goIsSupportedWithoutReload, 'Hash history go(n) causes a full page reload in this browser') : void 0;
+	
+	    history.go(n);
+	  };
+	
+	  var createHref = function createHref(path) {
+	    return '#' + pathCoder.encodePath(history.createHref(path));
+	  };
+	
+	  return _extends({}, history, {
+	    listenBefore: listenBefore,
+	    listen: listen,
+	    go: go,
+	    createHref: createHref
+	  });
+	};
+	
+	exports.default = createHashHistory;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 227 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	exports.replaceLocation = exports.pushLocation = exports.startListener = exports.getCurrentLocation = exports.go = exports.getUserConfirmation = undefined;
+	
+	var _BrowserProtocol = __webpack_require__(220);
+	
+	Object.defineProperty(exports, 'getUserConfirmation', {
+	  enumerable: true,
+	  get: function get() {
+	    return _BrowserProtocol.getUserConfirmation;
+	  }
+	});
+	Object.defineProperty(exports, 'go', {
+	  enumerable: true,
+	  get: function get() {
+	    return _BrowserProtocol.go;
+	  }
+	});
+	
+	var _warning = __webpack_require__(181);
+	
+	var _warning2 = _interopRequireDefault(_warning);
+	
+	var _LocationUtils = __webpack_require__(209);
+	
+	var _DOMUtils = __webpack_require__(221);
+	
+	var _DOMStateStorage = __webpack_require__(222);
+	
+	var _PathUtils = __webpack_require__(210);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var HashChangeEvent = 'hashchange';
+	
+	var getHashPath = function getHashPath() {
+	  // We can't use window.location.hash here because it's not
+	  // consistent across browsers - Firefox will pre-decode it!
+	  var href = window.location.href;
+	  var hashIndex = href.indexOf('#');
+	  return hashIndex === -1 ? '' : href.substring(hashIndex + 1);
+	};
+	
+	var pushHashPath = function pushHashPath(path) {
+	  return window.location.hash = path;
+	};
+	
+	var replaceHashPath = function replaceHashPath(path) {
+	  var hashIndex = window.location.href.indexOf('#');
+	
+	  window.location.replace(window.location.href.slice(0, hashIndex >= 0 ? hashIndex : 0) + '#' + path);
+	};
+	
+	var getCurrentLocation = exports.getCurrentLocation = function getCurrentLocation(pathCoder, queryKey) {
+	  var path = pathCoder.decodePath(getHashPath());
+	  var key = (0, _PathUtils.getQueryStringValueFromPath)(path, queryKey);
+	
+	  var state = void 0;
+	  if (key) {
+	    path = (0, _PathUtils.stripQueryStringValueFromPath)(path, queryKey);
+	    state = (0, _DOMStateStorage.readState)(key);
+	  }
+	
+	  var init = (0, _PathUtils.parsePath)(path);
+	  init.state = state;
+	
+	  return (0, _LocationUtils.createLocation)(init, undefined, key);
+	};
+	
+	var prevLocation = void 0;
+	
+	var startListener = exports.startListener = function startListener(listener, pathCoder, queryKey) {
+	  var handleHashChange = function handleHashChange() {
+	    var path = getHashPath();
+	    var encodedPath = pathCoder.encodePath(path);
+	
+	    if (path !== encodedPath) {
+	      // Always be sure we have a properly-encoded hash.
+	      replaceHashPath(encodedPath);
+	    } else {
+	      var currentLocation = getCurrentLocation(pathCoder, queryKey);
+	
+	      if (prevLocation && currentLocation.key && prevLocation.key === currentLocation.key) return; // Ignore extraneous hashchange events
+	
+	      prevLocation = currentLocation;
+	
+	      listener(currentLocation);
+	    }
+	  };
+	
+	  // Ensure the hash is encoded properly.
+	  var path = getHashPath();
+	  var encodedPath = pathCoder.encodePath(path);
+	
+	  if (path !== encodedPath) replaceHashPath(encodedPath);
+	
+	  (0, _DOMUtils.addEventListener)(window, HashChangeEvent, handleHashChange);
+	
+	  return function () {
+	    return (0, _DOMUtils.removeEventListener)(window, HashChangeEvent, handleHashChange);
+	  };
+	};
+	
+	var updateLocation = function updateLocation(location, pathCoder, queryKey, updateHash) {
+	  var state = location.state;
+	  var key = location.key;
+	
+	
+	  var path = pathCoder.encodePath((0, _PathUtils.createPath)(location));
+	
+	  if (state !== undefined) {
+	    path = (0, _PathUtils.addQueryStringValueToPath)(path, queryKey, key);
+	    (0, _DOMStateStorage.saveState)(key, state);
+	  }
+	
+	  prevLocation = location;
+	
+	  updateHash(path);
+	};
+	
+	var pushLocation = exports.pushLocation = function pushLocation(location, pathCoder, queryKey) {
+	  return updateLocation(location, pathCoder, queryKey, function (path) {
+	    if (getHashPath() !== path) {
+	      pushHashPath(path);
+	    } else {
+	      process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(false, 'You cannot PUSH the same path using hash history') : void 0;
+	    }
+	  });
+	};
+	
+	var replaceLocation = exports.replaceLocation = function replaceLocation(location, pathCoder, queryKey) {
+	  return updateLocation(location, pathCoder, queryKey, function (path) {
+	    if (getHashPath() !== path) replaceHashPath(path);
+	  });
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 228 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var App = function App(_ref) {
+	  var children = _ref.children;
 	  return _react2.default.createElement(
 	    'div',
 	    null,
-	    _react2.default.createElement(_periodic_table2.default, null)
+	    children
 	  );
 	};
 	
 	exports.default = App;
 
 /***/ },
-/* 173 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21480,27 +26452,27 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _periodicTable = __webpack_require__(174);
+	var _periodicTable = __webpack_require__(230);
 	
 	var _periodicTable2 = _interopRequireDefault(_periodicTable);
 	
-	var _chemical_element = __webpack_require__(176);
+	var _chemical_element = __webpack_require__(232);
 	
 	var _chemical_element2 = _interopRequireDefault(_chemical_element);
 	
-	var _main_block_elements = __webpack_require__(177);
+	var _main_block_elements = __webpack_require__(233);
 	
 	var _main_block_elements2 = _interopRequireDefault(_main_block_elements);
 	
-	var _lanthanides_actinides = __webpack_require__(182);
+	var _lanthanides_actinides = __webpack_require__(238);
 	
 	var _lanthanides_actinides2 = _interopRequireDefault(_lanthanides_actinides);
 	
-	var _element_group_colors = __webpack_require__(183);
+	var _element_group_colors = __webpack_require__(239);
 	
 	var _element_group_colors2 = _interopRequireDefault(_element_group_colors);
 	
-	var _functions = __webpack_require__(184);
+	var _functions = __webpack_require__(240);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -21613,11 +26585,11 @@
 	exports.default = PeriodicTable;
 
 /***/ },
-/* 174 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(__dirname) {
-	var path = __webpack_require__(175);
+	var path = __webpack_require__(231);
 	// var data = require('./data.json');
 	var data = [
 	{"atomicNumber":1,"symbol":"H","name":"Hydrogen","atomicMass":"1.00794(4)","cpkHexColor":"FFFFFF","electronicConfiguration":"1s1","electronegativity":2.2,"atomicRadius":37,"ionRadius":"","vanDelWaalsRadius":120,"ionizationEnergy":1312,"electronAffinity":-73,"oxidationStates":"-1, 1","standardState":"gas","bondingType":"diatomic","meltingPoint":14,"boilingPoint":20,"density":0.0000899,"groupBlock":"nonmetal","yearDiscovered":1766},
@@ -21765,7 +26737,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ },
-/* 175 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -21996,7 +26968,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 176 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22011,6 +26983,8 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactRouter = __webpack_require__(173);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22022,13 +26996,21 @@
 	var ChemicalElement = function (_React$Component) {
 	  _inherits(ChemicalElement, _React$Component);
 	
-	  function ChemicalElement() {
+	  function ChemicalElement(props) {
 	    _classCallCheck(this, ChemicalElement);
 	
-	    return _possibleConstructorReturn(this, (ChemicalElement.__proto__ || Object.getPrototypeOf(ChemicalElement)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (ChemicalElement.__proto__ || Object.getPrototypeOf(ChemicalElement)).call(this, props));
+	
+	    _this.handleClick = _this.handleClick.bind(_this);
+	    return _this;
 	  }
 	
 	  _createClass(ChemicalElement, [{
+	    key: 'handleClick',
+	    value: function handleClick() {
+	      _reactRouter.hashHistory.push('/' + this.props.element.name);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var groupClass = void 0;
@@ -22040,7 +27022,7 @@
 	
 	      return _react2.default.createElement(
 	        'td',
-	        { className: 'chemical-element ' + groupClass },
+	        { onClick: this.handleClick, className: 'chemical-element ' + groupClass },
 	        _react2.default.createElement(
 	          'p',
 	          { className: 'atomic-info' },
@@ -22075,7 +27057,7 @@
 	exports.default = ChemicalElement;
 
 /***/ },
-/* 177 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22088,19 +27070,19 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _null_component = __webpack_require__(178);
+	var _null_component = __webpack_require__(234);
 	
 	var _null_component2 = _interopRequireDefault(_null_component);
 	
-	var _range_cell = __webpack_require__(179);
+	var _range_cell = __webpack_require__(235);
 	
 	var _range_cell2 = _interopRequireDefault(_range_cell);
 	
-	var _title_cell = __webpack_require__(180);
+	var _title_cell = __webpack_require__(236);
 	
 	var _title_cell2 = _interopRequireDefault(_title_cell);
 	
-	var _title = __webpack_require__(181);
+	var _title = __webpack_require__(237);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -22216,7 +27198,7 @@
 	exports.default = MainBlockElements;
 
 /***/ },
-/* 178 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22238,7 +27220,7 @@
 	exports.default = NullComponent;
 
 /***/ },
-/* 179 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22270,7 +27252,7 @@
 	exports.default = RangeCell;
 
 /***/ },
-/* 180 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22312,7 +27294,7 @@
 	exports.default = TitleCell;
 
 /***/ },
-/* 181 */
+/* 237 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22324,7 +27306,7 @@
 	var TEXT = exports.TEXT = ['Stories', 'Behind', 'The', 'Elements', 'We', 'Know', 'And', 'Love', 'Created', 'By', 'Matthew', 'Santamaria', '2016'];
 
 /***/ },
-/* 182 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22365,7 +27347,7 @@
 	exports.default = LanthanidesActinides;
 
 /***/ },
-/* 183 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22443,7 +27425,7 @@
 	exports.default = ElementGroupColors;
 
 /***/ },
-/* 184 */
+/* 240 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22456,16 +27438,734 @@
 	};
 
 /***/ },
-/* 185 */
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _elementHistories = __webpack_require__(242);
+	
+	var _elementHistories2 = _interopRequireDefault(_elementHistories);
+	
+	var _reactRouter = __webpack_require__(173);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ElementInfoPage = function (_React$Component) {
+	  _inherits(ElementInfoPage, _React$Component);
+	
+	  function ElementInfoPage() {
+	    _classCallCheck(this, ElementInfoPage);
+	
+	    return _possibleConstructorReturn(this, (ElementInfoPage.__proto__ || Object.getPrototypeOf(ElementInfoPage)).apply(this, arguments));
+	  }
+	
+	  _createClass(ElementInfoPage, [{
+	    key: 'render',
+	    value: function render() {
+	      var name = this.props.params['elementName'];
+	
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/' },
+	          'Back'
+	        ),
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          name
+	        ),
+	        _react2.default.createElement('img', { src: '' + _elementHistories2.default.image(name) }),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          _elementHistories2.default.story(name)
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return ElementInfoPage;
+	}(_react2.default.Component);
+	
+	;
+	
+	exports.default = ElementInfoPage;
+
+/***/ },
+/* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	let allElements = __webpack_require__(243);
+	
+	module.exports = {
+	  image: function(elementName) {
+	    if (typeof elementName === 'string' && elementName.toLowerCase() in allElements) {
+	      return allElements[elementName.toLowerCase()]['image'];
+	    } else {
+	      throw new Error('element name invalid');
+	    }
+	  },
+	
+	  country: function(elementName) {
+	    if (typeof elementName === 'string' && elementName.toLowerCase() in allElements) {
+	      return allElements[elementName.toLowerCase()]['country'];
+	    } else {
+	      throw new Error('element name invalid');
+	    }
+	  },
+	
+	  story: function(elementName) {
+	    if (typeof elementName === 'string' && elementName.toLowerCase() in allElements) {
+	      return allElements[elementName.toLowerCase()]['story'];
+	    } else {
+	      throw new Error('element name invalid');
+	    }
+	  },
+	
+	  fullInfo: function(elementName) {
+	    if (typeof elementName === 'string' && elementName.toLowerCase() in allElements) {
+	      return allElements[elementName.toLowerCase()];
+	    } else {
+	      throw new Error('element name invalid');
+	    }
+	  },
+	
+	  allNames: function() {
+	    return Object.keys(allElements);
+	  }
+	}
+
+
+/***/ },
+/* 243 */
+/***/ function(module, exports) {
+
+	module.exports = {
+	  hydrogen: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904118/elements/hydrogen.jpg',
+	    country: 'UK',
+	    story: "In the early 1500s the alchemist Paracelsus noted that the bubbles given off when iron filings were added to sulfuric acid were flammable. In 1671 Robert Boyle made the same observation. Neither followed up their discovery of hydrogen, and so Henry Cavendish gets the credit. In 1766 he collected the bubbles and showed that they were different from other gases. He later showed that when hydrogen burns it forms water, thereby ending the belief that water was an element. The gas was given its name hydro-gen, meaning water-former, by Antoine Lavoisier.In 1931, Harold Urey and his colleagues at Columbia University in the US detected a second, rarer, form of hydrogen. This has twice the mass of normal hydrogen, and they named it deuterium."
+	  },
+	  helium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904080/elements/helium.jpg',
+	    country: 'UK',
+	    story: "In 1868, Pierre J. C. Janssen travelled to India to measure the solar spectrum during a total eclipse and observed a new yellow line which indicated a new element. Joseph Norman Lockyer recorded the same line by observing the sun through London smog and, assuming the new element to be a metal, he named it helium. In 1882, the Italian Luigi Palmieri found the same line the spectrum of gases emitted by Vesuvius, as did the American William Hillebrand in 1889 when he collected the gas given off by the mineral uraninite (UO2) as it dissolves in acid. However, it was Per Teodor Cleve and Nils Abraham Langer at Uppsala, Sweden, in 1895, who repeated that experiment and confirmed it was helium and measured its atomic weight."
+	  },
+	  lithium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904156/elements/lithium.jpg',
+	    country: 'Sweden',
+	    story: "The first lithium mineral petalite, LiAlSi4O10, was discovered on the Swedish island of Utö by the Brazilian, Jozé Bonifácio de Andralda e Silva in the 1790s. It was observed to give an intense crimson flame when thrown onto a fire. In 1817, Johan August Arfvedson of Stockholm analysed it and deduced it contained a previously unknown metal, which he called lithium. He realised this was a new alkali metal and a lighter version of sodium. However, unlike sodium he was not able to separate it by electrolysis. In 1821 William Brande obtained a tiny amount this way but not enough on which to make measurements. It was not until 1855 that the German chemist Robert Bunsen and the British chemist Augustus Matthiessen obtained it in bulk by the electrolysis of molten lithium chloride."
+	  },
+	  beryllium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904174/elements/beryllium.jpg',
+	    country: 'France',
+	    story: "The gemstones beryl and emerald are both forms of beryllium aluminium silicate, Be3Al2(SiO3)6. The French mineralogist Abbé René-Just Haüy thought they might harbour a new element, and he asked Nicholas Louis Vauquelin, to analyse them and he realised they harboured a new metal and he investigated it. In February 1798 Vauquelin announced his discovery at the French Academy and named the element glaucinium (Greek glykys = sweet) because its compounds tasted sweet. Others preferred the name beryllium, based on the gemstone, and this is now the official name. Beryllium metal was isolated in 1828 by Friedrich Wöhler at Berlin and independently by Antoine-Alexandere-Brutus Bussy at Paris, both of whom extracted it from beryllium chloride (BeCl2) by reacting this with potassium."
+	  },
+	  boron: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904199/elements/boron.jpg',
+	    country: 'France',
+	    story: "For centuries the only source of borax, Na2B2O5(OH)4, was the crystallized deposits of Lake Yamdok Cho, in Tibet. It was used as a flux used by goldsmiths. In 1808, Louis-Josef Gay-Lussac and Louis-Jacques Thénard working in Paris, and Sir Humphry Davy in London, independently extracted boron by heating borax with potassium metal. In fact, neither had produced the pure element which is almost impossible to obtain. A purer type of boron was isolated in 1892 by Henri Moissan. Eventually, E. Weintraub in the USA produced totally pure boron by sparking a mixture of boron chloride, BCl3 vapour, and hydrogen. The material so obtained boron was found to have very different properties to those previously reported."
+	  },
+	  carbon: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904226/elements/carbon.jpg',
+	    country: 'ancient',
+	    story: "Carbon occurs naturally as anthracite (a type of coal), graphite, and diamond. More readily available historically was soot or charcoal. Ultimately these various materials were recognised as forms of the same element. Not surprisingly, diamond posed the greatest difficulty of identification. Naturalist Giuseppe Averani and medic Cipriano Targioni of Florence were the first to discover that diamonds could be destroyed by heating. In 1694 they focussed sunlight on to a diamond using a large magnifying glass and the gem eventually disappeared. Pierre-Joseph Macquer and Godefroy de Villetaneuse repeated the experiment in 1771. Then, in 1796, the English chemist Smithson Tennant finally proved that diamond was just a form of carbon by showing that as it burned it formed only CO2."
+	  },
+	  nitrogen: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904240/elements/nitrogen.jpg',
+	    country: 'UK',
+	    story: "Nitrogen in the form of ammonium chloride, NH4Cl, was known to the alchemists as sal ammonia. It was manufactured in Egypt by heating a mixture of dung, salt and urine. Nitrogen gas itself was obtained in the 1760s by both Henry Cavendish and Joseph Priestley and they did this by removing the oxygen from air. They noted it extinguished a lighted candle and that a mouse breathing it would soon die. Neither man deduced that it was an element. The first person to suggest this was a young student Daniel Rutherford in his doctorate thesis of September 1772 at Edinburgh, Scotland."
+	  },
+	  oxygen: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904268/elements/oxygen.jpg',
+	    country: 'UK',
+	    story: "In 1608, Cornelius Drebbel had shown that heating saltpetre (potassium nitrate, KNO3) released a gas. This was oxygen although it was not identified as such. The credit for discovering oxygen is now shared by three chemists: an Englishman, a Swede, and a Frenchman. Joseph Priestley was the first to publish an account of oxygen, having made it in 1774 by focussing sunlight on to mercuric oxide (HgO), and collecting the gas which came off. He noted that a candle burned more brightly in it and that it made breathing easier. Unknown to Priestly, Carl Wilhelm Scheele had produced oxygen in June 1771. He had written an account of his discovery but it was not published until 1777. Antoine Lavoisier also claimed to have discovered oxygen, and he proposed that the new gas be called oxy-gène, meaning acid-forming, because he thought it was the basis of all acids."
+	  },
+	  fluorine: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904323/elements/fluorite.jpg',
+	    country: 'France',
+	    story: "The early chemists were aware that metal fluorides contained an unidentified element similar to chlorine, but they could not isolate it. (The French scientist, André Ampère coined the name fluorine in 1812.) Even the great Humphry Davy was unable to produce the element, and he became ill by trying to isolate it from hydrofluoric acid. The British chemist George Gore in 1869 passed an electric current through liquid HF but found that the gas which was liberated reacted violently with his apparatus. He thought it was fluorine but was unable to collect it and prove it. Then in 1886 the French chemist Henri Moissan obtained it by the electrolysis of potassium bifluoride (KHF2) dissolved in liquid HF."
+	  },
+	  neon: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904351/elements/neon.jpg',
+	    country: 'UK',
+	    story: "In 1898, William Ramsay and Morris Travers at University College London isolated krypton gas by evaporating liquid argon. They had been expecting to find a lighter gas which would fit a niche above argon in the periodic table of the elements. They then repeated their experiment, this time allowing solid argon to evaporate slowly under reduced pressure and collected the gas which came off first. This time they were successful, and when they put a sample of the new gas into their atomic spectrometer it startled them by the brilliant red glow that we now associate with neon signs. Ramsay named the new gas neon, basing it on neos, the Greek word for new."
+	  },
+	  sodium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904377/elements/sodium.jpg',
+	    country: 'UK',
+	    story: "Salt (sodium chloride, NaCl) and soda (sodium carbonate, Na2CO3) had been known since prehistoric times, the former used as a flavouring and preservative, and the latter for glass manufacture. Salt came from seawater, while soda came from the Natron Valley in Egypt or from the ash of certain plants. Their composition was debated by early chemists and the solution finally came from the Royal Institution in London in October 1807 where Humphry Davy exposed caustic soda (sodium hydroxide, NaOH) to an electric current and obtained globules of sodium metal, just as he had previously done for potassium, although he needed to use a stronger current. The following year, Louis-Josef Gay-Lussac and Louis-Jacques Thénard obtained sodium by heating to red heat a mixture of caustic soda and iron filings."
+	  },
+	  magnesium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904391/elements/magnesium.jpg',
+	    country: 'UK',
+	    story: "The first person to recognise that magnesium was an element was Joseph Black at Edinburgh in 1755. He distinguished magnesia (magnesium oxide, MgO) from lime (calcium oxide, CaO) although both were produced by heating similar kinds of carbonate rocks, magnesite and limestone respectively. Another magnesium mineral called meerschaum (magnesium silicate) was reported by Thomas Henry in 1789, who said that it was much used in Turkey to make pipes for smoking tobacco. An impure form of metallic magnesium was first produced in 1792 by Anton Rupprecht who heated magnesia with charcoal. A pure, but tiny, amount of the metal was isolated in 1808 by Humphry Davy by the electrolysis of magnesium oxide. However, it was the French scientist, Antoine-Alexandre-Brutus Bussy who made a sizeable amount of the metal in 1831 by reacting magnesium chloride with potassium, and he then studied its properties."
+	  },
+	  aluminum: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904410/elements/aluminium-4.jpg',
+	    country: 'Denmark',
+	    story: "The analysis of a curious metal ornament found in the tomb of Chou-Chu, a military leader in 3rd century China, turned out to be 85% aluminium. How it was produced remains a mystery. By the end of the 1700s, aluminium oxide was known to contain a metal, but it defeated all attempts to extract it. Humphry Davy had used electric current to extract sodium and potassium from their so-called ‘earths’ (oxides), but his method did not release aluminium in the same way. The first person to produce it was Hans Christian Oersted at Copenhagen, Denmark, in 1825, and he did it by heating aluminium chloride with potassium. Even so, his sample was impure. It fell to the German chemist Friedrich Wöhler to perfect the method in 1827, and obtain pure aluminium for the first time by using sodium instead of potassium."
+	  },
+	  silicon: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904424/elements/silicon.jpg',
+	    country: 'Sweden',
+	    story: "Silica (SiO2) in the form of sharp flints were among the first tools made by humans. The ancient civilizations used other forms of silica such as rock crystal, and knew how to turn sand into glass. Considering silicon’s abundance, it is somewhat surprising that it aroused little curiosity among early chemists. Attempts to reduce silica to its components by electrolysis had failed. In 1811, Joseph Gay Lussac and Louis Jacques Thénard reacted silicon tetrachloride with potassium metal and produced some very impure form of silicon. The credit for discovering silicon really goes to the Swedish chemist Jöns Jacob Berzelius of Stockholm who, in 1824, obtained silicon by heating potassium fluorosilicate with potassium. The product was contaminated with potassium silicide, but he removed this by stirring it with water, with which it reacts, and thereby obtained relatively pure silicon powder."
+	  },
+	  phosphorus: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904442/elements/phosphorus.jpg',
+	    country: 'Germany',
+	    story: "Phosphorus was first made by Hennig Brandt at Hamburg in 1669 when he evaporated urine and heated the residue until it was red hot, whereupon phosphorus vapour distilled which he collected by condensing it in water. Brandt kept his discovery secret, thinking he had discovered the Philosopher’s Stone that could turn base metals into gold. When he ran out of money, he sold phosphorus to Daniel Kraft who exhibited it around Europe including London where Robert Boyle was fascinated by it. He discovered how it was produced and investigated it systematically. (His assistant Ambrose Godfrey set up his own business making and selling phosphorus and became rich.) When it was realised that bone was calcium phosphate, and could be used to make phosphorus, and it became more widely available. Demand from match manufacturers in the 1800s ensured a ready market."
+	  },
+	  sulfur: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904452/elements/sulfur.jpg',
+	    country: 'ancient',
+	    story: "Sulfur is mentioned 15 times in the Bible, and was best known for destroying Sodom and Gomorrah. It was also known to the ancient Greeks, and burnt as a fumigant. Sulfur was mined near Mount Etna in Sicily and used for bleaching cloth and preserving wine, both of which involved burning it to form sulfur dioxide, and allowing this to be absorbed by wet clothes or the grape juice. For centuries, sulfur along with mercury and salt, was believed to be a component of all metals and formed the basis of alchemy whereby one metal could be transmuted into another. Antoine Lavoisier thought that sulfur was an element, but in 1808 Humphry Davy said it contained hydrogen. However, his sample was impure and when Louis-Josef Gay-Lussac and Louis-Jacques Thénard proved it to be an element the following year, Davy eventually agreed."
+	  },
+	  chlorine: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904466/elements/chlorine.jpg',
+	    country: 'Sweden',
+	    story: "Hydrochloric acid (HCl) was known to the alchemists. The gaseous element itself was first produced in 1774 by Carl Wilhelm Scheele at Uppsala, Sweden, by heating hydrochloric acid with the mineral pyrolusite which is naturally occuring manganese dioxide, MnO2. A dense, greenish-yellow gas was evolved which he recorded as having a choking smell and which dissolved in water to give an acid solution. He noted that it bleached litmus paper, and decolourised leaves and flowers. Humphry Davy investigated it in 1807 and eventually concluded not only that it was a simple substance, but that it was truly an element. He announced this in 1810 and yet it took another ten years for some chemists finally to accept that chlorine really was an element."
+	  },
+	  argon: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904473/elements/argon.jpg',
+	    country: 'UK',
+	    story: "Although argon is abundant in the Earth’s atmosphere, it evaded discovery until 1894 when Lord Rayleigh and William Ramsay first separated it from liquid air. In fact the gas had been isolated in 1785 by Henry Cavendish who had noted that about 1% of air would not react even under the most extreme conditions. That 1% was argon. Argon was discovered as a result of trying to explain why the density of nitrogen extracted from air differed from that obtained by the decomposition of ammonia. Ramsay removed all the nitrogen from the gas he had extracted from air, and did this by reacting it with hot magnesium, forming the solid magnesium nitride. He was then left with a gas that would not react and when he examined its spectrum he saw new groups of red and green lines, confirming that it was a new element."
+	  },
+	  potassium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904490/elements/potassium.jpg',
+	    country: 'UK',
+	    story: "Potassium salts in the form of saltpetre (potassium nitrate, KNO3), alum (potassium aluminium sulfate, KAl(SO4)2), and potash (potassium carbonate, K2CO3) have been known for centuries. They were used in gunpowder, dyeing, and soap making. They were scraped from the walls of latrines, manufactured from clay and sulfuric acid, and collected as wood ash respectively. Reducing them to the element defeated the early chemists and potassium was classed as an ‘earth’ by Antoine Lavoisier. Then in 1807, Humphry Davy exposed moist potash to an electric current and observed the formation of metallic globules of a new metal, potassium. He noted that when they were dropped into water they skimmed around on the surface, burning with a lavender-coloured flame."
+	  },
+	  calcium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904501/elements/calcium.jpg',
+	    country: 'UK',
+	    story: "Lime (calcium oxide, CaO) was the useful material obtained by heating limestone and used for centuries to make plaster and mortar. Antoine Lavoisier classified it as an ‘earth’ because it seemed impossible to reduce it further, but he suspected it was the oxide of an unknown element. In 1808, Humphry Davy tried to reduce moist lime by electrolysis, just as he had done with sodium and potassium, but he was not successful. So he tried a mixture of lime and mercury oxide and while this produced an amalgam of calcium and mercury, it was not enough to confirm that he’d obtained a new element. (Jöns Jacob Berzelius had conducted a similar experiment and also obtained the amalgam.) Davy tried using more lime in the mixture and produced more of the amalgam from which he distilled off the mercury leaving just calcium."
+	  },
+	  scandium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904513/elements/scandium.jpg',
+	    country: 'Sweden',
+	    story: "In 1869, Mendeleev noticed that there was a gap in atomic weights between calcium (40) and titanium (48) and predicted there was an undiscovered element of intermediate atomic weight. He forecast that its oxide would be X2O3. It was discovered as scandium in 1879, by Lars Frederik Nilson of the University of Uppsala, Sweden. He extracted it from euxenite, a complex mineral containing eight metal oxides. He had already extracted erbium oxide from euxenite, and from this oxide he obtained ytterbium oxide and then another oxide of a lighter element whose atomic spectrum showed it to be an unknown metal. This was the metal that Mendeleev had predicted and its oxide was Sc2O3. Scandium metal itself was only produced in 1937 by the electrolysis of molten scandium chloride."
+	  },
+	  titanium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904523/elements/titanium-crystal.jpg',
+	    country: 'UK',
+	    story: "The first titanium mineral, a black sand called menachanite, was discovered in 1791 in Cornwall by the Reverend William Gregor. He analysed it and deduced it was made up of the oxides of iron and an unknown metal, and reported it as such to the Royal Geological Society of Cornwall. In 1795, the German scientist Martin Heinrich Klaproth of Berlin investigated a red ore known as Schörl from Hungary. This is a form of rutile (TiO2) and Klaproth realised it was the oxide of a previously unknown element which he named titanium. When he was told of Gregor’s discovery he investigated menachanite and confirmed it too contained titanium. It was not until 1910 that M. A. Hunter, working for General Electric in the USA, made pure titanium metal by heating titanium tetrachloride and sodium metal."
+	  },
+	  vanadium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904532/elements/vanadium.jpg',
+	    country: 'Sweden',
+	    story: "Vanadium was discovered twice. The first time was in 1801 by Andrés Manuel del Rio who was Professor of Mineralogy in Mexico City. He found it in a specimen of vanadite, Pb5(VO4)3Cl and sent a sample to Paris. However, French chemists concluded that it was a chromium mineral. The second time vanadium was discovered was in 1831 by the Swedish chemist Nil Gabriel Selfström at Stockholm. He separated it from a sample of cast iron made from ore that had been mined at Småland. He was able to show that it was a new element, and in so doing he beat a rival chemist, Friedrich Wöhler, to the discovery He was also working another vanadium mineral from Zimapan. Pure vanadium was produced by Henry Roscoe at Manchester, in 1869, and he showed that previous samples of the metal were really vanadium nitride (VN)."
+	  },
+	  chromium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904878/elements/chromium.jpg',
+	    country: 'France',
+	    story: "Chromium was discovered by the French chemist Nicholas Louis Vauquelin at Paris in1798. He was intrigued by a bright red mineral that had been discovered in a Siberian gold mine in 1766 and was referred to as Siberian red lead. It is now known as crocoite and is a form of lead chromate. Vauquelin analysed it and confirmed that it was a lead mineral. Then he dissolved it in acid, precipitated the lead, filtered this off, and focused his attention on the remaining liquor from which he succeeded in isolating chromium. Intrigued by the range of colours that it could produce in solution, he named it chromium from the Greek word chroma meaning colour. He then discovered that the green colouration of emeralds was also due to chromium"
+	  },
+	  manganese: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904903/elements/manganese.jpg',
+	    country: 'Sweden',
+	    story: "Manganese in the form of the black ore pyrolucite (manganese dioxide, MnO2) was used by the pre-historic cave painters of the Lascaux region of France around 30,000 years ago. In more recent times was used by glass makers to remove the pale greenish tint of natural glass. In 1740, the Berlin glass technologist Johann Heinrich Pott investigated it chemically and showed that it contained no iron as has been assumed. From it he was able to make potassium permanganate (KMnO4), one of the strongest oxidising agents known. Several chemists in the 1700s tried unsuccessfully to isolate the metal component in pyrolusite. The first person to do this was the Swedish chemist and mineralogist Johan Gottlieb Gahn in 1774. However, a student at Vienna, Ignatius Kaim, had already described how he had produced manganese metal, in his dissertation written in 1771."
+	  },
+	  iron: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480904965/elements/iron-3.jpg',
+	    country: 'ancient',
+	    story: "Iron objects have been found in Egypt dating from around 3500 BC. They contain about 7.5% nickel, which indicates that they were of meteoric origin. The ancient Hittites of Asia Minor, today’s Turkey, were the first to smelt iron from its ores around 1500 BC and this new, stronger, metal gave them economic and political power. The Iron Age had begun. Some kinds of iron were clearly superior to others depending on its carbon content, although this was not appreciated. Some iron ore contained vanadium producing so-called Damascene steel, ideal for swords. The first person to explain the various types of iron was René Antoine Ferchault de Réaumur who wrote a book on the subject in 1722. This explained how steel, wrought iron, and cast iron, were to be distinguished by the amount of charcoal (carbon) they contained. The Industrial Revolution which began that same century relied extensively on this metal."
+	  },
+	  cobalt: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905019/elements/cobalt.jpg',
+	    country: 'Sweden',
+	    story: "The tomb of Pharaoh Tutankhamen, who ruled from 1361-1352 BC, contained a small glass object coloured deep blue with cobalt. Cobalt blue was known even earlier in China and was used for pottery glazes. In 1730, chemist Georg Brandt of Stockholm became interested in a dark blue ore from some local copper workings and he eventually proved that it contained a hitherto unrecognised metal and he gave it the name by which its ore was cursed by miners in Germany, where it was sometimes mistaken for a silver ore. He published his results in 1739. For many years his claim to have uncovered a new metal was disputed by other chemists who said his new element was really a compound of iron and arsenic, but eventually it was recognised as an element in its own right."
+	  },
+	  nickel: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905028/elements/nickel.jpg',
+	    country: 'Sweden',
+	    story: "Meteorites contain both iron and nickel, and earlier ages used them as a superior form of iron. Because the metal did not rust, it was regarded by the natives of Peru as a kind of silver. A zinc-nickel alloy called pai-t’ung (white copper) was in use in China as long ago as 200 BC. Some even reached Europe. In 1751, Axel Fredrik Cronstedt, working at Stockholm, investigated a new mineral – now called nickeline (NiAs) – which came from a mine at Los, Hälsingland, Sweden. He thought it might contain copper but what he extracted was a new metal which he announced and named nickel in 1754. Many chemists thought it was an alloy of cobalt, arsenic, iron and copper – these elements were present as trace contaminants. It was not until 1775 that pure nickel was produced by Torbern Bergman and this confirmed its elemental nature."
+	  },
+	  copper: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905038/elements/copper.jpg',
+	    country: 'ancient',
+	    story: "Copper beads have been excavated in northern Iraq and which are more than ten thousand years old and presumably made from native copper, nuggets of which can sometimes be found. Copper was widely used in the ancient world as bronze, its alloy with tin, which was used to make cutlery, coins, and tools. In China it was used for bells. Copper is not difficult to extract from it ores, but mineable deposits were relatively rare. Some, such as the copper mine at Falun, Sweden, date from the 1200s, were the source of great wealth. One way to extract the metal was to roast the sulfide ore then leach out the copper sulfate that was formed, with water. This was then trickled over scrap iron on the surface of which the copper deposited, forming a flaky layer that was easily removed."
+	  },
+	  zinc: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905048/elements/zinc.jpg',
+	    country: 'Germany',
+	    story: "Zinc was known to the Romans but rarely used. It was first recognised as a metal in its own right in India and the waste from a zinc smelter at Zawar, in Rajasthan, testifies to the large scale on which it was refined during the period 1100 to the 1500. Zinc refining in China was carried out on a large scale by the 1500s. An East India Company ship which sank off the coast of Sweden in 1745 was carrying a cargo of Chinese zinc and analysis of reclaimed ingots showed them to be almost the pure metal. In 1668, a Flemish metallurgist, P. Moras de Respour, reported the extraction of metallic zinc from zinc oxide, but as far as Europe was concerned zinc was discovered by the German chemist Andreas Marggraf in 1746, and indeed he was the first to recognise it as a new metal."
+	  },
+	  gallium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905066/elements/gallium.jpg',
+	    country: 'France',
+	    story: "Gallium was discovered in Paris by Paul-Émile Lecoq de Boisbaudran in 1875. He observed a new violet line in the atomic spectrum of some zinc he had extracted from a sample of zinc blende ore (ZnS) from the Pyrenees. He knew it meant that an unknown element was present. What Boisbaudran didn’t realise was that its existence, and properties, had been predicted by Mendeleev whose periodic table showed there was a gap below aluminium which was yet to be occupied. He forecast that the missing element’s atomic weight would be around 68 and its density would be 5.9 g/cm3. By November of 1875, Boisbaudran had isolated and purified the new metal and shown that it was like aluminium. In December 1875 he announced it to the French Academy of Sciences."
+	  },
+	  germanium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905073/elements/germanium.jpg',
+	    country: 'Germany',
+	    story: "Germanium was discovered by Clemens A. Winkler at Freiberg, Germany, in 1886. Its existence had been predicted by Mendeleev who predicted its atomic weight would be about 71 and that its density around 5.5 g/cm3. In September 1885 a miner working in the Himmelsfürst silver mine near Freiberg, came across an unusual ore. It was passed to Albin Weisbach at the nearby Mining Academy who certified it was a new mineral, and asked his colleague Winkler to analyse it. He found its composition to be 75% silver, 18% sulfur, and 7% he could not explain. By February 1886, he realised it was a new metal-like element and as its properties were revealed, it became clear that it was the missing element below silicon as Mendeleev had predicted. The mineral from which it came we know as argyrodite, Ag8GeS6."
+	  },
+	  arsenic: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905081/elements/arsenic.jpg',
+	    country: 'ancient',
+	    story: "Arsenic was known to the ancient Egyptian, and is mentioned in one papyrus as a ways of gilding metals. The Greek philosopher Theophrastus knew of two arsenic sulfide minerals: orpiment (As2S3) and realgar (As4S4). The Chinese also knew about arsenic as the writings of Pen Ts’ao Kan-Mu. He compiled his great work on the natural world in the 1500s, during the Ming dynasty. He noted the toxicity associated with arsenic compounds and mentioned their use as pesticides in rice fields. A more dangerous form of arsenic, called white arsenic, has also been long known. This was the trioxide, As2O3, and was a by-product of copper refining. When this was mixed with olive oil and heated it yielded arsenic metal itself. The discovery of the element arsenic is attributed to Albertus Magnus in the 1200s."
+	  },
+	  selenium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905115/elements/selenium.jpg',
+	    country: 'Sweden',
+	    story: "Selenium was discovered by Jöns Jacob Berzelius at Stockholm in 1817. He had shares in a sulfuric acid works and he was intrigued by a red-brown sediment which collected at the bottom of the chambers in which the acid was made. At first he thought it was the element tellurium because it gave off a strong smell of radishes when heated, but he eventually realised that it was in fact a new element. He also noted that it was like sulfur and indeed had properties intermediate between sulfur and tellurium. Berzelius found that selenium was present in samples of tellurium and gave that element its characteristic smell. He also became affected by it personally – it can be absorbed through the skin – and it caused him to experience the bad breath associated with those who work with this element."
+	  },
+	  bromine: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905123/elements/bromine.jpg',
+	    country: 'France',
+	    story: "Antoine-Jérôme Balard discovered bromine while investigating some salty water from Montpellier, France. He took the concentrated residue which remained after most of the brine had evaporated and passed chlorine gas into it. In so doing he liberated an orange-red liquid which he deduced was a new element. He sent an account of his findings to the French Academy’s journal in 1826. A year earlier, a student at Heidelberg, Carl Löwig, had brought his professor a sample of bromine which he had produced from the waters of a natural spring near his home at Keruznach. He was asked to produce more of it, and while he was doing so Balard published his results and so became known at its discoverer."
+	  },
+	  krypton: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905162/elements/krypton.jpg',
+	    country: 'UK',
+	    story: "Having discovered the noble gas argon, extracted from air, William Ramsay and Morris William Travers of University College, London, were convinced this must be one of a new group of elements of the periodic table. They decided others were likely to be hidden in the argon and by a process of liquefaction and evaporation they hoped it might leave behind a heavier component, and it did. It yielded krypton in the afternoon of 30th May 1898, and they were able to isolate about 25 cm3 of the new gas. This they immediately tested in a spectrometer, and saw from its atomic spectrum that it was a new element."
+	  },
+	  rubidium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905171/elements/rubidium.jpg',
+	    country: 'Germany',
+	    story: "The lithium potassium mineral lepidolite was discovered in the 1760s and it behaved oddly. When thrown on to glowing coals it frothed and then hardened like glass. Analysis showed it to contain lithium and potassium, but it held a secret: rubidium. In 1861, Robert Bunsen and Gustav Kirchhoff, of the University of Heidelberg, dissolved the ore in acid and then precipitated the potassium it contained which carried down another heavier alkali metal. By carefully washing this precipitate with boiling water they removed the more soluble potassium component and then confirmed that they really had a new element by examining the atomic spectrum of what remained. This showed two intense ruby red lines never seen before, indicating a new element, which they named after this colour. A sample of pure rubidium metal was eventually produced in 1928."
+	  },
+	  strontium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905185/elements/strontium.jpg',
+	    country: 'UK',
+	    story: "In 1787, an unusual rock which had been found in a lead mine at Strontian, Scotland, was investigated by Adair Crawford, an Edinburgh doctor. He realised it was a new mineral containing an unknown ‘earth’ which he named strontia. In 1791, another Edinburgh man, Thomas Charles Hope, made a fuller investigation of it and proved it was a new element. He also noted that it caused the flame of a candle to burn red. Meanwhile Martin Heinrich Klaproth in Germany was working with the same mineral and he produced both strontium oxide and strontium hydroxide. Strontium metal itself was isolated in 1808 at the Royal Institution in London by Humphry Davy by means of electrolysis, using the method with which he had already isolated sodium and potassium."
+	  },
+	  yttrium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905202/elements/yttrium.jpg',
+	    country: 'Finland',
+	    story: "In 1787, Karl Arrhenius came across an unusual black rock in an old quarry at Ytterby, near Stockholm. He thought he had found a new tungsten mineral, and passed the specimen over to Johan Gadolin based in Finland. In 1794, Gadolin announced that it contained a new 'earth' which made up 38 per cent of its weight. It was called an’ earth’ because it was yttrium oxide, Y2O3, which could not be reduced further by heating with charcoal. The metal itself was first isolated in 1828 by Friedrich Wöhler and made by reacting yttrium chloride with potassium. Yet, yttrium was still hiding other elements. In 1843, Carl Mosander investigated yttrium oxide more thoroughly and found that it consisted of three oxides: yttrium oxide, which was white; terbium oxide, which was yellow; and erbium oxide, which was rose-coloured."
+	  },
+	  zirconium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905211/elements/zirconium.jpg',
+	    country: 'Germany',
+	    story: "Gems that contain zirconium were known in ancient times as zircon. In 1789, the German chemist, Martin Klaproth analysed a zircon and separated zirconium in the form of its ‘earth’ zirconia, which is the oxide ZrO2. Klaproth failed to isolate the pure metal itself, and Humphry Davy also failed when he tried electrolysis in 1808. It was not until 1824 that the element was isolated, when the Swedish chemist Jöns Berzelius heated potassium hexafluorozirconate (K2ZrF6) with potassium metal and obtained some zirconium as a black powder. Totally pure zirconium was only produced in 1925 by the Dutch chemists Anton Eduard van Arkel and Jan Hendrik de Boer by the decomposition of zirconium tetraiodide (ZrI4). These days the metal is produced in bulk by heating zirconium tetrachloride (ZrCl4) with magnesium."
+	  },
+	  niobium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905238/elements/niobium-2.jpg',
+	    country: 'UK',
+	    story: "When examining minerals in the British Museum in 1801, Charles Hatchett was intrigued by a specimen labelled columbite. He suspected it contained a new metal, and he was right. He heated a sample with potassium carbonate, dissolved the product in water, added acid and got a precipitate. However, further treatment did not produce the element itself, although he named it columbium, and so it was known for many years. Others doubted columbium, especially after the discovery of tantalum which happened the following year. These metals occur together in nature, and are difficult to separate. In 1844 the German chemist Heinrich Rose proved that columbite contained both elements and he renamed columbium niobium. A sample of the pure metal was produced in 1864 by Christian Blomstrand who reduced niobium chloride by heating it with hydrogen gas."
+	  },
+	  molybdenum: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905254/elements/molybdenum.jpg',
+	    country: 'Sweden',
+	    story: "The soft black mineral molybdenite (molybdenum sulfide, MoS2), looks very like graphite and was assumed to be a lead ore until 1778 when Carl Scheele analysed it and showed it was neither lead nor graphite, although he didn’t identify it. Others speculated that it contained a new element but it proved difficult to reduce it to a metal. It could be converted to an oxide which, when added to water, formed an acid we now know as molybdic acid, H2MoO4, but the metal itself remained elusive. Scheele passed the problem over to Peter Jacob Hjelm. He ground molybdic acid and carbon together in linseed oil to form a paste, heated this to red heat in and produced molybdenum metal. The new element was announced in the autumn of 1781."
+	  },
+	  technetium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905276/elements/technetium.jpg',
+	    country: 'Italy',
+	    story: "Technetium long tantalised chemists because it could not be found. We now know that all its isotopes are radioactive and any mineral deposits of the element had long disappeared from the Earth’s crust. (The longest lived isotope has a half life of 4 million years.) Even so, some technetium atoms are produced as uranium undergoes nuclear fission and there is about 1 milligram of technetium in a tonne of uranium. Claims in the 1920s to have found this element, or at least to have observed its spectrum, cannot be entirely discounted. Technetium was discovered by Emilio Segrè in 1937 in Italy. He investigated molybdenum from California which had been exposed to high energy radiation and he found technetium to be present and separated it. Today, this element is extracted from spent nuclear fuel rods in tonne quantities."
+	  },
+	  ruthenium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905341/elements/ruthenium.jpg',
+	    country: 'Russia',
+	    story: "The Polish chemist Jedrzej Sniadecki was investigating platinum ores from South America and, in May 1808, when he discovered a new metal which he called it vestium. However, when French chemists tried to repeat his work they were unable to find it in the platinum ore they had. When Sniadecki learned of this he believed he had been mistaken and withdrew his claim. Then, in 1825, Gottfried Osann of the University of Dorpat (now Tartu) on the Baltic, investigated some platinum from the Ural mountains, and reported finding three new elements which he named pluranium, polinium, and ruthenium. While the first two of these were never to be verified, the third was genuine and in 1840 Karl Karlovich Klaus at the University of Kazan extracted, purified, and confirmed it was a new metal. He kept Osann’s name of ruthenium."
+	  },
+	  rhodium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905356/elements/rhodium-2.jpg',
+	    country: 'UK',
+	    story: "Rhodium was discovered in 1803 by William Wollaston. He collaborated with Smithson Tennant in a commercial venture, part of which was to produce pure platinum for sale. The first step in the process was to dissolve ordinary platinum in aqua regia (nitric acid + hydrochloric acid). Not all of it went into solution and it left behind a black residue. (Tennant investigated this residue and from it he eventually isolated osmium and iridium.) Wollaston concentrated on the solution of dissolved platinum which also contained palladium. He removed these metals by precipitation and was left with a beautiful red solution from which he obtained rose red crystals. These were sodium rhodium chloride, Na3RhCl6. From them he eventually produced a sample of the metal itself."
+	  },
+	  palladium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905377/elements/palladium-2.jpg',
+	    country: 'UK',
+	    story: "As early as 1700, miners in Brazil were aware of a metal they called ouro podre, ‘worthless gold,’ which is a native alloy of palladium and gold. However, it was not from this that palladium was first extracted, but from platinum, and this was achieved in 1803 by William Wollaston. He noted that when he dissolved ordinary platinum in aqua regia (nitric acid + hydrochloric acid) not all of it went into solution. It left a residue from which he eventually extracted palladium. He did not announce his discovery but put the new metal on sale as a ‘new silver’. Richard Chenevix purchased some, investigated it, and declared it to be an alloy of mercury and platinum. In February 1805 Wollaston revealed himself as its discoverer and gave a full and convincing account of the metal and its properties."
+	  },
+	  silver: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905406/elements/silver-2.jpg',
+	    country: 'ancient',
+	    story: "Slag heaps near ancient mine workings in Turkey and Greece prove that silver mining started around 3000 BC. The metal was refined by cupellation, a process invented by the Chaldeans, who lived in what is now southern Iraq. It consisted of heating the molten metal in a shallow cup over which blew a strong draft of air. This oxidised the other metals, such as lead and copper, leaving only silver unaffected. The rise of Athens was made possible partly through the exploitation of local silver mines at Laurium. These operated from 600 BC and right through the Roman era. In Medieval times, German mines became the main source of silver in Europe. Silver was also mined by the ancient civilizations of Central and South America there being rich deposits in Peru, Bolivia and Mexico."
+	  },
+	  cadmium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905419/elements/cadmium-2.jpg',
+	    country: 'Germany',
+	    story: "In the early 1800s, the apothecaries of Hanover, Germany, made zinc oxide by heating a naturally occurring form of zinc carbonate called cadmia. Sometimes the product was discoloured instead of being pure white, and when Friedrich Stromeyer of Göttingen University looked into the problem he traced the discoloration to a component he could not identify, and which he deduced must be an unknown element. This he separated as its brown oxide and, by heating it with lampblack (carbon), he produced a sample of a blue-grey metal which he named cadmium after the name for the mineral. That was in 1817. Meanwhile two other Germans, Karl Meissner in Halle, and Karl Karsten in Berlin, were working on the same problem and announced their discovery of cadmium the following year."
+	  },
+	  indium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905580/elements/iridium-2.jpg',
+	    country: 'Germany',
+	    story: "Indium was discovered in 1863 by Ferdinand Reich at the Freiberg School of Mines in Germany. Reich was investigating a sample of the mineral zinc blende (now known as sphalerite, ZnS) which he believed might contain the recently discovered element thallium. From it he obtained a yellow precipitate which he thought was thallium sulfide, but his atomic spectroscope showed lines that were not those of thallium. However, because he was colour-blind he asked Hieronymous Richter to look at the spectrum, and he noted a brilliant violet line, and this eventually gave rise to the name indium, from the Latin word indicum meaning violet. Working together Reich and Richter isolated a small sample of the new element and announced its discovery. Subsequently the two men fell out when Reich learned that when Richter, on a visit to Paris, claimed he was the discover."
+	  },
+	  tin: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905452/elements/tin-2.jpg',
+	    country: 'ancient',
+	    story: "Tin had a direct impact on human history mainly on account of bronze, although it could be used in its own right, witness a tin ring and pilgrim bottle found in an Egyptian tomb of the eighteenth dynasty (1580–1350 BC). The Chinese were mining tin around 700 BC in the province of Yunnan. Pure tin has also been found at Machu Picchu, the mountain citadel of the Incas. When copper was alloyed with around 5 per cent of tin it produced bronze, which not only melted at a lower temperature, so making it easier to work, but produced a metal that was much harder, and ideal for tools and weapons. The Bronze Age is now a recognised stage in the development of civilisation. How bronze was discovered we do not know, but the peoples of Egypt, Mesopotamia, and the Indus valley started using it around 3000 BC."
+	  },
+	  antimony: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905461/elements/antimony-2.jpg',
+	    country: 'ancient',
+	    story: "Antimony and its compounds were known to the ancients and there is a 5,000-year old antimony vase in the Louvre in Paris. Antimony sulfide (Sb2S3) is mentioned in an Egyptian papyrus of the 16th century BC. The black form of this pigment, which occurs naturally as the mineral stibnite, was used as mascara and known as khol. The most famous user was the temptress Jezebel whose exploits are recorded in the Bible. Another pigment known to the Chaldean civilization, which flourished in what is now southern Iraq in the 6th and 7th centuries BC, was yellow lead antimonite. This was found in the glaze of ornamental bricks at Babylon and date from the time of Nebuchadnezzar (604–561 BC). Antimony became widely used in Medieval times, mainly to harden lead for type, although some was taken medicinally as a laxative pill which could be reclaimed and re-used!"
+	  },
+	  tellurium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905473/elements/tellurium-2.jpg',
+	    country: 'Romania',
+	    story: "Tellurium was discovered in 1783 by Franz Joseph Müller von Reichenstein at Sibiu, Romania. He became intrigued by ore from a mine near Zalatna which had a metallic sheen and which he suspected was native antimony or bismuth. (It was actually gold telluride, AuTe2.) Preliminary investigation showed neither antimony nor bismuth to be present. For three years Müller researched the ore and proved it contained a new element. He published his findings in an obscure journal and it went largely unnoticed. In 1796, he sent a sample to Martin Klaproth in Berlin who confirmed him findings. Klaproth produced a pure sample and decided to call it tellurium. Rather strangely, this was not the first sample of tellurium to pass through his hands. In 1789, he had been sent some by a Hungarian scientist, Paul Kitaibel who had independently discovered it."
+	  },
+	  iodine: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905493/elements/iodine-2.jpg',
+	    country: 'France',
+	    story: "In the early 1800s, Bernard Courtois of Paris manufactured saltpetre (potassium nitrate, KNO3) and used seaweed ash as his source of potassium. One day in 1811, he added sulfuric acid and saw purple fumes which condensed to form crystals with a metallic lustre. Courtois guessed this was a new element. He gave some to Charles-Bernard Desormes and to Nicolas Clément who carried out a systematic investigation and confirmed that it was. In November 1813, they exhibited iodine at the Imperial Institute in Paris. That it really was new was proved by Joseph Gay-Lussac and confirmed by the Humphry Davy who was visiting Paris. Davy sent a report to the Royal Institution in London where it was mistakenly assumed he was the discoverer, a belief that persisted for more than 50 years."
+	  },
+	  xenon: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905502/elements/xenon-2.jpg',
+	    country: 'UK',
+	    story: "Xenon was discovered in July 1898 by William Ramsay and Morris Travers at University College London. They had already extracted neon, argon, and krypton from liquid air, and wondered if it contained other gases. The wealthy industrialist Ludwig Mond gave them a new liquid-air machine and they used it to extract more of the rare gas krypton. By repeatedly distilling this, they eventually isolated a heavier gas, and when they examined this in a vacuum tube it gave a beautiful blue glow. They realised it was yet another member of the ‘inert’ group of gaseous elements as they were then known because of their lack of chemical reactivity. They called the new gas xenon. It was this gas which Neil Bartlett eventually showed was not inert by making a fluorine derivative in 1962. So far more than 100 xenon compounds have been made."
+	  },
+	  cesium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905513/elements/caesium-3.jpg',
+	    country: 'Germany',
+	    story: "Caesium was almost discovered by Carl Plattner in 1846 when he investigated the mineral pollucite (caesium aluminium silicate). He could only account for 93% of the elements it contained, but then ran out of material to analyse. (It was later realised that he mistook the caesium for sodium and potassium.) Caesium was eventually discovered by Gustav Kirchhoff and Robert Bunsen in 1860 at Heidelberg, Germany. They examined mineral water from Durkheim and observed lines in the spectrum which they did not recognise, and that meant a new element was present. They produced around 7 grams of caesium chloride from this source, but were unable to produce a sample of the new metal itself. The credit for that goes to Carl Theodor Setterberg at the University of Bonn who obtained it by the electrolysis of molten caesium cyanide, CsCN."
+	  },
+	  barium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905523/elements/barium.jpg',
+	    country: 'UK',
+	    story: "In the early 1600s, Vincenzo Casciarolo, of Bologna, Italy, found some unusual pebbles. If they were heated to redness during the day, they would shine during the night. This was the mineral barite (barium sulfate, BaSO4). When Bologna stone, as it became known, was investigated by Carl Scheele in 1760s he realised it was the sulfate of an unknown element. Meanwhile a mineralogist, Dr William Withering, had found another curiously heavy mineral in a lead mine in Cumberland which clearly was not a lead ore. He named it witherite; it was later shown to be barium carbonate, BaCO3. Neither the sulfate nor the carbonate yielded up the metal itself using the conventional process of smelting with carbon. However, Humphry Davy at the Royal Institution in London produced it by the electrolysis of barium hydroxide in 1808."
+	  },
+	  lanthanum: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906074/elements/lanthanum-2.jpg',
+	    country: 'Sweden',
+	    story: "Lanthanum was discovered in January 1839 by Carl Gustav Mosander at the Karolinska Institute, Stockholm. He extracted it from cerium which had been discovered in 1803. Mosander noticed that while most of his sample of cerium oxide was insoluble, some was soluble and he deduced that this was the oxide of a new element. News of his discovery spread, but Mosander was strangely silent. That same year, Axel Erdmann, a student also at the Karolinska Institute, discovered lanthanum in a new mineral from Låven island located in a Norwegian fjord. Finally, Mosander explained his delay, saying that he had extracted a second element from cerium, and this he called didymium. Although he didn’t realise it, didymium too was a mixture, and in 1885 it was separated into praseodymium and neodymium."
+	  },
+	  cerium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906083/elements/cerium-2.jpg',
+	    country: 'Sweden',
+	    story: "Cerium was first identified by the Jöns Berzelius and Wilhelm Hisinger in the winter of 1803/4. Martin Klaproth independently discovered it around the same time. Although cerium is one of the 14 lanthanoid (aka rare earth) elements it was discovered independently of them. There are some minerals that are almost exclusively cerium salts such as cerite, which is cerium silicate. A lump of this mineral had been found in 1751 by Axel Cronstedt at a mine in Vestmanland, Sweden. He sent some to Carl Scheele to analyse it but he failed to realise it was new element. In 1803, Berzelius and Hisinger examined it themselves and proved that it contained a new element. It was not until 1875 that William Hillebrand and Thomas Norton obtained a pure specimen of cerium itself, by passing an electric current through the molten cerium chloride."
+	  },
+	  praseodymium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906093/elements/praseodymium-2.jpg',
+	    country: 'Austria',
+	    story: "Didymium was announced in 1841 by Carl Mosander. He separated if from cerium, along with lanthanum. Didymium was accepted as an element for more than 40 years but it was really a mixture of lanthanoid elements. Some chemists wondered whether didymium too might consist of more than one element, and their suspicions were confirmed when Bohuslav Brauner of Prague in 1882 showed that its atomic spectrum was not that of a pure metal. The Austrian chemist, Carl Auer von Welsbach took up the challenge and in June 1885 he succeeded in splitting didymium into its two components, neodymium and praseodymium, which he obtained as their oxides. A pure sample of praseodymium metal itself was first produced in 1931."
+	  },
+	  neodymium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906118/elements/neodymium-2.jpg',
+	    country: 'Austria',
+	    story: "Neodymium was discovered in Vienna in 1885 by Karl Auer. Its story began with the discovery of cerium, from which Carl Gustav Mosander extracted didymium in 1839. This turned out to be a mixture of lanthanoid elements, and in 1879, samarium was extracted from didymium, followed a year later by gadolinium. In 1885, Auer obtained neodymium and praseodymium from didymium, their existence revealed by atomic spectroscopy. Didymium had been studied by Bohuslav Brauner at Prague in 1882 and was shown to vary according to the mineral from which it came. At the time he made his discovery, Auer was a research student of the great German chemist, Robert Bunsen who was the world expert on didymium, but he accepted Auer's discovery immediately, whereas other chemists were to remain sceptical for several years. A sample of the pure metal was first produced in 1925."
+	  },
+	  promethium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480909602/elements/promethium.jpg',
+	    country: 'USA',
+	    story: "In 1902, Bohuslav Branner speculated that there should be an element in the periodic table between neodymium and samarium. He was not to know that all its isotopes were radioactive and had long disappeared. Attempts were made to discover it and several claims were made, but clearly all were false. However, minute amounts of promethium do occur in uranium ores as a result of nuclear fission, but in amounts of less than a microgram per million tonnes of ore. In 1939, the 60-inch cyclotron at the University of California was used to make promethium, but it was not proven. Finally element 61 was produced in 1945 by Jacob .A. Marinsky, Lawrence E. Glendenin, and Charles D. Coryell at Oak Ridge, Tennessee. They used ion-exchange chromatography to separate it from the fission products of uranium fuel taken from a nuclear reactor."
+	  },
+	  samarium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906169/elements/samarium-2.jpg',
+	    country: 'France',
+	    story: "Samarium was one of the rare earths (aka lanthanoids) which perplexed and puzzled the chemists of the 1800s. Its history began with the discovery of cerium in 1803. This was suspected of harbouring other metals, and in 1839 Carl Mosander claimed to have obtained lanthanum and didymium from it. While he was right about lanthanum, he was wrong about didymium. In 1879, Paul-Émile Lecoq de Boisbaudran extracted didymium from the mineral samarskite. He then made a solution of didymium nitrate and added ammonium hydroxide. He observed that the precipitate which formed came down in two stages. He concentrated his attention on the first precipitate and measured its spectrum which revealed it to be a new element samarium. Samarium itself was eventually to yield other rare-earths: gadolinium in 1886 and europium in 1901."
+	  },
+	  europium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906180/elements/europium-2.jpg',
+	    country: 'France',
+	    story: "Europium’s story is part of the complex history of the rare earths, aka lanthanoids. It began with cerium which was discovered in 1803. In 1839 Carl Mosander separated two other elements from it: lanthanum and one he called didymium which turned out to be a mixture of two rare earths, praseodymium and neodymium, as revealed by Karl Auer in 1879. Even so, it still harboured another rarer metal, samarium, separated by Paul-Émile Lecoq de Boisbaudran, and even that was impure. In 1886 Jean Charles Galissard de Marignac extracted gadolinium, from it, but that was still not the end of the story. In 1901, Eugène-Anatole Demarçay carried out a painstaking sequence of crystallisations of samarium magnesium nitrate, and separated yet another new element: europium."
+	  },
+	  gadolinium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906202/elements/gadolinium-2.jpg',
+	    country: 'Switzerland',
+	    story: "Gadolinium was discovered in 1880 by Charles Galissard de Marignac at Geneva. He had long suspected that the didymium reported by Carl Mosander was not a new element but a mixture. His suspicions were confirmed when Marc Delafontaine and Paul-Emile Lecoq de Boisbaudran at Paris reported that its spectral lines varied according to the source from which it came. Indeed, in 1879 they had already separated samarium from some didymium which had been extracted from the mineral samarskite, found in the Urals. In 1880, Marignac extracted yet another new rare earth from didymium, as did Paul-Émile Lecoq de Boisbaudran in 1886, and it was the latter who called it gadolinium."
+	  },
+	  terbium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906212/elements/terbium-2.jpg',
+	    country: 'Sweden',
+	    story: "Terbium was first isolated in 1843 by the Swedish chemist Carl Mosander at Stockholm. He had already investigated cerium oxide and separated a new element from it, lanthanum, and now he focussed his attention on yttrium, discovered in 1794, because he thought this too might harbour another element. In fact Mosander was able to obtain two other metal oxides from it: terbium oxide (yellow) and erbium oxide (rose pink) and these he announced in 1843. This was not the end of the story, however, because later that century these too yielded other rare earth elements (aka lanthanoids). Today these elements are easily separated by a process known as liquid-liquid extraction."
+	  },
+	  dysprosium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906225/elements/dysprosium.jpg',
+	    country: 'France',
+	    story: "Dysprosium was discovered in 1886 by Paul-Émile Lecoq de Boisbaudran in Paris. Its discovery came as a result of research into yttrium oxide, first made in 1794, and from which other rare earths (aka lanthanoids) were subsequently to be extracted, namely erbium in 1843, then holmium in 1878, and finally dysprosium. De Boisbaudran’s method had involved endless precipitations carried out on the marble slab of his fireplace at home. Pure samples of dysprosium were not available until Frank Spedding and co-workers at Iowa State University developed the technique of ion-exchange chromatography around 1950. From then on it was possible to separate the rare earth elements in a reliable and efficient manner, although that method of separation has now been superseded by liquid-liquid exchange technology."
+	  },
+	  holmium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906237/elements/holmium-2.jpg',
+	    country: 'Sweden',
+	    story: "Holmium was discovered at Geneva in 1878 by Marc Delafontaine and Louis Soret, and independently by Per Teodor Cleve at Uppsala, Sweden. Both teams were investigating yttrium, which was contaminated with traces of other rare earths (aka lanthanoids) and had already yielded erbium which was later to yield ytterbium. Cleve looked more closely at what remained after the ytterbium had been removed, and realised it must contain yet other elements because he found that its atomic weight depended on its source. He separated holmium from erbium in 1878. Delafontaine and Soret also extracted it from the same source, having seen unexplained lines in the atomic spectrum. We cannot be certain that either group had produced a pure sample of the new element because yet another rare-earth, dysprosium, was to be extracted from holmium."
+	  },
+	  erbium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906262/elements/erbium-2.jpg',
+	    country: 'Sweden',
+	    story: "In 1843, at Stockholm, Carl Mosander obtained two new metal oxides from yttrium, which had been know since 1794. One of these was erbium oxide, which was pink. (The other was terbium oxide, which was yellow.) While erbium was one of the first lanthanoid elements to be discovered, the picture is clouded because early samples of this element must have contained other rare-earths. We know this because In1878 Jean-Charles Galissard de Marignac, working at the University of Geneva, extracted another element from erbium and called it ytterbium. (This too was impure and scandium was extracted from it a year later.) A sample of pure erbium metal was not produced until 1934, when Wilhelm Klemm and Heinrich Bommer achieved it by heating purified erbium chloride with potassium."
+	  },
+	  thulium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906271/elements/thulium-2.jpg',
+	    country: 'Sweden',
+	    story: "Thulium was first isolated in 1879 as its oxide by Per Teodor Cleve at the University of Uppsala, Sweden. The discoveries of the many rare earth elements (aka lanthanoid) began with yttrium in 1794. This was contaminated with these chemically similar elements. Indeed the early chemists were unaware they were there. In 1843, erbium and terbium were extracted from yttrium, and then, in 1874, Cleve looked more closely at erbium and realised that it must contain yet other elements because he observed that its atomic weight varied slightly depending on the source from which it came. He extracted thulium from it in 1879. In 1911, the American chemist Theodore William Richards performed 15,000 recrystallisations of thulium bromate in order to obtain an absolutley pure sample of the element and so determine exactly its atomic weight."
+	  },
+	  ytterbium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906280/elements/ytterbium-2.jpg',
+	    country: 'Switzerland',
+	    story: "Ytterbium was isolated in 1878 by Jean Charles Galissard de Marignac at the University of Geneva. The story began with yttrium, discovered in 1794, which was contaminated with other rare-earth elements (aka lanthanoids). In 1843, erbium and terbium were extracted from it, and then in 1878, de Marignac separated ytterbium from erbium. He heated erbium nitrate until it decomposed and then extracted the residue with water and obtained two oxides: a red one which was erbium oxide, and a white one which he knew must be a new element, and this he named ytterbium. Even this was eventually shown to contain another rare earth, lutetium, in 1907. A tiny amount of ytterbium metal was made in 1937 by heating ytterbium chloride and potassium together but was impure. Only in 1953 was a pure sample obtained."
+	  },
+	  lutetium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906296/elements/lutetium-2.jpg',
+	    country: 'France',
+	    story: "The honour of discovering lutetium went to Georges Urbain at the Sorbonne in Paris, because he was the first to report it. The story began with the discovery of yttrium in 1794 from which several other elements – the rare earths (aka lanthanoids) – were to be separated, starting with erbium in 1843 and ending with lutetium in 1907. Other chemists, namely Karl Auer in Germany and Charles James in the USA, were about to make the same discovery. Indeed James, who was at the University of New Hampshire, was ahead of Urbain and had extracted quite a lot of the new metal, but he delayed publishing his research. A sample of pure lutetium metal itself was not made until 1953."
+	  },
+	  hafnium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905532/elements/hafnium-2.jpg',
+	    country: 'Denmark',
+	    story: "In 1911, Georges Urbain reported the discovery of the missing element below zirconium in the periodic table, but he was wrong and the search continued. It was finally discovered by George Charles de Hevesy and Dirk Coster at the University of Copenhagen in 1923. It was found in a zirconium mineral, a Norwegian zircon, but it had proved very difficult to separate it from zirconium and this explained why hafnium remained undiscovered for so long. Other zirconium minerals were now examined by Hevesy, and some were found to contain as much as five per cent of hafnium. (It meant the atomic weight of zirconium was wrong and hafnium-free material had to be produced in order for this to be determined.) The first pure sample of hafnium itself was made in 1925 by decomposing hafnium tetra-iodide over a hot tungsten wire."
+	  },
+	  tantalum: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905541/elements/tantalum-2.jpg',
+	    country: 'Sweden',
+	    story: "Tantalum was reported as a new metal in 1802 by Anders Gustav Ekeberg at Uppsala University, Sweden. However, when William Wollaston analysed the minerals from which it had been extracted he declared it was identical to niobium which has been discovered the year previously. It was as a result of their similarity that there was confusion regarding their identification. These two elements often occur together and, being chemically very similar, were difficult to separate by the methods available at the time of the discovery. It was not until 1846 that Heinrich Rose separated tantalum and niobium and proved conclusively that they were different elements, and yet his sample of tantalum was still somewhat impure, and it was not until 1903 that pure tantalum was produced by Werner von Bolton."
+	  },
+	  tungsten: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905548/elements/tungsten-rod-2.jpg',
+	    country: 'Spain',
+	    story: "More than 350 years ago, porcelain makers in China incorporated a unique peach colour into their designs by means of a tungsten pigment that was not known in the West. Indeed it was not for another century that chemists in Europe became aware of it. In 1779, Peter Woulfe examined a mineral from Sweden and concluded it contained a new metal, but he did not separate it. Then in 1781, Wilhelm Scheele investigated it and succeeded in isolating an acidic white oxide and which he rightly deduced was the oxide of a new metal. The credit for discovering tungsten goes to the brothers, Juan and Fausto Elhuyar, who were interested in mineralogy and were based at the Seminary at Vergara, in Spain, 1783 they produced the same acidic metal oxide and even reduced it to tungsten metal by heating with carbon."
+	  },
+	  rhenium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905555/elements/rhenium-4.jpg',
+	    country: 'Germany',
+	    story: "The periodic table had two vacant slots below manganese and finding these missing elements, technetium and rhenium, proved difficult. Rhenium was the lower one and indeed it was the last stable, non-radioactive, naturally-occurring element to be discovered. In 1905, Masataka Ogawa found it in the mineral thorianite from Sri Lanka. He realised from lines in its atomic spectrum that it contained an unknown element. He wrongly thought it was the one directly below manganese and so his claim was discounted at the time. However, a re-examination of Ogawa’s original photographic spectra proved he had discovered rhenium. The isolation of rhenium was finally achieved in May 1925 by Walter Noddack and Ida Tacke working in Berlin. They concentrated it from the ore gadolinite in which it was an impurity."
+	  },
+	  osmium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905571/elements/osmium-2.jpg',
+	    country: 'UK',
+	    story: "In 1803, Smithson Tennant added platinum to dilute aqua regia, which is a mixture of nitric and hydrochloric acids, and observed that not all the metal went into solution. Earlier experimenters had assumed that the residue was graphite, but he suspected it was something else, and he began to investigate it. By a combination of acid and alkali treatments he eventually separated it into two new metal elements, which he named iridium and osmium, naming the latter on account of the strong odour it gave off. Its name is derived from osme the Greek word for smell. Although it was recognised as a new metal, little use was made of it because it was rare and difficult to work with, although it was extremely hard wearing and for several years it was used for pen nibs and gramophone needles."
+	  },
+	  iridium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905580/elements/iridium-2.jpg',
+	    country: 'UK',
+	    story: "Iridium was discovered together with osmium in1803 by Smithson Tennant in London. When crude platinum was dissolved in dilute aqua regia, which is a mixture of nitric and hydrochloric acids, it left behind a black residue thought to be graphite. Tennant thought otherwise, and by treating it alternately with alkalis and acids he was able to separate it into two new elements. These he announced at the Royal Institution in London, naming one iridium, because its salts were so colourful and the other osmium because it had a curious odour (see osmium). Despite its seeming intractability, a group of chemists, including the great Humphry Davy, demonstrated in 1813 that iridium would indeed melt like other metals. To achieve this they exposed it to the powerful current generated by a large array of batteries."
+	  },
+	  platinum: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905590/elements/platinum-2.jpg',
+	    country: 'Spain',
+	    story: "Probably the oldest worked specimen of platinum is that from an ancient Egyptian casket of the 7th century BC, unearthed at Thebes and dedicated to Queen Shapenapit. Otherwise this metal was unknown in Europe and Asia for the next two millennia, although on the Pacific coast of South America, there were people able to work platinum, as shown by burial goods dating back 2000 years. In 1557 an Italian scholar, Julius Scaliger, wrote of a metal from Spanish Central America that could not be made to melt and was no doubt platinum. Then, in 1735, Antonio Ulloa encountered this curious metal, but as he returned to Europe his ship was captured by the Royal Navy and he ended up in London. There, members of the Royal Society were most interested to hear about the new metal, and by the 1750s, platinum was being reported and discussed throughout Europe."
+	  },
+	  gold: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905599/elements/gold-2.jpg',
+	    country: 'ancient',
+	    story: "Gold has been known since prehistoric times and was one of the first metals to be worked, mainly because it was to be found as nuggets or as particles in the beds of streams. Such was the demand that by 2000 BC the Egyptians began mining gold. The death mask of Tutankhamen, who died in 1323 BC, contained 100 kg of the metal. The royal graves of ancient Ur (modern Iraq), which flourished from 3800 to 2000 BC, also contained gold objects. The minting of gold coins began around 640 BC in the Kingdom of Lydia (situated in what is now modern Turkey) using electrum, a native alloy of gold and silver. The first pure gold coins were minted in the reign of King Croesus, who ruled from 561–547 BC."
+	  },
+	  mercury: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480909981/elements/mercury.jpg',
+	    country: 'ancient',
+	    story: "Cinnabar (aka vermilion, mercury sulfide, HgS), was used as a bright red pigment by the Palaeolithic painters of 30,000 years ago to decorate caves in Spain and France. Cinnabar would yield up its mercury simply on heating in a crucible, and the metal fascinated people because it was a liquid that would dissolve gold. The ancients used in on a large scale to extract alluvial gold from the sediment of rivers. The mercury dissolved the gold which could be reclaimed by distilling off the mercury. The Almadén deposit in Spain provided Europe with its mercury. In the Americas, it was the Spanish conquerors who exploited the large deposits of cinnabar at Huancavelica in order to extract gold. In 1848 the miners of the Californian Gold Rush used mercury from the New Almaden Mines of California. Although highly toxic, mercury had many uses, as in thermometers, but these are now strictly curtained."
+	  },
+	  thallium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905616/elements/thallium-2.jpg',
+	    country: 'UK',
+	    story: "The discovery of thallium was controversial. William Crookes of the Royal College of Science in London was the first to observe a green line in the spectrum of some impure sulfuric acid, and realised that it meant a new element. He announced his discovery in March 1861 in Chemical News. However, he did very little research into it. Meanwhile, in 1862, Claude-August Lamy of Lille, France, began to research thallium more thoroughly and even cast a small ingot of the metal itself. The French Academy now credited him its discovery. He sent the ingot to the London International Exhibition of 1862, where it was acclaimed as a new metal and he was awarded a medal. Crookes was furious and so the exhibition committee awarded him a medal as well."
+	  },
+	  lead: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905633/elements/lead.jpg',
+	    country: 'ancient',
+	    story: "Lead has been mined for more than 6,000 years, and the metal and its compounds have been used throughout history. Small lead nuggets have been found in pre-Columbian Peru, Yucatan, and Guatemala. The Greeks mined lead on a large scale from 650 onwards and not only knew how to obtain the metal but how to covert this to white lead. Because of its superb covering power, this was the basis of paints for more than 2000 years, until the middle of the last century. The Romans employed lead on a large scale, mining it mainly in Spain and Britain, and using it also for water pipes, coffins, pewter tableware, and to debase their silver coinage. While its mining declined in the Dark Ages it reappeared in Medieval times and found new uses, such as pottery glazes, bullets, and printing type. In the last century it was a fuel additive."
+	  },
+	  bismuth: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905670/elements/bismuth.jpg',
+	    country: 'ancient',
+	    story: "Bismuth was discovered by an unknown alchemist around 1400 AD. Later that century it was alloyed with lead to make cast type for printers and decorated caskets were being crafted in the metal. Bismuth was often confused with lead; it was likewise a heavy metal and melted at a relatively low temperature making it easy to work. Georgius Agricola in the early 1500s speculated that it was a distinctly different metal, as did Caspar Neuman in the early 1700s, but proof that it was so finally came in 1753 thanks to the work of Claude-François Geoffre. Bismuth was used as an alloying metal in the bronze of the Incas of South America around 1500 AD. Bismuth was not mined as ore but appears to have occurred as the native metal."
+	  },
+	  polonium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905692/elements/polonium.jpg',
+	    country: 'France',
+	    story: "Uranium ores contain minute traces of polonium at levels of parts per billion. Despite this, in 1898 Marie Curie and husband Pierre Curie extracted some from pitchblende (uranium oxide, U3O8) after months of painstaking work. The existence of this element had been forecast by the Mendeleev who could see from his periodic table that there might well be the element that followed bismuth and he predicted it would have an atomic weight of 212. The Curies had extracted the isotope polonium-209 and which has a half-life of 103 years. Before the advent of nuclear reactors, the only source of polonium was uranium ore but that did not prevent its being separated and used in anti-static devices. These relied on the alpha particles that polonium emits to neutralise electric charge."
+	  },
+	  astatine: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905845/elements/astatine-300x225.jpg',
+	    country: 'USA',
+	    story: "In 1939, two groups came near to discovering this element in mineral samples. Horia Hulubei and Yvette Cauchois analysed mineral samples using a high-resolution X-ray apparatus and thought they had detected it. Meanwhile, Walter Minder observed the radioactivity of radium and said it appeared have another element present. He undertook chemical tests which suggested it was like iodine. Element 85 was convincingly produced for the first time at the University of California in 1940 by Dale R. Corson, K.R. Mackenzie, and Emilio Segré. Their astatine was made by bombarding bismuth with alpha particles. Although they reported their discovery, they were unable to carry on with their research due to World War II and the demands of the Manhattan project which diverted all researchers of radioactive materials towards the making of nuclear weapons."
+	  },
+	  radon: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905721/elements/radon.jpg',
+	    country: 'Germany',
+	    story: "In 1899, Ernest Rutherford and Robert B. Owens detected a radioactive gas being released by thorium. That same year, Pierre and Marie Curie detected a radioactive gas emanating from radium. In1900, Friedrich Ernst Dorn at Halle, Germany, noted that a gas was accumulating inside ampoules of radium. They were observing radon. That from radium was the longer-lived isotope radon-222 which has a half-life 3.8 days, and was the same isotope which the Curies has observed. The radon that Rutherford detected was radon-220 with a half-life of 56 seconds. In 1900, Rutherford devoted himself to investigating the new gas and showed that it was possible to condense it to a liquid. In 1908, William Ramsay and Robert Whytlaw-Gray at University College, London, collected enough radon to determine its properties and reported that it was the heaviest gas known."
+	  },
+	  francium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905808/elements/francium.jpg',
+	    country: 'France',
+	    story: "Mendeleev said there should be an element like caesium waiting to be discovered. Consequently, there were claims, denials, and counterclaims by scientists who said they had found it. During the 1920s and 30s, these claims were made on the basis of unexplained radioactivity in minerals, or new lines in their X-ray spectra, but all eventually turned out not to be evidence of element 87. Francium was finally discovered in 1939 by Marguerite Perey at the Curie Institute in Paris. She had purified a sample of actinium free of all its known radioactive impurities and yet its radioactivity still indicated another element was present, and which she rightly deduced was the missing element 87. Others challenged her results too, and it was not until after World War II that she was accepted as the rightful discoverer in 1946."
+	  },
+	  radium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905917/elements/radium-glow.jpg',
+	    country: 'France',
+	    story: "Radium was discovered in 1898 by Marie Curie and Pierre Curie. They managed to extract 1 mg of radium from ten tonnes of the uranium ore pitchblende (uranium oxide, U3O8), a considerable feat, given the chemically methods of separation available to them. They identified that it was a new element because its atomic spectrum revealed new lines. Their samples glowed with a faint blue light in the dark, caused by the intense radioactivity exciting the surrounding air. The metal itself was isolated by Marie Curie and André Debierne in 1911, by means of the electrolysis of radium chloride. At Debierne’s suggestion, they used a mercury cathode in which the liberated radium dissolved. This was then heated to distil off the mercury leaving the radium behind."
+	  },
+	  actinium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906342/elements/actinium.jpg',
+	    country: 'France',
+	    story: "This element was discovered in 1899 by André Debierne at Paris. He extracted it from the uranium ore pitchblende (uranium oxide, U3O8) in which it occurs in trace amounts. In 1902, Friedrich Otto Giesel independently extracted it from the same mineral and, unaware it was already known, gave it the named emanium. Actinium extracted from uranium ores is the isotope actinium-227 which has half-life of 21.7 years. It occurs naturally as one of the sequence of isotopes that originate with the radioactive decay of uranium-235. A tonne of pitchblende contains around 150 mg of actinium."
+	  },
+	  thorium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906354/elements/thorium.jpg',
+	    country: 'Sweden',
+	    story: "In 1829, Jöns Jakob Berzelius of the Royal Karolinska Institute, Stockholm extracted thorium from a rock specimen sent to him by an amateur mineralogist who had discovered it near Brevig and realised that it had not previously been reported. The mineral turned out to be thorium silicate, and it is now known as thorite. Berzelius even produced a sample of metallic thorium by heating thorium fluoride with potassium, and confirmed it as a new metal. The radioactivity of thorium was first demonstrated in 1898 by Gerhard Schmidt and confirmed by Marie Curie. Thorium, like uranium, survives on Earth because it has isotopes with long half-lives, such as the predominant one, thorium-232, whose half life is 14 billion years."
+	  },
+	  protactinium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906385/elements/protactinium-231.jpg',
+	    country: 'UK',
+	    story: "Mendeleev said there should be an element between thorium and uranium, but it evaded detection. Then, in 1900, William Crookes separated an intensely radioactive material from uranium, but did not identify it. In 1913, Kasimir Fajans and Otto Göhring showed that this new element decayed by beta-emission and it existed only fleetingly. We now know it is a member of the sequence of elements through which uranium decays. It was the isotope protactinium-234, which has a half-life of 6 hours 42 minutes. A longer-lived isotope was separated from the uranium ore pitchblende (uranium oxide, U3O8) in 1918 by Lise Meitner at the Kaiser-Wilhelm Institute in Berlin. This was the longer-lived isotope protactinium-231, also coming from uranium, and its half-life is 32,500 years. In 1934, Aristid von Grosse reduced protactinium oxide to protactinium metal by decomposing its iodide (PaF5) on a heated filament."
+	  },
+	  uranium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906424/elements/uranium.jpg',
+	    country: 'Germany',
+	    story: "In the Middle Ages, the mineral pitchblende (uranium oxide, U3O8) sometimes turned up in silver mines, and in 1789 Martin Heinrich Klaproth of Berlin investigated it. He dissolved it in nitric acid and precipitated a yellow compound when the solution was neutralised. He realised it was the oxide of a new element and tried to produce the metal itself by heating the precipitate with charcoal, but failed. It fell to Eugène Peligot in Paris to isolate the first sample of uranium metal which he did in 1841, by heating uranium tetrachloride with potassium. The discovery that uranium was radioactive came only in 1896 when Henri Becquerel in Paris left a sample of uranium on top of an unexposed photographic plate. It caused this to become cloudy and he deduced that uranium was giving off invisible rays. Radioactivity had been discovered."
+	  },
+	  neptunium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906443/elements/neptunium.jpg',
+	    country: 'USA',
+	    story: "In early 1934, Enrico Fermi in Italy tried to produce elements 93 and 94 by bombarding uranium with neutrons, and claimed success. Ida Tacke-Noddack questioned Fermi’s claim, pointing out he had failed to do a complete analysis, and all that he had found were fission products of uranium. (Fermi had in fact discovered nuclear fission but not realised it.) In 1938, Horia Hulubei and Yvette Cauchois claimed to have discovered element 93, but the claim was also criticised on the grounds that element 93 did not occur naturally. Neptunium was first made in 1940 by Edwin McMillan and Philip Abelson at Berkeley, California. It came from a uranium target that had been bombarded with slow neutrons and which then emitted unusual beta-rays indicating a new isotope. Abelson proved there was indeed a new element present."
+	  },
+	  plutonium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906461/elements/plutonium.jpg',
+	    country: 'USA',
+	    story: "Plutonium was first made in December 1940 at Berkeley, California, by Glenn Seaborg, Arthur Wahl, Joseph Kennedy, and Edwin McMillan. They produced it by bombarding uranium-238 with deuterium nuclei (alpha particles). This first produced neptunium-238 with a half-life of two days, and this decayed by beta emission to form element 94 (plutonium). Within a couple of months element 94 had been conclusively identified and its basic chemistry shown to be like that of uranium. To begin with, the amounts of plutonium produced were invisible to the eye, but by August 1942 there was enough to see and weigh, albeit only 3 millionths of a gram. However, by 1945 the Americans had several kilograms, and enough plutonium to make three atomic bombs, one of which exploded over Nagasaki in August 1945."
+	  },
+	  americium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906461/elements/plutonium.jpg',
+	    country: 'USA',
+	    story: "This element was in fact discovered after curium, the element which follows it in the periodic table. However, it did once exist on Earth having been produced for millions of years in natural nuclear reactors in Oklo, Gabon. These ceased to function a billion years ago, and as the longest lived isotope is americium-247, with a half-life of 7370 years, none has survived to the present day. Americium was first made late in 1944 at the University of Chicago by a team which included Glenn Seaborg, Ralph James, Leon Morgan, and Albert Ghiorso. The americium was produced by bombarding plutonium with neutrons in a nuclear reactor. This produced isotope americium-241, which has a half-life of this is 432 years."
+	  },
+	  curium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906483/elements/curium-glow.jpg',
+	    country: 'USA',
+	    story: "Curium was first made by the team of Glenn Seaborg, Ralph James, and Albert Ghiorso in 1944, using the cyclotron at Berkeley, California. They bombarded a piece of the newly discovered element plutonium (isotope 239) with alpha-particles. This was then sent to the Metallurgical Laboratory at the University of Chicago where a tiny sample of curium was eventually separated and identified. However, news of the new element was not disclosed until after the end of World War II. Most unusually, it was first revealed by Seaborg when he appeared as the guest scientist on a radio show for children on 11 November 1945. It was officially announced the following week."
+	  },
+	  berkelium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906494/elements/berkelium-ornl.jpg',
+	    country: 'USA',
+	    story: "Berkelium was first produced in December 1949, at the University of California at Berkeley, and was made by Stanley Thompson, Albert Ghiorso, and Glenn Seaborg. They took americium-241, which had first been made in 1944, and bombarded it with helium nuclei (alpha particles) for several hours in the 60-inch cyclotron. The americium itself had been produced by bombarding plutonium with neutrons. The Berkeley team dissolved the target in acid and used ion exchange to separate the new elements that had been created. This was the isotope berkelium-243 which has a half-life of about 5 hours. It took a further nine years before enough berkelium had been made to see with the naked eye, and even this was only a few micrograms. The first chemical compound, berkelium dioxide, BkO2, was made in 1962."
+	  },
+	  californium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906503/elements/californium-disc.jpg',
+	    country: 'USA',
+	    story: "Californium was first made in 1950 at Berkeley, California, by a team consisting of Stanley Thompson, Kenneth Street Jr., Albert Ghiorso, and Glenn Seaborg. They made it by firing helium nuclei (alpha particles) at curium-242. The process yielded the isotope californium-245 which has a half-life of 44 minutes. Curium is intensely radioactive and it had taken the team three years to collect the few milligrams needed for the experiment, and even so only a few micrograms of this were used. Their endeavours produced around 5,000 atoms of californium, but there was enough to show it really was a new element."
+	  },
+	  einsteinium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906514/elements/einsteinium-253.jpg',
+	    country: 'USA',
+	    story: "Einsteinium was discovered in the debris of the first thermonuclear explosion which took place on a Pacific atoll, on 1 November 1952. Fall-out material, gathered from a neighbouring atoll, was sent to Berkeley, California, for analysis. There it was examined by Gregory Choppin, Stanley Thompson, Albert Ghiorso, and Bernard Harvey. Within a month they had discovered and identified 200 atoms of a new element, einsteinium, but it was not revealed until 1955. The einsteinium had formed when some uranium atoms had captured several neutrons and gone through a series of capture and decay steps resulting in einsteinium-253, which has a half-life of 20.5 days. By 1961, enough einsteinium had been collected to be visible to the naked eye, and weighed, although it amounted to mere 10 millionths of a gram."
+	  },
+	  fermium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906543/elements/fermium.jpg',
+	    country: 'USA',
+	    story: "Fermium was discovered in 1953 in the debris of the first thermonuclear explosion which took place on a Pacific atoll on 1 November 1952. In this a uranium-238 bomb was used to provide the heat necessary to trigger a thermonuclear explosion. The uranium-238 had been exposed to such a flux of neutrons that some of its atoms had captured several of them, thereby forming elements of atomic numbers 93 to 100, and among the last of these was an isotope of element 100, fermium-255. News of its discovery was kept secret until 1955. Meanwhile a group at the Nobel Institute in Stockholm had independently made a few atoms of fermium by bombarding uranium-238 with oxygen nuclei and obtained fermium-250, which has a half-life of 30 minutes."
+	  },
+	  mendelevium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906567/elements/mendelevium.jpg',
+	    country: 'USA',
+	    story: "Seventeen atoms of mendelevium were made in 1955 by Albert Ghiorso, Bernard Harvey, Gregory Chopin, Stanley Thompson, and Glenn Seaborg. They were produced during an all-night experiment using the cyclotron at Berkeley, California. In this, a sample of einsteinium-253 was bombarded with alpha-particles (helium nuclei) and mendelevium-256 was detected. This had a half-life of around 78 minutes. Further experiments yielded several thousand atoms of mendelevium, and today it is possible to produce millions of them. The longest lived isotope is mendelevium-260 which has a half-life of 28 days."
+	  },
+	  nobelium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906618/elements/nobelium.jpg',
+	    country: 'USA',
+	    story: "This element’s history is one of controversy. In 1956, a team led by Georgy Flerov at the Institute of Atomic Energy, Moscow, synthesised element 102 by bombarding plutonium with oxygen and got atoms of element 102, isotope-252. However, they did not report their success. In 1957, the Nobel Institute of Physics in Stockholm announced isotope-253 which had been made by bombarding curium with carbon. Then in 1958, Albert Ghiorso at the Lawrence Berkeley Laboratory (LBL) claimed isotope-254, also made by bombarding curium with carbon. These claims were challenged by the Russians. In 1962-63, the Russian Joint Institute of Nuclear Research, based at Dubna, synthesised isotopes 252 to 256. Ghiorso still insisted his group were the first to discover element 102, and so began years of recrimination, finally ending in the International Union of Pure and Applied Chemists deciding in favour of the Russians being the discoverers."
+	  },
+	  lawrencium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906674/elements/lawrencium.jpg',
+	    country: 'USA',
+	    story: "This element had a controversial history of discovery. In 1958, the Lawrence Berkeley Laboratory (LBL) bombarded curium with nitrogen and appeared to get element 103, isotope-257. In 1960, they bombarded californium with boron hoping to get isotope-259 but the results were inconclusive. In 1961, they bombarded curium with boron and claimed isotope-257. In 1965, the Soviet Union’s Joint Institute for Nuclear Research (JINR) successfully bombarded americium with oxygen and got isotope-256. They also checked the LBL’s work, and claimed it was inaccurate. The LBL then said their product must have been isotope-258. The International Unions of Pure and Applied Chemistry awarded discovery to the LBL."
+	  },
+	  rutherfordium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480905954/elements/rutherfordium.jpg',
+	    country: 'USA',
+	    story: "In 1964, a team led by Georgy Flerov at the Russian Joint Institute for Nuclear Research (JINR) in Dubna, bombarded plutonium with neon and produced element 104, isotope 259. They confirmed their findings in 1966. In 1969, a team led by Albert Ghiorso at the Californian Lawrence Berkeley Laboratory (LBL) made three successful attempts to produce element 104: by bombarding curium with oxygen to get isotope-260, californium with carbon to get isotope-257, and californium with carbon to get isotope-258. A dispute over priority of discovery followed and eventually, in 1992, the International Unions of Pure and Applied Chemistry (IUPAC) concluded that both the Russian and American researchers had been justified in making their claims. IUPAC decided element 104 would be called rutherfordium."
+	  },
+	  dubnium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906002/elements/transactinoid.png',
+	    country: 'Russia',
+	    story: "In 1968, a team led by Georgy Flerov at the Russian Joint Institute for Nuclear Research (JINR) bombarded americium with neon and made an isotope of element 105. In 1970, a team led by Albert Ghiorso at the American Lawrence Berkeley Laboratory (LBL) bombarded californium with neon and obtained isotope 261. They disputed the claim of the JINR people. The two groups gave it different names. The Russians called it neilsbohrium, while the Americans called it hahnium, both being derived from the names of prominent nuclear scientists. Eventually, the International Union of Pure and Applied Chemistry (IUPAC) decided it should be called dubnium."
+	  },
+	  seaborgium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480910517/elements/seaborgium.jpg',
+	    country: 'USA',
+	    story: "In 1970, a team led by Albert Ghiorso at the Californian Lawrence Berkeley National Laboratory (LBNL) bombarded californium with oxygen and was successful in producing element 106, isotope 263. In 1974, a team led by Georgy Flerov and Yuri Oganessian at the Russian Joint Institute for Nuclear Research (JINR) bombarded lead with chromium and obtained isotopes 259 and 260. In September 1974, a team led by Ghiorso at LBNL produced isotope 263, with a half-life of 0.8 seconds, by bombarding californium with oxygen. Several atoms of seaborgium have since been made by this method which produces one seaborgium atom per hour."
+	  },
+	  bohrium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480910646/elements/bohrium.jpg',
+	    country: 'Germany',
+	    story: "In 1975 a team led by Yuri Oganessian at the Russian Joint Institute for Nuclear Research (JINR) in Dubna, bombarded bismuth with chromium and produced element 107, isotope-261. They published the results of their successful run in 1976 and submitted a discovery claim. In 1981, a team led by Peter Armbruster and Gottfried Münzenberg at the German nuclear research institute the Geselleschaft für Schwerionenforschung (GSI) bombarded bismuth with chromium and they succeeded in making a single atom of isotope 262. Now followed a period of negotiation to establish who discovered elements 107 first and thereby had the right to name it. The International Union of Pure and Applied Chemistry (IUPAC) said that the GSI should be awarded the discovery because they had the more credible submission, but that the JINR were probably the first to make it."
+	  },
+	  hassium: {
+	  image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906002/elements/transactinoid.png',
+	    country: 'Germany',
+	    story: "There are 15 known isotopes of hassium with mass numbers 263 to 277, with isotope-276 having the longest half-life of 1.1 hour. The first attempt to synthesize element 108 took place in 1978 at Russia’s Joint Institute for Nuclear Research (JINR) in Dubna, where a team headed by Yuri Oganessian and Vladimir Utyonkov bombarded radium with calcium and got isotope 270. In 1983, they obtained other isotopes: by bombarding bismuth with manganese they got isotope 263, by bombarding californium with neon they got isotope 270, and by bombarding lead with iron they got isotope 264. In 1984, at Germany’s Gesellschaft für Schwerionenforschung (GSI) in Darmstadt, a team headed by Peter Armbruster and Gottfried Münzenberg bombarded lead with iron and synthesised isotope 265. Their data which was considered more reliable than that from JINR and so they were allowed to name the element which they did, basing it on Hesse, the state in which the GSI is located."
+	  },
+	  meitnerium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906969/elements/Meitner_22.jpg',
+	    country: 'Germany',
+	    story: "There are 7 isotopes of meitnerium with mass numbers in the range 266 to 279. The longest lived is isotope 278 with a half-life of 8 seconds. Meitnerium was first made in 1982 at the German nuclear research facility, the Gesellschaft für Schwerionenforschung (GSI), by a group headed by Peter Armbruster and Gottfried Münzenberg. They bombarded a target of bismuth with accelerated iron ions. After a week, a single atom of element 109, isotope 266, was detected. This underwent radioactive decay after 5 milliseconds."
+	  },
+	  darmstadtium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906002/elements/transactinoid.png',
+	    country: 'Germany',
+	    story: "There are 15 known isotopes of darmstadtium, isotopes 267-281, and the heaviest is the longest-lived, with a half-life of 4 minutes. There were several attempts to make element 110 at the Joint Institute for Nuclear Research (JINR) at Dubna in Russia, and at the German Geselleschaft für Schwerionenforschung (GSI) at Darmstadt, but all were unsuccessful. Then Albert Ghiorso and his team at the Lawrence Berkeley National Laboratory (LBNL), California, obtained isotope 267 by bombarding bismuth with cobalt, but they could not confirm their findings. In 1994, a team headed by Yuri Oganessian and Vladimir Utyonkov at the JINR made isotope-273 by bombarding plutonium with sulfur. The same year, a team headed by Peter Armbruster and Gottfried Munzenberg at the GSI bombarded lead with nickel and synthesised isotope 269. The latter group’s evidence was deemed more reliable and confirmed by others around the world, so they were allowed to name element 110."
+	  },
+	  roentgenium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480907041/elements/roentgen1.jpg',
+	    country: 'Germany',
+	    story: "There are seven known isotopes of the element: 272, 274 and 278-282. The longest lived is isotope 281 which has a half-life of 22.8 seconds. In 1986, physicists at the Russian Joint Institute for Nuclear Research (JINR), bombarded bismuth with nickel hoping to make element 111, but they failed to detect any atoms of element 111. In 1994, a team led by Peter Armbruster and Gottfred Munzenberg at the German Geselleschaft für Schwerionenforschung (GSI), were successful when they bombarded bismuth with nickel and they obtained few atoms of isotope 272. It had a half-life of 1.5 milliseconds."
+	  },
+	  copernicium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480907004/elements/MTE1ODA0OTcxNTk1OTU3Nzcz.jpg',
+	    country: 'Germany',
+	    story: "The first atoms of element 112 were announced by Sigurd Hofmann and produced at the Gesellschaft fur Schwerionenforschung (GSI) at Darmstadt, Germany, in 1996. Isotope-277 had been produced by bombarding lead for two weeks with zinc travelling at 30,000 km per second. Isotope-277 had a half-life of 0.24 milliseconds. Since then, other isotopes of copernicium have been made. Isotope-285 was observed as part of the decay sequence of flerovium (element 114) produced at the Joint Institute for Nuclear Research (JINR) at Dubna, Russia, as was isotope-284 which was observed as part of the decay sequence of livermorium (element 116)."
+	  },
+	  ununtrium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906002/elements/transactinoid.png',
+	    country: 'Japan',
+	    story: "IUPAC confirmed the discovery (by scientists from RIKEN (The Institute of Physical and Chemical Research) in Japan) in 2015. This element was officially named 'Nihonium' in mid-2016."
+	  },
+	  flerovium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906002/elements/transactinoid.png',
+	    country: 'Russia',
+	    story: "There are four known isotopes of flerovium with mass numbers 286-289. The longest-lived is 289 and it has a half-life of 2.6 seconds. Nuclear theory suggests that isotope 298, with 184 neutrons, should be much more stable but that has yet to be made. Despite several attempts to make element 114, it was only in 1998 that a team led by Yuri Oganessian and Vladimir Utyonkov at the Joint Institute for Nuclear Research (JINR) in Russia produced it by bombarding plutonium with calcium. It needed 5 billion billion (5 x 1018) atoms of calcium to be fired at the target to produce a single atom of flerovium, in an experiment lasting 40 days. A few more two atoms were produced the following year."
+	  },
+	  ununpentium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906002/elements/transactinoid.png',
+	    country: 'Russia',
+	    story: "IUPAC confirmed the discovery (by scientists from the Joint Institute for Nuclear Research in Dubna, Russia, the Lawrence Livermore National Laboratory in California, USA, and Oak Ridge National Laboratory in Tennessee, USA) in 2015. This element was officially named 'Moscovium' in mid-2016."
+	  },
+	  livermorium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906002/elements/transactinoid.png',
+	    country: 'Russia',
+	    story: "Four isotopes of this element have been produced and they have mass numbers 290-293. The longest-lived is 293 with a half-life of 61 milliseconds. There were several attempts to make element 116 but all were unsuccessful until 2000 when researchers at the Joint International Nuclear Research (JINR) in Russia, led by Yuri Oganessian, Vladimir Utyonkov, and Kenton Moody observed it. Because the discovery was made using essential target material supplied by the Lawrence Livermore National Laboratory (LLNL) in the USA, it was decided to name it after that facility. In 1999, the Lawrence Berkeley National Laboratory in California had announced the discovery of element 116 but then it was discovered that evidence had simply been concocted by one of their scientists, and so the claim had to be withdrawn."
+	  },
+	  ununseptium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906002/elements/transactinoid.png',
+	    country: 'USA',
+	    story: "IUPAC confirmed the discovery (by scientists from the Joint Institute for Nuclear Research in Dubna, Russia, the Lawrence Livermore National Laboratory in California, USA, and Oak Ridge National Laboratory in Tennessee, USA) in 2015. This element was officially named 'Tennessine' in mid-2016."
+	  },
+	  ununoctium: {
+	    image: 'http://res.cloudinary.com/dc2o3efbz/image/upload/v1480906002/elements/transactinoid.png',
+	    country: 'Russia',
+	    story: "IUPAC confirmed the discovery (by scientists from the Joint Institute for Nuclear Research in Dubna, Russia, and the Lawrence Livermore National Laboratory in California, USA) in 2015. This element was officially named 'Oganesson' in mid-2016."
+	  }
+	}
+
+
+/***/ },
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(186);
+	var content = __webpack_require__(245);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(189)(content, {});
+	var update = __webpack_require__(248)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -22482,12 +28182,12 @@
 	}
 
 /***/ },
-/* 186 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(187)();
+	exports = module.exports = __webpack_require__(246)();
 	// imports
-	exports.i(__webpack_require__(188), "");
+	exports.i(__webpack_require__(247), "");
 	
 	// module
 	exports.push([module.id, "body {\n  font-family: 'Montserrat', sans-serif;\n  background: #606dbc;\n}\n\n.wrapper {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.main-block-elements {\n  margin-top: 10px;\n}\n\np {\n  color: black;\n}\n\n.chemical-element {\n  outline: 1px solid black;\n  height: 60px;\n  width: 60px;\n}\n\n.atomic-wrapper {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.atomic-info {\n  margin: 0px;\n}\n\n.atomic-name, .atomic-mass {\n  font-size: 8px;\n}\n\ntable {\n  border-spacing: 1.1px; /* cellspacing */\n}\n\ntd {\n  cursor: pointer;\n  -moz-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.68);\n  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.68);\n  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.68);\n}\n\n.element-groups {\n  border-spacing: 15.5px;\n}\n\n.element-group {\n  height: 75px;\n  width: 75px;\n  cursor: pointer;\n}\n\n.element-group-text {\n  text-align: center;\n  font-size: 13px;\n  font-weight: bold;\n}\n\n.null-component {\n  box-shadow: none;\n}\n\n.range-cell {\n  outline: 1px solid black;\n}\n\n.range-numbers {\n  text-align: center;\n}\n\n.lanthanides-actinides {\n  margin-top: 20px;\n}\n\n.no-cursor-pointer {\n  cursor: auto;\n}\n\n.title-cell-wrapper {\n  background: wheat;\n}\n\n.title-cell-info {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.title-letter {\n  margin: 0;\n  font-weight: bold;\n}\n\n.title-text {\n  font-size: 9px;\n  margin: 0;\n}\n\n.nonmetal {\n  background: #ff316c;\n}\n.noble-gas {\n  background: #ff8300;\n}\n.alkali-metal {\n  background: yellow;\n}\n.alkaline-earth-metal {\n  background: #31ff36;\n}\n.metalloid {\n  background: #3b3bfa;\n}\n.halogen {\n  background: #b5f7ff;\n}\n.metal {\n  background: pink;\n}\n.transition-metal {\n  background: #31bcff;\n}\n.lanthanoid {\n  background: #ff00ff;\n}\n.actinoid {\n  background: #4caf50;\n}\n\n.gray-background {\n  background: #d3d3d3;\n}\n\n.chemical-element, .range-cell {\n  transition: all .05s ease-in-out;\n}\n\n.chemical-element:hover, .range-cell:hover {\n    transform: scale(1.35);\n}\n", ""]);
@@ -22496,7 +28196,7 @@
 
 
 /***/ },
-/* 187 */
+/* 246 */
 /***/ function(module, exports) {
 
 	/*
@@ -22552,10 +28252,10 @@
 
 
 /***/ },
-/* 188 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(187)();
+	exports = module.exports = __webpack_require__(246)();
 	// imports
 	
 	
@@ -22566,7 +28266,7 @@
 
 
 /***/ },
-/* 189 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -22816,6 +28516,94 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ },
+/* 249 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// jQuery used for effect of hovering over element group
+	// and only elements of that group staying colored, all others
+	// becoming gray.
+	var runScript = function () {
+	  $(document).ready(function () {
+	    $('.element-group.nonmetal').hover(function () {
+	      $('.chemical-element:not(.nonmetal), .range-cell, .element-group:not(.nonmetal)').toggleClass('gray-background');
+	    }, function () {
+	      // on mouse exit, reset background colors
+	      $('.chemical-element:not(.nonmetal), .range-cell, .element-group:not(.nonmetal)').toggleClass('gray-background');
+	    });
+	
+	    $('.element-group.noble-gas').hover(function () {
+	      $('.chemical-element:not(.noble-gas), .range-cell, .element-group:not(.noble-gas)').toggleClass('gray-background');
+	    }, function () {
+	      // on mouse exit, reset background colors
+	      $('.chemical-element:not(.noble-gas), .range-cell, .element-group:not(.noble-gas)').toggleClass('gray-background');
+	    });
+	
+	    $('.element-group.alkali-metal').hover(function () {
+	      $('.chemical-element:not(.alkali-metal), .range-cell, .element-group:not(.alkali-metal)').toggleClass('gray-background');
+	    }, function () {
+	      // on mouse exit, reset background colors
+	      $('.chemical-element:not(.alkali-metal), .range-cell, .element-group:not(.alkali-metal)').toggleClass('gray-background');
+	    });
+	
+	    $('.element-group.alkaline-earth-metal').hover(function () {
+	      $('.chemical-element:not(.alkaline-earth-metal), .range-cell, .element-group:not(.alkaline-earth-metal)').toggleClass('gray-background');
+	    }, function () {
+	      // on mouse exit, reset background colors
+	      $('.chemical-element:not(.alkaline-earth-metal), .range-cell, .element-group:not(.alkaline-earth-metal)').toggleClass('gray-background');
+	    });
+	
+	    $('.element-group.metalloid').hover(function () {
+	      $('.chemical-element:not(.metalloid), .range-cell, .element-group:not(.metalloid)').toggleClass('gray-background');
+	    }, function () {
+	      // on mouse exit, reset background colors
+	      $('.chemical-element:not(.metalloid), .range-cell, .element-group:not(.metalloid)').toggleClass('gray-background');
+	    });
+	
+	    $('.element-group.halogen').hover(function () {
+	      $('.chemical-element:not(.halogen), .range-cell, .element-group:not(.halogen)').toggleClass('gray-background');
+	    }, function () {
+	      // on mouse exit, reset background colors
+	      $('.chemical-element:not(.halogen), .range-cell, .element-group:not(.halogen)').toggleClass('gray-background');
+	    });
+	
+	    $('.element-group.metal').hover(function () {
+	      $('.chemical-element:not(.metal), .range-cell, .element-group:not(.metal)').toggleClass('gray-background');
+	    }, function () {
+	      // on mouse exit, reset background colors
+	      $('.chemical-element:not(.metal), .range-cell, .element-group:not(.metal)').toggleClass('gray-background');
+	    });
+	
+	    $('.element-group.transition-metal').hover(function () {
+	      $('.chemical-element:not(.transition-metal), .range-cell, .element-group:not(.transition-metal)').toggleClass('gray-background');
+	    }, function () {
+	      // on mouse exit, reset background colors
+	      $('.chemical-element:not(.transition-metal), .range-cell, .element-group:not(.transition-metal)').toggleClass('gray-background');
+	    });
+	
+	    $('.element-group.lanthanoid').hover(function () {
+	      $('.chemical-element:not(.lanthanoid), .range-cell, .element-group:not(.lanthanoid)').toggleClass('gray-background');
+	    }, function () {
+	      // on mouse exit, reset background colors
+	      $('.chemical-element:not(.lanthanoid), .range-cell, .element-group:not(.lanthanoid)').toggleClass('gray-background');
+	    });
+	
+	    $('.element-group.actinoid').hover(function () {
+	      $('.chemical-element:not(.actinoid), .range-cell, .element-group:not(.actinoid)').toggleClass('gray-background');
+	    }, function () {
+	      // on mouse exit, reset background colors
+	      $('.chemical-element:not(.actinoid), .range-cell, .element-group:not(.actinoid)').toggleClass('gray-background');
+	    });
+	  });
+	}();
+	
+	exports.default = runScript;
 
 /***/ }
 /******/ ]);
