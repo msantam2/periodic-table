@@ -1,21 +1,14 @@
 import React from 'react';
+import ElementGroupColor from './element_group_color'; 
 
-const ElementGroupColors = ({ groups }) => {
+const ElementGroupColors = ({ groups }) => { 
   let elementGroups = [];
   let groupClass;
 
   for (let group of groups) {
-    if (group.includes(' ')) {
-      groupClass = group.replace(/ /g, '-');
-    } else {
-      groupClass = group;
-    }
-
     elementGroups.push(
-      <td key={Math.random()} className={`element-group ${groupClass}`}>
-        <p className='element-group-text'>{group}</p>
-      </td>
-    )
+      <ElementGroupColor key={Math.random()} group={group} />
+    );
   }
 
   return (
