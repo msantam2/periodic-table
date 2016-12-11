@@ -1,0 +1,19 @@
+.title-cell-wrapper {
+  background: wheat;
+}
+
+.title-cell-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-letter {
+  margin: 0;
+  font-weight: bold;
+}
+
+.title-text {
+  font-size: 9px;
+  margin: 0;
+}

@@ -1,3 +1,4 @@
+import '../stylesheets/null_component';
 import React from 'react';
 
 const NullComponent = () => (

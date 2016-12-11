@@ -5,38 +5,8 @@ body {
   background: #606dbc;
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.main-block-elements {
-  margin-top: 10px;
-}
-
 p {
   color: black;
-}
-
-.chemical-element {
-  outline: 1px solid black;
-  height: 60px;
-  width: 60px;
-}
-
-.atomic-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.atomic-info {
-  margin: 0px;
-}
-
-.atomic-name, .atomic-mass {
-  font-size: 8px;
 }
 
 table {
@@ -50,60 +20,8 @@ td {
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.68);
 }
 
-.element-groups {
-  border-spacing: 15.5px;
-}
-
-.element-group {
-  height: 75px;
-  width: 75px;
-  cursor: pointer;
-}
-
-.element-group-text {
-  text-align: center;
-  font-size: 13px;
-  font-weight: bold;
-}
-
-.null-component {
-  box-shadow: none;
-}
-
-.range-cell {
-  outline: 1px solid black;
-}
-
-.range-numbers {
-  text-align: center;
-}
-
-.lanthanides-actinides {
-  margin-top: 20px;
-}
-
 .no-cursor-pointer {
   cursor: auto;
-}
-
-.title-cell-wrapper {
-  background: wheat;
-}
-
-.title-cell-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.title-letter {
-  margin: 0;
-  font-weight: bold;
-}
-
-.title-text {
-  font-size: 9px;
-  margin: 0;
 }
 
 .nonmetal {

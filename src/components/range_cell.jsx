@@ -1,3 +1,4 @@
+import '../stylesheets/range_cell';
 import React from 'react';
 
 const RangeCell = ({ group, range }) => (

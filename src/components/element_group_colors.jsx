@@ -1,3 +1,4 @@
+import '../stylesheets/element_group_colors';
 import React from 'react';
 import ElementGroupColor from './element_group_color'; 
 

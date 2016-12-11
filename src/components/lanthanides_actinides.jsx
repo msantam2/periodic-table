@@ -1,3 +1,4 @@
+import '../stylesheets/lanthanides_actinides';
 import React from 'react';
 
 const LanthanidesActinides = ({ lanthanides, actinides }) => (

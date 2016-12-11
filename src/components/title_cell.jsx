@@ -1,3 +1,4 @@
+import '../stylesheets/title_cell';
 import React from 'react';
 
 const TitleCell = ({ letter, text }) => {

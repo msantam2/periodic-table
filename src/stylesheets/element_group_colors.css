@@ -1,0 +1,15 @@
+.element-groups {
+  border-spacing: 15.5px;
+}
+
+.element-group {
+  height: 75px;
+  width: 75px;
+  cursor: pointer;
+}
+
+.element-group-text {
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+}

@@ -1,3 +1,4 @@
+import '../stylesheets/periodic_table';
 import React from 'react';
 import pt from 'periodic-table';
 import ChemicalElement from './chemical_element';
@@ -82,7 +83,7 @@ class PeriodicTable extends React.Component {
     groups = Array.from(new Set(groups));
 
     return (
-      <div className='wrapper'>
+      <div className='periodic-table-wrapper'>
         <MainBlockElements elements={mainBlockElements} />
         <LanthanidesActinides lanthanides={lanthanides}
           actinides={actinides} />

@@ -1,3 +1,4 @@
+import '../stylesheets/main_block_elements';
 import React from 'react';
 import NullComponent from './null_component';
 import RangeCell from './range_cell';
