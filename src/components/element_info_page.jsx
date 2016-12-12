@@ -17,8 +17,8 @@ class ElementInfoPage extends React.Component {
         <img className='element-photo' src={`${ElementHistories.image(name)}`} />
         <p>{ElementHistories.story(name)}</p>
       </div>
-    )
-  };
-};
+    );
+  }
+}
 
 export default ElementInfoPage;
