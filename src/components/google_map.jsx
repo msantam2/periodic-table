@@ -13,7 +13,16 @@ class GoogleMap extends React.Component {
     let zoom; 
 
     // need to zoom out a bit more on the USA & Russia :)
-    zoom = (country === 'USA' || country === 'Russia') ? 2 : 3;
+    switch (country) {
+      case 'USA':
+        zoom = 2;
+        break;
+      case 'Russia':
+        zoom = 3; 
+        break;
+      default: 
+        zoom = 4;
+    }
      
     if (country !== 'ancient') {
       geocoder.geocode({address: country}, (results, status) => {
@@ -37,8 +46,8 @@ class GoogleMap extends React.Component {
     } else { // country = 'ancient'; show map of the whole world (no country)
       mapOptions = {
         center: {lat: 34, lng: -94}, // arbitrary center
-        zoom: 0,
-        maxZoom: 0
+        zoom: 2,
+        maxZoom: 2
       };
       this.map = new google.maps.Map(this.mapNode, mapOptions); 
     }
